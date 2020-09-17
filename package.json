@@ -1,0 +1,49 @@
+{
+  "name": "@coderscamp2020/projekt-javascript-starwarsquiz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --watch",
+    "build": "webpack --mode production",
+    "test": "mocha -r ts-node/register -r @babel/register './src/test/**/*.spec.*'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nowakprojects/CodersCamp2019.Projekt3.AsyncJS-RestAPI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nowakprojects/CodersCamp2019.Projekt3.AsyncJS-RestAPI/issues"
+  },
+  "homepage": "https://github.com/nowakprojects/CodersCamp2019.Projekt3.AsyncJS-RestAPI#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.6.0",
+    "ts-node": "^8.5.2",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/polyfill": "^7.6.0",
+    "@babel/register": "^7.6.2",
+    "@types/chai": "^4.2.5",
+    "@types/lodash": "^4.14.149",
+    "@types/mocha": "^5.2.7",
+    "@types/node-fetch": "^2.5.4",
+    "awesome-typescript-loader": "^5.2.1",
+    "chai": "^4.2.0",
+    "lodash": "^4.17.15",
+    "mocha": "^6.2.2",
+    "source-map-loader": "^0.2.4",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.2"
+  }
+}
