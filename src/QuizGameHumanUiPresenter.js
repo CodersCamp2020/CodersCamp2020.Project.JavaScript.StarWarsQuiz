@@ -7,7 +7,7 @@ export const QuizGameHumanUiPresenter = ({quizGame, quizGameView}) => {
       })
       return quizGame.startGame();
     },
-    giveAnswer({player, answer}) {
+    giveAnswer({answer}) {
       return quizGame.humanPlayer.giveAnswer({player: 'human', answer})
     }
   }
