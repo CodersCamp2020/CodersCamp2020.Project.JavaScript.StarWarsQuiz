@@ -199,12 +199,21 @@ const quiz = QuizGame({
 
 const QuizGameView = ({renderOn, presenterSupplier}) => {
   const element = document.querySelector(renderOn)
-  if(!element){
+  if (!element) {
     throw new Error(`Element ${renderOn} not exists!`)
   }
 
 }
 
-const view = QuizGameView({
-  renderOn: '#quiz'
+const quizGameView = QuizGameView({
+  renderOn: '#swquiz-game'
 })
+
+const MainMenuView = () => {
+  const playTheGameButton = document.getElementById("play-the-game-button")
+  playTheGameButton.addEventListener('click', () => {
+    console.log("CLICKED!")
+  })
+}
+
+const mainMenuView = MainMenuView()

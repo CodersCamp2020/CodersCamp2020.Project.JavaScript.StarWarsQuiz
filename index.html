@@ -21,7 +21,9 @@
         </div>
     </div>
     <div class="swquiz-mode">
-        <img class="swquiz-question-image" src="static/assets/img/modes/people/1.jpg" alt="people"/>
+        <!--<img class="swquiz-question-image" src="static/assets/img/modes/people/1.jpg" alt="people"/>-->
+        <div class="swquiz-question-image-bg"></div>
+        <div style="width: 2rem"></div>
         <div class="swquiz-mode-menu">
             <div class="swquiz-mode-title"><p>MODE: Who is this character?</p></div>
             <div class="swquiz-mode-rules">
@@ -33,11 +35,11 @@
             <div class="sw-quiz-mode-buttons">
                 <button class="sw-quiz-mode-button-secondary">Ranking</button>
                 <div style="width: 2rem"></div>
-                <button class="sw-quiz-mode-button-play">PLAY THE GAME</button>
+                <button class="sw-quiz-mode-button-play" id="play-the-game-button">PLAY THE GAME</button>
             </div>
         </div>
-
     </div>
+    <div id="swquiz-game"></div>
 </div>
 
 <script src="src/main.js"></script>
