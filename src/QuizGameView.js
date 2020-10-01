@@ -7,21 +7,18 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
   const answerElements = ["swquiz-answer-1", "swquiz-answer-2", "swquiz-answer-3", "swquiz-answer-4"]
       .map(answerElementId => document.getElementById(answerElementId));
   const imageToRecognizeElement = document.getElementById('swquiz-image-to-recognize');
-  let currentQuestion = undefined;
   const view = {
     async startGame() {
       return presenter.startGame()
     },
     showQuestion({question}) {
-      currentQuestion = question;
       question.answers.forEach((answer, index) => answerElements[index].innerText = answer.name)
       answerElements.forEach(answerElement => answerElement.disabled = false)
       imageToRecognizeElement.style.backgroundImage = `url("data:image/png;base64,${question.image}")`
     },
     selectAnswer({answerName}) {
       answerElements.forEach(answerElement => answerElement.disabled = true)
-      const answer = currentQuestion.answers.find(answer => answer.name === answerName)
-      return presenter.giveAnswer({player: 'human', answer})
+      return presenter.giveAnswer({player: 'human', answer: answerName})
     }
   }
   answerElements.forEach(answerElement => answerElement.addEventListener('click', async e => {

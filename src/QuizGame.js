@@ -35,8 +35,9 @@ export const QuizGame = ({human, google, mode, startTimer}) => {
     async giveAnswer({player, answer}) {
       if (player === 'human') {
         const answeredQuestion = questions[Object.keys(humanAnswers).length];
-        const isCorrect = answeredQuestion.rightAnswer.id === answer.id;
-        humanAnswers[Object.keys(humanAnswers).length] = {answer, isCorrect}
+        const answerChecker = AnswerChecker({checkStrategy: PartialMatchCheckStrategy})
+        const isCorrect = answerChecker.isAnswerCorrect({question: answeredQuestion, givenAnswer: answer})
+        humanAnswers[Object.keys(humanAnswers).length] = {answerName: answer, isCorrect}
         const questionToAsk = questions[Object.keys(humanAnswers).length];
         await human.askQuestion({question: questionToAsk})
       }
