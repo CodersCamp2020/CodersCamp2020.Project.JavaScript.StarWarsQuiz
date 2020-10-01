@@ -1,4 +1,4 @@
-export const QuizGamePresenter = ({quizGame, quizGameView}) => {
+export const QuizGameHumanUiPresenter = ({quizGame, quizGameView}) => {
   return {
     startGame() {
       quizGame.onTimesUp(() => console.log("TimesUp!"))
@@ -8,7 +8,7 @@ export const QuizGamePresenter = ({quizGame, quizGameView}) => {
       return quizGame.startGame();
     },
     giveAnswer({player, answer}) {
-      return quizGame.giveAnswer({player, answer})
+      return quizGame.humanPlayer.giveAnswer({player: 'human', answer})
     }
   }
 }

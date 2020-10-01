@@ -4,7 +4,7 @@ import {QuizGame} from "./QuizGame";
 import {StarWarsPeopleApi} from "./StarWarsPeopleApi";
 import {PeopleMode} from "./PeopleMode";
 import {MainMenuView} from "./MainMenuView";
-import {QuizGamePresenter} from "./QuizGamePresenter";
+import {QuizGameHumanUiPresenter} from "./QuizGameHumanUiPresenter";
 import {QuizGameView} from "./QuizGameView";
 import {HumanPlayer} from "./HumanPlayer";
 import {GoogleVisionPlayer} from "./GoogleVisionPlayer";
@@ -32,7 +32,7 @@ MainMenuView()
       quizModeMenu.style.display = 'none'
       const quizGameView = QuizGameView({
         renderOn: '#swquiz-game',
-        presenterSupplier: view => QuizGamePresenter({quizGame, quizGameView: view})
+        presenterSupplier: view => QuizGameHumanUiPresenter({quizGame, quizGameView: view})
       });
       quizGameView.startGame().then(() => console.log("GAME STARTED!"));
     })

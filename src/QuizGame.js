@@ -5,13 +5,13 @@ const ONE_SECOND = 1000;
 export const QuizGame = ({human, google, mode, startTimer}) => {
   const onTimesUpHooks = []
   const questions = {}
-  const playersAnswers = {
-    human: {},
-    google: {}
-  }
   const players = {
     human,
     google
+  }
+  const playersAnswers = {
+    human: {},
+    google: {}
   }
 
   async function generateQuestions(next = 10) {
@@ -25,12 +25,15 @@ export const QuizGame = ({human, google, mode, startTimer}) => {
     googlePlayer: google,
     async startGame() {
       await generateQuestions();
-      const questionToAsk = questions[0];
+      const firstQuestion = questions[0];
       google.onAnswerGiven(recognizedName => {
         game.giveAnswer({player: 'google', answer: recognizedName})
       })
-      await human.askQuestion({question: questionToAsk})
-      await google.askQuestion({question: questionToAsk})
+      human.onAnswerGiven(answerName => {
+        game.giveAnswer({player: 'human', answer: answerName})
+      })
+      await human.askQuestion({question: firstQuestion})
+      await google.askQuestion({question: firstQuestion})
       const MAX_TIME = 20 * ONE_SECOND;
       startTimer({
         tickMillis: ONE_SECOND, timeout: MAX_TIME, onTimeout: () => {

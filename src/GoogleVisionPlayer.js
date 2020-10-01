@@ -5,8 +5,11 @@ export const GoogleVisionPlayer = ({googleVisionApi}) => {
       const recognized = await googleVisionApi.recognizeImage({
         image: question.image
       }).then(result => result.value);
-      onAnswerGivenHooks.forEach(hook => hook(recognized))
+      this.giveAnswer({answer: recognized})
       return Promise.resolve();
+    },
+    giveAnswer({answer}) {
+      onAnswerGivenHooks.forEach(hook => hook(answer))
     },
     onAnswerGiven(hook) {
       onAnswerGivenHooks.push(hook)

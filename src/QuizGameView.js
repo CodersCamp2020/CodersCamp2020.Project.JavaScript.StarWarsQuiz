@@ -9,7 +9,7 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
   const imageToRecognizeElement = document.getElementById('swquiz-image-to-recognize');
   const view = {
     async startGame() {
-      return presenter.startGame()
+      return humanUiPresenter.startGame()
     },
     showQuestion({question}) {
       question.answers.forEach((answer, index) => answerElements[index].innerText = answer.name)
@@ -18,7 +18,7 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
     },
     selectAnswer({answerName}) {
       answerElements.forEach(answerElement => answerElement.disabled = true)
-      return presenter.giveAnswer({player: 'human', answer: answerName})
+      return humanUiPresenter.giveAnswer({answer: answerName})
     }
   }
   answerElements.forEach(answerElement => answerElement.addEventListener('click', async e => {
@@ -26,6 +26,6 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
       await view.selectAnswer({answerName: answerElement.innerText})
     }
   }))
-  const presenter = presenterSupplier(view)
+  const humanUiPresenter = presenterSupplier(view)
   return view;
 }
