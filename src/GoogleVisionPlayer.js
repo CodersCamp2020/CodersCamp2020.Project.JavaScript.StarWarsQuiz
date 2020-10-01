@@ -1,10 +1,17 @@
-export const GoogleVisionPlayer = ({playerName, quizGame, googleVisionApi}) => {
-  return {
-    async onQuestion({question}) {
+export const GoogleVisionPlayer = ({googleVisionApi}) => {
+  const onAnswerGivenHooks = []
+  const player = {
+    async askQuestion({question}) {
       const recognized = await googleVisionApi.recognizeImage({
         image: question.image
       }).then(result => result.value);
-      return quizGame.giveAnswer({player: playerName, answerName: recognized})
+      onAnswerGivenHooks.forEach(hook => hook(recognized))
+      return Promise.resolve();
+    },
+    onAnswerGiven(hook) {
+      onAnswerGivenHooks.push(hook)
+      return player;
     }
   }
+  return player;
 }

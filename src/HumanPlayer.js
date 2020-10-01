@@ -1,4 +1,4 @@
-export const HumanPlayer = ({playerName, quizGame}) => {
+export const HumanPlayer = ({}) => {
   const onQuestionHooks = []
   const player = {
     async askQuestion({question}) {

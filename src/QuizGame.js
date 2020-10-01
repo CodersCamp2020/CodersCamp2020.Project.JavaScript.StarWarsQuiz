@@ -1,8 +1,8 @@
+import {AnswerChecker, PartialMatchCheckStrategy} from "./AnswerChecker";
+
 const ONE_SECOND = 1000;
 
-export const QuizGame = ({humanProvider, googleProvider, mode}) => {
-  const human = humanProvider(this)
-  const google = googleProvider(this)
+export const QuizGame = ({human, google, mode}) => {
   const onTimesUpHooks = []
   const questions = {}
   const humanAnswers = {}
@@ -15,7 +15,7 @@ export const QuizGame = ({humanProvider, googleProvider, mode}) => {
     })
   }
 
-  return {
+  const game = {
     humanPlayer: human,
     googlePlayer: google,
     async startGame() {
@@ -31,7 +31,11 @@ export const QuizGame = ({humanProvider, googleProvider, mode}) => {
       clearInterval(timer)
       await generateQuestions();
       const questionToAsk = questions[0];
+      google.onAnswerGiven(recognizedName => {
+        game.giveAnswer({player: 'google', answer: recognizedName})
+      })
       await human.askQuestion({question: questionToAsk})
+      await google.askQuestion({question: questionToAsk})
     },
     async giveAnswer({player, answer}) {
       if (player === 'human') {
@@ -40,13 +44,23 @@ export const QuizGame = ({humanProvider, googleProvider, mode}) => {
         await human.askQuestion({question: questionToAsk})
       }
       if (player === 'google') {
-        googleAnswers.push(answer)
+        const answeredQuestion = questions[Object.keys(googleAnswers).length];
+        const answerChecker = AnswerChecker({checkStrategy: PartialMatchCheckStrategy})
+        const isCorrect = answerChecker.isAnswerCorrect({question: answeredQuestion, givenAnswer: answer})
+        googleAnswers[Object.keys(googleAnswers).length] = {answerName: answer, isCorrect}
+        const questionToAsk = questions[Object.keys(googleAnswers).length];
+        await google.askQuestion({question: questionToAsk})
+      }
+      if (questions.length - humanAnswers.length <= 2 || questions.length - googleAnswers.length <= 2) {
+        await generateQuestions()
       }
       console.log(humanAnswers)
       return Promise.resolve()
     },
     onTimesUp(hook) {
       onTimesUpHooks.push(hook)
+      return game;
     }
-  }
+  };
+  return game
 }

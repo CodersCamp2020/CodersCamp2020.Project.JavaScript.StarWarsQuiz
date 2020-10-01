@@ -19,8 +19,8 @@ const mode = PeopleMode({starWarsPeopleApi});
 
 const quizGame = QuizGame({
   mode,
-  googleProvider: quizGame => GoogleVisionPlayer({playerName: "Google Vision", googleVisionApi, quizGame}),
-  humanProvider: quizGame => HumanPlayer({playerName: "Mateusz", quizGame})
+  google: GoogleVisionPlayer({googleVisionApi}),
+  human: HumanPlayer({})
 })
 
 
