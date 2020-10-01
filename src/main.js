@@ -8,6 +8,7 @@ import {QuizGamePresenter} from "./QuizGamePresenter";
 import {QuizGameView} from "./QuizGameView";
 import {HumanPlayer} from "./HumanPlayer";
 import {GoogleVisionPlayer} from "./GoogleVisionPlayer";
+import {RealTimer} from "./RealTimer";
 
 const API_KEY = 'AIzaSyAu5cv9vSquTVHFDuFRvbNX4FtN0TLwVrk'
 const SW_API_BASE_URL = "https://swapi.dev/api";
@@ -20,7 +21,8 @@ const mode = PeopleMode({starWarsPeopleApi});
 const quizGame = QuizGame({
   mode,
   google: GoogleVisionPlayer({googleVisionApi}),
-  human: HumanPlayer({})
+  human: HumanPlayer({}),
+  startTimer: ({tickMillis, timeout, onTick, onTimeout}) => RealTimer({tickMillis, timeout, onTick, onTimeout})
 })
 
 
