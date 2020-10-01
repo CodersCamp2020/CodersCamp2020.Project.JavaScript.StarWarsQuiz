@@ -9,7 +9,7 @@ export const QuizGame = ({human, google, mode}) => {
   const googleAnswers = {}
 
   async function generateQuestions(next = 10) {
-    for(let i = 0; i < next; i++){
+    for (let i = 0; i < next; i++) {
       questions[Object.keys(questions).length] = await mode.nextQuestion()
     }
   }
@@ -25,6 +25,11 @@ export const QuizGame = ({human, google, mode}) => {
         if (passedTime === MAX_TIME) {
           onTimesUpHooks.forEach(hook => hook())
           clearInterval(timer)
+          console.log("GOOGLE ANSWERS", googleAnswers)
+          console.log("GOOGLE CORRECT", Object.values(googleAnswers).filter(it => it.isCorrect).length) //COS ZLE POKAZUJE
+
+          console.log("HUMAN ANSWERS", humanAnswers)
+          console.log("HUMAN CORRECT", Object.values(humanAnswers).filter(it => it.isCorrect).length)
         }
       }, ONE_SECOND)
       await generateQuestions();
@@ -37,7 +42,9 @@ export const QuizGame = ({human, google, mode}) => {
     },
     async giveAnswer({player, answer}) {
       if (player === 'human') {
-        humanAnswers[Object.keys(humanAnswers).length] = answer
+        const answeredQuestion = questions[Object.keys(humanAnswers).length];
+        const isCorrect = answeredQuestion.rightAnswer.id === answer.id;
+        humanAnswers[Object.keys(humanAnswers).length] = {answer, isCorrect}
         const questionToAsk = questions[Object.keys(humanAnswers).length];
         await human.askQuestion({question: questionToAsk})
       }
