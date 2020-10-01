@@ -34,24 +34,3 @@ MainMenuView()
       });
       quizGameView.startGame().then(() => console.log("GAME STARTED!"));
     })
-
-/*
-async function randomPersonTest({starWarsPeopleApi}) {
-  const person = await starWarsPeopleApi.getById({id: randomPersonId()})
-  const recognizedPerson = await googleVisionApi.recognizeImage({
-    image: await imageOf({
-      type: "people",
-      id: person.id
-    })
-  }).then(result => result.value);
-  const isGoogleCorrect = person.name === recognizedPerson;
-  console.table({
-    'Person Name': person.name,
-    'Google Vision API Answer': recognizedPerson,
-    'Is Vision API correct': isGoogleCorrect
-  });
-  return isGoogleCorrect;
-}
-
-randomPersonTest({starWarsPeopleApi}).then(c => console.log(c));
-*/

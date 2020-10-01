@@ -12,7 +12,6 @@ export const QuizGame = ({human, google, mode}) => {
     for(let i = 0; i < next; i++){
       questions[Object.keys(questions).length] = await mode.nextQuestion()
     }
-    console.log("GENERATED! Questions length: ", Object.keys(questions).length)
   }
 
   const game = {
@@ -25,9 +24,9 @@ export const QuizGame = ({human, google, mode}) => {
         passedTime += ONE_SECOND;
         if (passedTime === MAX_TIME) {
           onTimesUpHooks.forEach(hook => hook())
+          clearInterval(timer)
         }
       }, ONE_SECOND)
-      clearInterval(timer)
       await generateQuestions();
       const questionToAsk = questions[0];
       google.onAnswerGiven(recognizedName => {
@@ -53,7 +52,6 @@ export const QuizGame = ({human, google, mode}) => {
       if (Object.keys(questions).length - Object.keys(humanAnswers).length <= 5 || Object.keys(questions).length - Object.keys(googleAnswers).length <= 5) {
         await generateQuestions()
       }
-      console.log(humanAnswers)
       return Promise.resolve()
     },
     onTimesUp(hook) {
