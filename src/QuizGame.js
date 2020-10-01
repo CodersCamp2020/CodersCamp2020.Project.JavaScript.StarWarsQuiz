@@ -26,14 +26,15 @@ export const QuizGame = ({human, google, mode, startTimer}) => {
     async startGame() {
       await generateQuestions();
       const firstQuestion = questions[0];
-      google.onAnswerGiven(recognizedName => {
-        game.giveAnswer({player: 'google', answer: recognizedName})
-      })
-      human.onAnswerGiven(answerName => {
-        game.giveAnswer({player: 'human', answer: answerName})
-      })
-      await human.askQuestion({question: firstQuestion})
-      await google.askQuestion({question: firstQuestion})
+      await Promise.all(
+          Object.keys(players).map(async playerName => {
+            const player = players[playerName]
+            player.onAnswerGiven(answer => {
+              game.giveAnswer({player: playerName, answer})
+            })
+            await player.askQuestion({question: firstQuestion})
+          })
+      )
       const MAX_TIME = 20 * ONE_SECOND;
       startTimer({
         tickMillis: ONE_SECOND, timeout: MAX_TIME, onTimeout: () => {
