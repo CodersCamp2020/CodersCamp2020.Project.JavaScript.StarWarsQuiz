@@ -25,8 +25,10 @@ export const QuizGame = ({humanProvider, googleProvider, mode}) => {
       console.log("QUESTION TO ASK", questionToAsk)
       await human.askQuestion({question: questionToAsk})
     },
-    giveAnswer({player, answerName}) {
-
+    giveAnswer({player, answer}) {
+      if(player === 'human'){
+        human.giveAnswer()
+      }
     },
     onTimesUp(hook) {
       onTimesUpHooks.push(hook)

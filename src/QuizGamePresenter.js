@@ -7,6 +7,9 @@ export const QuizGamePresenter = ({quizGame, quizGameView}) => {
         quizGameView.showQuestion({question: question})
       })
       return quizGame.startGame();
+    },
+    giveAnswer({player, answer}) {
+      quizGame.giveAnswer({player, answer})
     }
   }
 }

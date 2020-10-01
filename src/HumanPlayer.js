@@ -5,9 +5,9 @@ export const HumanPlayer = ({playerName, quizGame}) => {
       onQuestionHooks.forEach(hook => hook(question))
       return Promise.resolve()
     },
-    giveAnswer({answerName}) {
+/*    giveAnswer({answerName}) {
       quizGame.giveAnswer({player: playerName, answerName})
-    },
+    },*/
     onQuestionAsked(hook) {
       onQuestionHooks.push(hook)
       return player;
