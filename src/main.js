@@ -90,15 +90,6 @@ const AnswerChecker = ({checkStrategy}) => {
   }
 }
 
-
-/*const StarshipsMode = () => {
-  return {}
-}
-
-const VehiclesMode = () => {
-  return {}
-}*/
-
 const ONE_SECOND = 1000;
 
 const startQuiz = ({mode, onTimesUp}) => QuizGame({mode, onTimesUp})
@@ -109,24 +100,29 @@ const startQuiz = ({mode, onTimesUp}) => QuizGame({mode, onTimesUp})
  * @param onTimesUp
  * @constructor
  */
-const QuizGame = async ({humanProvider, googleProvider, mode, onTimesUp}) => {
-  const MAX_TIME = 10 * ONE_SECOND;
-  let passedTime = 0;
-  const timer = setInterval(() => {
-    console.log("ONE SECOND")
-    passedTime += ONE_SECOND;
-    if (passedTime === MAX_TIME) {
-      onTimesUp()
-    }
-  }, ONE_SECOND)
-  clearInterval(timer)
-
+const QuizGame = ({humanProvider, googleProvider, mode, onTimesUp}) => {
   const human = humanProvider(this)
   const google = googleProvider(this)
-  const question = await mode.nextQuestion()
+  const onTimesUpHooks = []
   return {
+    async startGame() {
+      const MAX_TIME = 10 * ONE_SECOND;
+      let passedTime = 0;
+      const timer = setInterval(() => {
+        console.log("ONE SECOND")
+        passedTime += ONE_SECOND;
+        if (passedTime === MAX_TIME) {
+          onTimesUpHooks.forEach(hook => hook())
+        }
+      }, ONE_SECOND)
+      clearInterval(timer)
+      const question = await mode.nextQuestion()
+    },
     giveAnswer({player, answerName}) {
 
+    },
+    onTimesUp(hook) {
+      onTimesUpHooks.push(hook)
     }
   }
 }
@@ -165,8 +161,8 @@ const GoogleVisionPlayer = ({playerName, quizGame, googleVisionApi}) => {
   }
 }
 
-async function randomPersonTest() {
-  const person = await StarWarsPeopleApi({starWarsApiBaseUrl: SW_API_BASE_URL}).getById({id: randomPersonId()})
+async function randomPersonTest({starWarsPeopleApi}) {
+  const person = await starWarsPeopleApi.getById({id: randomPersonId()})
   const recognizedPerson = await googleVisionApi.recognizeImage({
     image: await imageOf({
       type: "people",
@@ -182,38 +178,59 @@ async function randomPersonTest() {
   return isGoogleCorrect;
 }
 
-randomPersonTest().then(c => console.log(c));
+randomPersonTest({starWarsPeopleApi}).then(c => console.log(c));
 
 
 const mode = PeopleMode({starWarsPeopleApi});
 
-const quiz = QuizGame({
+const quizGame = QuizGame({
   mode,
   humanProvider: quizGame => GoogleVisionPlayer({playerName: "Google Vision", googleVisionApi, quizGame}),
-  googleProvider: quizGame => HumanPlayer({playerName: "Mateusz", quizGame}),
-  onTimesUp: () => {
-    console.log("TIMES UP!")
-  }
+  googleProvider: quizGame => HumanPlayer({playerName: "Mateusz", quizGame})
 })
 
+
+const QuizGamePresenter = ({quizGame, quizGameView}) => {
+  return {
+    startGame() {
+      quizGame.onTimesUp(() => console.log("TimesUp!"))
+      return quizGame.startGame();
+    }
+  }
+}
 
 const QuizGameView = ({renderOn, presenterSupplier}) => {
   const element = document.querySelector(renderOn)
   if (!element) {
     throw new Error(`Element ${renderOn} not exists!`)
   }
+  element.style.display = 'flex';
 
+  const presenter = presenterSupplier(this)
+
+  return {
+    async startGame() {
+      return presenter.startGame()
+    },
+    showQuestion({question}) {
+
+    }
+  }
 }
 
-const quizGameView = QuizGameView({
-  renderOn: '#swquiz-game'
-})
 
 const MainMenuView = () => {
   const playTheGameButton = document.getElementById("play-the-game-button")
   playTheGameButton.addEventListener('click', () => {
-    console.log("CLICKED!")
+    const quizModeMenu = document.getElementById("swquiz-mode")
+    quizModeMenu.style.display = 'none'
+    const quizGameView = QuizGameView({
+      renderOn: '#swquiz-game',
+      presenterSupplier: view => QuizGamePresenter({quizGame, quizGameView: view})
+    });
+    quizGameView.startGame().then(r => console.log("GAME STARTED!"));
   })
 }
 
 const mainMenuView = MainMenuView()
+

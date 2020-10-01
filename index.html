@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>CodersCamp2020 | Star Wars API QUIZ</title>
-    <link rel="stylesheet" href="./main.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./main.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet">
 </head>
 <body>
 
@@ -20,16 +21,18 @@
             <p class="swquiz-mainmenu-option">Spaceships</p>
         </div>
     </div>
-    <div class="swquiz-mode">
+    <div id="swquiz-mode" class="swquiz-mode">
         <!--<img class="swquiz-question-image" src="static/assets/img/modes/people/1.jpg" alt="people"/>-->
         <div class="swquiz-question-image-bg"></div>
         <div style="width: 2rem"></div>
-        <div class="swquiz-mode-menu">
+        <div id="swquiz-mode-menu" class="swquiz-mode-menu">
             <div class="swquiz-mode-title"><p>MODE: Who is this character?</p></div>
             <div class="swquiz-mode-rules">
                 <h2>Mode Rules</h2>
                 <p>
-                    You have one minute (1m) to answer as many questions as possible. During the game on each question you need to select who from Star Wars is showed on the left (Jar Jar Binks right now) from available options, or select that the character is none of above.
+                    You have one minute (1m) to answer as many questions as possible. During the game on each question
+                    you need to select who from Star Wars is showed on the left (Jar Jar Binks right now) from available
+                    options, or select that the character is none of above.
                 </p>
             </div>
             <div class="sw-quiz-mode-buttons">
@@ -39,7 +42,20 @@
             </div>
         </div>
     </div>
-    <div id="swquiz-game"></div>
+    <div id="swquiz-game" class="swquiz-game">
+        <div class="swquiz-question-image-bg"></div>
+        <div style="width: 2rem"></div>
+        <div class="swquiz-question">
+            <div class="swquiz-question-content"><p>Question: Who is this character?</p></div>
+            <div style="height: 2rem"></div>
+            <div class="swquiz-question-answers">
+                <div class="sqwuiz-question-answer">Answer1</div>
+                <div class="sqwuiz-question-answer">Answer2</div>
+                <div class="sqwuiz-question-answer">Answer3</div>
+                <div class="sqwuiz-question-answer">Answer4</div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script src="src/main.js"></script>
