@@ -9,10 +9,11 @@ export const QuizGame = ({human, google, mode}) => {
   const googleAnswers = {}
 
   async function generateQuestions() {
-    const fetchedQuestions = await Promise.all([mode.nextQuestion(), mode.nextQuestion(), mode.nextQuestion(), mode.nextQuestion()])
+    const fetchedQuestions = await Promise.all([0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => mode.nextQuestion()))
     fetchedQuestions.forEach(question => {
       questions[Object.keys(questions).length] = question
     })
+    console.log("GENERATED! Questions length: ", Object.keys(questions).length)
   }
 
   const game = {
@@ -22,7 +23,6 @@ export const QuizGame = ({human, google, mode}) => {
       const MAX_TIME = 10 * ONE_SECOND;
       let passedTime = 0;
       const timer = setInterval(() => {
-        console.log("ONE SECOND")
         passedTime += ONE_SECOND;
         if (passedTime === MAX_TIME) {
           onTimesUpHooks.forEach(hook => hook())
@@ -51,7 +51,7 @@ export const QuizGame = ({human, google, mode}) => {
         const questionToAsk = questions[Object.keys(googleAnswers).length];
         await google.askQuestion({question: questionToAsk})
       }
-      if (questions.length - humanAnswers.length <= 2 || questions.length - googleAnswers.length <= 2) {
+      if (Object.keys(questions).length - Object.keys(humanAnswers).length <= 5 || Object.keys(questions).length - Object.keys(googleAnswers).length <= 5) {
         await generateQuestions()
       }
       console.log(humanAnswers)

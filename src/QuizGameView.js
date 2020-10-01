@@ -24,10 +24,9 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
       return presenter.giveAnswer({player: 'human', answer})
     }
   }
-  answerElements.forEach(answerElement => answerElement.addEventListener('click', e => {
+  answerElements.forEach(answerElement => answerElement.addEventListener('click', async e => {
     if(!e.target.disabled){
-      view.selectAnswer({answerName: answerElement.innerText})
-          .then(()=>console.log("DSAD"))
+      await view.selectAnswer({answerName: answerElement.innerText})
     }
   }))
   const presenter = presenterSupplier(view)
