@@ -8,11 +8,10 @@ export const QuizGame = ({human, google, mode}) => {
   const humanAnswers = {}
   const googleAnswers = {}
 
-  async function generateQuestions() {
-    const fetchedQuestions = await Promise.all([0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => mode.nextQuestion()))
-    fetchedQuestions.forEach(question => {
-      questions[Object.keys(questions).length] = question
-    })
+  async function generateQuestions(next = 10) {
+    for(let i = 0; i < next; i++){
+      questions[Object.keys(questions).length] = await mode.nextQuestion()
+    }
     console.log("GENERATED! Questions length: ", Object.keys(questions).length)
   }
 
