@@ -20,7 +20,11 @@ const handleErrors = (response) => {
 const randomPersonId = () => {
   const FIRST_PERSON_ID = 1;
   const LAST_PERSON_ID = 83;
-  return getRandomIntInclusive(FIRST_PERSON_ID, LAST_PERSON_ID);
+  const random = getRandomIntInclusive(FIRST_PERSON_ID, LAST_PERSON_ID);
+  if (random === 17) {
+    return randomPersonId()
+  }
+  return random;
 }
 
 const StarWarsPeopleApi = ({starWarsApiBaseUrl}) => {
@@ -128,6 +132,15 @@ const QuizGame = async ({humanProvider, googleProvider, mode, onTimesUp}) => {
 }
 
 
+class PlayerAnswered {
+  constructor({uuid, subscriptionId, subscriberId, timestamp}) {
+    this.eventId = uuid;
+    this.subscriptionId = subscriptionId;
+    this.subscriberId = subscriberId;
+    this.timestamp = timestamp;
+  }
+}
+
 const HumanPlayer = ({playerName, quizGame, onQuestionCallback}) => {
   let currentQuestion;
   return {
@@ -181,4 +194,17 @@ const quiz = QuizGame({
   onTimesUp: () => {
     console.log("TIMES UP!")
   }
+})
+
+
+const QuizGameView = ({renderOn, presenterSupplier}) => {
+  const element = document.querySelector(renderOn)
+  if(!element){
+    throw new Error(`Element ${renderOn} not exists!`)
+  }
+
+}
+
+const view = QuizGameView({
+  renderOn: '#quiz'
 })

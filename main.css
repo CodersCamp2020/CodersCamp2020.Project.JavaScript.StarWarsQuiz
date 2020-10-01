@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    background-image: url("./static/assets/ui/QuizBackground.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 1rem;
+}
+
+.swquiz-header {
+    height: 20vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 6rem 0 6rem;
+}
+
+.swquiz-logo {
+    background-image: url("./static/assets/ui/StarWarsLogo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 100%;
+    flex-grow: 4;
+}
+
+.swquiz-logo-image {
+    height: 100%;
+}
+
+.swquiz-mainmenu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 70%;
+    height: 60%;
+    background: #FFFFFF;
+    /* Card / Shadow / Red */
+
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 4px 4px 40px rgba(255, 0, 0, 0.9);
+    border-radius: 16px;
+}
+
+.swquiz-mainmenu-option {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+
+.swquiz-mode {
+    display: flex;
+    justify-content: space-between;
+    padding: 4rem 6rem 0 6rem;
+}
+
+.swquiz-mode-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 70%;
+    height: 60%;
+}
+
+.swquiz-question-image {
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25), 4px 4px 40px rgba(255, 0, 0, 0.9);
+    border-radius: 16px;
+}
+
+.swquiz-mode-title {
+    background: #FFFFFF;
+    /* Card / Shadow / Red */
+
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 4px 4px 40px rgba(255, 0, 0, 0.9), inset 4px 5px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 16px;
+    width: 100%;
+}
+
+.swquiz-mode-title p {
+    width: 100%;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.swquiz-mode-rules {
+    margin-top: 2rem;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    font-size: 1.75rem;
+    padding: 2rem;
+}
+
+.sw-quiz-mode-buttons {
+    display: flex;
+    margin-top: 2rem;
+}
+
+.sw-quiz-mode-button-play {
+    background: rgba(255, 0, 0, 0.8);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    color: white;
+    font-size: 2rem;
+    padding: 1rem;
+    flex-grow: 1;
+}
+
+.sw-quiz-mode-button-secondary {
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    color: black;
+    font-size: 2rem;
+    padding: 1rem;
+    flex-grow: 1;
+}
