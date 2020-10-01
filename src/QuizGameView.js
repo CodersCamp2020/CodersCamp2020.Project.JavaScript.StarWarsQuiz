@@ -15,14 +15,20 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
     showQuestion({question}) {
       currentQuestion = question;
       question.answers.forEach((answer, index) => answerElements[index].innerText = answer.name)
+      answerElements.forEach(answerElement => answerElement.disabled = false)
       imageToRecognizeElement.style.backgroundImage = `url("data:image/png;base64,${question.image}")`
     },
     selectAnswer({answerName}) {
+      answerElements.forEach(answerElement => answerElement.disabled = true)
       const answer = currentQuestion.answers.find(answer => answer.name === answerName)
       presenter.giveAnswer({player: 'human', answer})
     }
   }
-  answerElements.forEach(answerElement => answerElement.addEventListener('click', () => view.selectAnswer({answerName: answerElement.innerText})))
+  answerElements.forEach(answerElement => answerElement.addEventListener('click', e => {
+    if(!e.target.disabled){
+      view.selectAnswer({answerName: answerElement.innerText})
+    }
+  }))
   const presenter = presenterSupplier(view)
   return view;
 }

@@ -5,6 +5,8 @@ export const QuizGame = ({humanProvider, googleProvider, mode}) => {
   const google = googleProvider(this)
   const onTimesUpHooks = []
   const questions = []
+  const humanAnswers = {}
+  const googleAnswers = []
   return {
     humanPlayer: human,
     googlePlayer: google,
@@ -26,9 +28,13 @@ export const QuizGame = ({humanProvider, googleProvider, mode}) => {
       await human.askQuestion({question: questionToAsk})
     },
     giveAnswer({player, answer}) {
-      if(player === 'human'){
-        human.giveAnswer()
+      if (player === 'human') {
+        humanAnswers[Object.keys(humanAnswers).length] = answer
       }
+      if (player === 'google') {
+        googleAnswers.push(answer)
+      }
+      console.log(humanAnswers)
     },
     onTimesUp(hook) {
       onTimesUpHooks.push(hook)
