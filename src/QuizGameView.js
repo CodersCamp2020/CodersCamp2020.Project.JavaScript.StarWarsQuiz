@@ -21,12 +21,13 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
     selectAnswer({answerName}) {
       answerElements.forEach(answerElement => answerElement.disabled = true)
       const answer = currentQuestion.answers.find(answer => answer.name === answerName)
-      presenter.giveAnswer({player: 'human', answer})
+      return presenter.giveAnswer({player: 'human', answer})
     }
   }
   answerElements.forEach(answerElement => answerElement.addEventListener('click', e => {
     if(!e.target.disabled){
       view.selectAnswer({answerName: answerElement.innerText})
+          .then(()=>console.log("DSAD"))
     }
   }))
   const presenter = presenterSupplier(view)

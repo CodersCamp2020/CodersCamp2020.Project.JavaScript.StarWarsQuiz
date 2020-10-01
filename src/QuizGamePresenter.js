@@ -9,7 +9,7 @@ export const QuizGamePresenter = ({quizGame, quizGameView}) => {
       return quizGame.startGame();
     },
     giveAnswer({player, answer}) {
-      quizGame.giveAnswer({player, answer})
+      return quizGame.giveAnswer({player, answer})
     }
   }
 }

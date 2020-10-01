@@ -4,9 +4,17 @@ export const QuizGame = ({humanProvider, googleProvider, mode}) => {
   const human = humanProvider(this)
   const google = googleProvider(this)
   const onTimesUpHooks = []
-  const questions = []
+  const questions = {}
   const humanAnswers = {}
-  const googleAnswers = []
+  const googleAnswers = {}
+
+  async function generateQuestions() {
+    const fetchedQuestions = await Promise.all([mode.nextQuestion(), mode.nextQuestion(), mode.nextQuestion(), mode.nextQuestion()])
+    fetchedQuestions.forEach(question => {
+      questions[Object.keys(questions).length] = question
+    })
+  }
+
   return {
     humanPlayer: human,
     googlePlayer: google,
@@ -21,20 +29,21 @@ export const QuizGame = ({humanProvider, googleProvider, mode}) => {
         }
       }, ONE_SECOND)
       clearInterval(timer)
-      const fetchedQuestions = await Promise.all([mode.nextQuestion(), mode.nextQuestion(), mode.nextQuestion()])
-      questions.push(...fetchedQuestions)
+      await generateQuestions();
       const questionToAsk = questions[0];
-      console.log("QUESTION TO ASK", questionToAsk)
       await human.askQuestion({question: questionToAsk})
     },
-    giveAnswer({player, answer}) {
+    async giveAnswer({player, answer}) {
       if (player === 'human') {
         humanAnswers[Object.keys(humanAnswers).length] = answer
+        const questionToAsk = questions[Object.keys(humanAnswers).length];
+        await human.askQuestion({question: questionToAsk})
       }
       if (player === 'google') {
         googleAnswers.push(answer)
       }
       console.log(humanAnswers)
+      return Promise.resolve()
     },
     onTimesUp(hook) {
       onTimesUpHooks.push(hook)

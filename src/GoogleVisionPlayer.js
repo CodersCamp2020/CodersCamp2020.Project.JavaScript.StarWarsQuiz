@@ -4,7 +4,7 @@ export const GoogleVisionPlayer = ({playerName, quizGame, googleVisionApi}) => {
       const recognized = await googleVisionApi.recognizeImage({
         image: question.image
       }).then(result => result.value);
-      quizGame.giveAnswer({player: playerName, answerName: recognized})
+      return quizGame.giveAnswer({player: playerName, answerName: recognized})
     }
   }
 }
