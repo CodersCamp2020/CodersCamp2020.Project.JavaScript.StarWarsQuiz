@@ -4,7 +4,10 @@ export const QuizGame = ({humanProvider, googleProvider, mode}) => {
   const human = humanProvider(this)
   const google = googleProvider(this)
   const onTimesUpHooks = []
+  const questions = []
   return {
+    humanPlayer: human,
+    googlePlayer: google,
     async startGame() {
       const MAX_TIME = 10 * ONE_SECOND;
       let passedTime = 0;
@@ -16,7 +19,11 @@ export const QuizGame = ({humanProvider, googleProvider, mode}) => {
         }
       }, ONE_SECOND)
       clearInterval(timer)
-      const question = await mode.nextQuestion()
+      const fetchedQuestions = await Promise.all([mode.nextQuestion(), mode.nextQuestion(), mode.nextQuestion()])
+      questions.push(...fetchedQuestions)
+      const questionToAsk = questions[0];
+      console.log("QUESTION TO ASK", questionToAsk)
+      await human.askQuestion({question: questionToAsk})
     },
     giveAnswer({player, answerName}) {
 

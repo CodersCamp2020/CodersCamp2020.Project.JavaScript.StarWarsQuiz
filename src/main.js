@@ -17,24 +17,24 @@ const googleVisionApi = GoogleVisionApi({apiKey: 'AIzaSyAu5cv9vSquTVHFDuFRvbNX4F
 
 const mode = PeopleMode({starWarsPeopleApi});
 
+
 const quizGame = QuizGame({
   mode,
-  humanProvider: quizGame => GoogleVisionPlayer({playerName: "Google Vision", googleVisionApi, quizGame}),
-  googleProvider: quizGame => HumanPlayer({playerName: "Mateusz", quizGame})
+  googleProvider: quizGame => GoogleVisionPlayer({playerName: "Google Vision", googleVisionApi, quizGame}),
+  humanProvider: quizGame => HumanPlayer({playerName: "Mateusz", quizGame})
 })
 
 
-MainMenuView({
-  onPlayTheGame: () => {
-    const quizModeMenu = document.getElementById("swquiz-mode")
-    quizModeMenu.style.display = 'none'
-    const quizGameView = QuizGameView({
-      renderOn: '#swquiz-game',
-      presenterSupplier: view => QuizGamePresenter({quizGame, quizGameView: view})
-    });
-    quizGameView.startGame().then(() => console.log("GAME STARTED!"));
-  }
-})
+MainMenuView()
+    .onPlayTheGame(() => {
+      const quizModeMenu = document.getElementById("swquiz-mode")
+      quizModeMenu.style.display = 'none'
+      const quizGameView = QuizGameView({
+        renderOn: '#swquiz-game',
+        presenterSupplier: view => QuizGamePresenter({quizGame, quizGameView: view})
+      });
+      quizGameView.startGame().then(() => console.log("GAME STARTED!"));
+    })
 
 /*
 async function randomPersonTest({starWarsPeopleApi}) {

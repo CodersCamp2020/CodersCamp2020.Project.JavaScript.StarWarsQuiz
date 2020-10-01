@@ -1,4 +1,13 @@
-export const MainMenuView = ({onPlayTheGame}) => {
+export const MainMenuView = () => {
   const playTheGameButton = document.getElementById("play-the-game-button")
-  playTheGameButton.addEventListener('click', onPlayTheGame)
+
+  const onPlayTheGameHooks = []
+  playTheGameButton.addEventListener('click', () => onPlayTheGameHooks.forEach(hook => hook()))
+  const view = {
+    onPlayTheGame(hook) {
+      onPlayTheGameHooks.push(hook)
+      return view;
+    }
+  }
+  return view;
 }
