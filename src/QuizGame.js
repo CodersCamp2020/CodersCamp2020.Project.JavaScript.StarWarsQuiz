@@ -5,8 +5,14 @@ const ONE_SECOND = 1000;
 export const QuizGame = ({human, google, mode, startTimer}) => {
   const onTimesUpHooks = []
   const questions = {}
-  const humanAnswers = {}
-  const googleAnswers = {}
+  const playersAnswers = {
+    human: {},
+    google: {}
+  }
+  const players = {
+    human,
+    google
+  }
 
   async function generateQuestions(next = 10) {
     for (let i = 0; i < next; i++) {
@@ -33,23 +39,14 @@ export const QuizGame = ({human, google, mode, startTimer}) => {
       })
     },
     async giveAnswer({player, answer}) {
-      if (player === 'human') {
-        const answeredQuestion = questions[Object.keys(humanAnswers).length];
-        const answerChecker = AnswerChecker({checkStrategy: PartialMatchCheckStrategy})
-        const isCorrect = answerChecker.isAnswerCorrect({question: answeredQuestion, givenAnswer: answer})
-        humanAnswers[Object.keys(humanAnswers).length] = {answerName: answer, isCorrect}
-        const questionToAsk = questions[Object.keys(humanAnswers).length];
-        await human.askQuestion({question: questionToAsk})
-      }
-      if (player === 'google') {
-        const answeredQuestion = questions[Object.keys(googleAnswers).length];
-        const answerChecker = AnswerChecker({checkStrategy: PartialMatchCheckStrategy})
-        const isCorrect = answerChecker.isAnswerCorrect({question: answeredQuestion, givenAnswer: answer})
-        googleAnswers[Object.keys(googleAnswers).length] = {answerName: answer, isCorrect}
-        const questionToAsk = questions[Object.keys(googleAnswers).length];
-        await google.askQuestion({question: questionToAsk})
-      }
-      if (Object.keys(questions).length - Object.keys(humanAnswers).length <= 5 || Object.keys(questions).length - Object.keys(googleAnswers).length <= 5) {
+      const answeredQuestion = questions[Object.keys(playersAnswers[player]).length];
+      const answerChecker = AnswerChecker({checkStrategy: PartialMatchCheckStrategy})
+      const isCorrect = answerChecker.isAnswerCorrect({question: answeredQuestion, givenAnswer: answer})
+      playersAnswers[player][Object.keys(playersAnswers[player]).length] = {answerName: answer, isCorrect}
+      const questionToAsk = questions[Object.keys(playersAnswers[player]).length];
+      await players[player].askQuestion({question: questionToAsk})
+
+      if (Object.keys(questions).length - Object.keys(playersAnswers[player]).length <= 5) {
         await generateQuestions()
       }
       return Promise.resolve()
