@@ -17,7 +17,6 @@ const googleVisionApi = GoogleVisionApi({apiKey: 'AIzaSyAu5cv9vSquTVHFDuFRvbNX4F
 
 const mode = PeopleMode({starWarsPeopleApi});
 
-
 const quizGame = QuizGame({
   mode,
   googleProvider: quizGame => GoogleVisionPlayer({playerName: "Google Vision", googleVisionApi, quizGame}),
