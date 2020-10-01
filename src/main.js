@@ -21,7 +21,7 @@ const mode = PeopleMode({starWarsPeopleApi});
 const quizGame = QuizGame({
   mode,
   google: GoogleVisionPlayer({googleVisionApi}),
-  human: HumanPlayer({}),
+  human: HumanPlayer(),
   startTimer: ({tickMillis, timeout, onTick, onTimeout}) => RealTimer({tickMillis, timeout, onTick, onTimeout})
 })
 

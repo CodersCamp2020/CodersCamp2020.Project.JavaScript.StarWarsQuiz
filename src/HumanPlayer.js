@@ -1,4 +1,4 @@
-export const HumanPlayer = ({}) => {
+export const HumanPlayer = () => {
   const onQuestionHooks = []
   const onAnswerGivenHooks = []
   const player = {
