@@ -16,20 +16,18 @@ const SW_API_BASE_URL = "https://swapi.dev/api";
 const starWarsPeopleApi = StarWarsPeopleApi({starWarsApiBaseUrl: SW_API_BASE_URL})
 const googleVisionApi = GoogleVisionApi({apiKey: 'AIzaSyAu5cv9vSquTVHFDuFRvbNX4FtN0TLwVrk'})
 
-const mode = PeopleMode({starWarsPeopleApi});
-
-const quizGame = QuizGame({
-  mode,
-  google: GoogleVisionPlayer({googleVisionApi}),
-  human: HumanPlayer(),
-  startTimer: ({tickMillis, timeout, onTick, onTimeout}) => RealTimer({tickMillis, timeout, onTick, onTimeout})
-})
-
 
 MainMenuView()
     .onPlayTheGame(() => {
       const quizModeMenu = document.getElementById("swquiz-mode")
       quizModeMenu.style.display = 'none'
+      const mode = PeopleMode({starWarsPeopleApi});
+      const quizGame = QuizGame({
+        mode,
+        google: GoogleVisionPlayer({googleVisionApi}),
+        human: HumanPlayer(),
+        startTimer: ({tickMillis, timeout, onTick, onTimeout}) => RealTimer({tickMillis, timeout, onTick, onTimeout})
+      })
       const quizGameView = QuizGameView({
         renderOn: '#swquiz-game',
         presenterSupplier: view => QuizGameHumanUiPresenter({quizGame, quizGameView: view})

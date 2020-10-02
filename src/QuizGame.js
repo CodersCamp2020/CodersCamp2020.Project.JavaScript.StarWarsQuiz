@@ -45,6 +45,7 @@ export const QuizGame = ({human, google, mode, startTimer}) => {
           onTimesUpHooks.forEach(hook => hook())
         }
       })
+      return Promise.resolve()
     },
     async giveAnswer({player, answer}) {
       const answeredQuestion = questions[Object.keys(playersAnswers[player]).length];

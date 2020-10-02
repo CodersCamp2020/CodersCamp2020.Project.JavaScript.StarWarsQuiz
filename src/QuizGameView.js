@@ -1,5 +1,6 @@
 import {LightsaberTimerView} from "./LightsaberTimerView";
 import {QUIZ_MAX_TIME} from "./TimeUnits";
+import {TextTimerView} from "./TextTimerView";
 
 export const QuizGameView = ({renderOn, presenterSupplier}) => {
   const element = document.querySelector(renderOn)
@@ -15,6 +16,12 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
     timerOn: ".swquiz-lightsaber-timer",
     timeout: QUIZ_MAX_TIME
   });
+
+  const textTimerView = TextTimerView({
+    renderOn: "#swquiz-timer-text",
+    timerOn: "#swquiz-timer-text",
+    timeout: QUIZ_MAX_TIME,
+  })
 
   const quizGameView = {
     show() {
@@ -37,9 +44,11 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
     },
     onTimerTick({passedTime, tickMillis}) {
       lightsaberTimerView.onTimerTick({passedTime, tickMillis})
+      textTimerView.onTimerTick({passedTime, tickMillis})
     },
-    onTimeout(){
+    onTimeout() {
       lightsaberTimerView.onTimeout()
+      textTimerView.onTimeout()
     }
   }
   answerElements.forEach(answerElement => answerElement.addEventListener('click', async e => {
