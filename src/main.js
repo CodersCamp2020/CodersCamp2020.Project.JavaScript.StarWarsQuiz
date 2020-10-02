@@ -34,5 +34,6 @@ MainMenuView()
         renderOn: '#swquiz-game',
         presenterSupplier: view => QuizGameHumanUiPresenter({quizGame, quizGameView: view})
       });
+      quizGameView.show();
       quizGameView.startGame().then(() => console.log("GAME STARTED!"));
     })

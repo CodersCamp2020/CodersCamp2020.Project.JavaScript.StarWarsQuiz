@@ -3,7 +3,7 @@ export const RealTimer = ({tickMillis, timeout, onTick, onTimeout}) => {
   const timer = setInterval(() => {
     passedTime += tickMillis;
     if (onTick) {
-      onTick(passedTime)
+      onTick({passedTime, tickMillis})
     }
     if (passedTime >= timeout) {
       if (onTimeout) {

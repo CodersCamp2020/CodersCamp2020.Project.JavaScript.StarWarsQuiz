@@ -1,9 +1,9 @@
 import {AnswerChecker, PartialMatchCheckStrategy} from "./AnswerChecker";
-
-const ONE_SECOND = 1000;
+import {ONE_SECOND_MILLIS, QUIZ_MAX_TIME} from "./TimeUnits";
 
 export const QuizGame = ({human, google, mode, startTimer}) => {
   const onTimesUpHooks = []
+  const onTimerTickHooks = []
   const questions = {}
   const players = {
     human,
@@ -35,9 +35,13 @@ export const QuizGame = ({human, google, mode, startTimer}) => {
             await player.askQuestion({question: firstQuestion})
           })
       )
-      const MAX_TIME = 20 * ONE_SECOND;
       startTimer({
-        tickMillis: ONE_SECOND, timeout: MAX_TIME, onTimeout: () => {
+        tickMillis: ONE_SECOND_MILLIS,
+        timeout: QUIZ_MAX_TIME,
+        onTick: ({passedTime, tickMillis}) => {
+          onTimerTickHooks.forEach(hook => hook({passedTime, tickMillis}))
+        },
+        onTimeout: () => {
           onTimesUpHooks.forEach(hook => hook())
         }
       })
@@ -57,6 +61,10 @@ export const QuizGame = ({human, google, mode, startTimer}) => {
     },
     onTimesUp(hook) {
       onTimesUpHooks.push(hook)
+      return game;
+    },
+    onTimerTick(hook) {
+      onTimerTickHooks.push(hook)
       return game;
     }
   };
