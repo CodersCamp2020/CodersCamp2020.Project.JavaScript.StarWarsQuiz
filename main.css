@@ -186,7 +186,7 @@ body {
 .swquiz-lightsaber-wrapper {
     margin-top: 3%;
     height: 60px;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     background-image: url("./static/assets/ui/LightsaberHandle.png");
@@ -216,6 +216,7 @@ body {
 }
 
 .swquiz-timer-text {
+    display: none;
     font-weight: 800;
     font-size: 2rem;
     color: rgba(255, 0, 0, 0.8);

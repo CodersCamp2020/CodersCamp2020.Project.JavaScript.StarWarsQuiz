@@ -26,9 +26,13 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
   const quizGameView = {
     show() {
       element.style.display = 'flex';
+      lightsaberTimerView.show()
+      textTimerView.show()
     },
     hide() {
       element.style.display = 'none';
+      lightsaberTimerView.hide()
+      textTimerView.hide()
     },
     async startGame() {
       return humanUiPresenter.startGame()

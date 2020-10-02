@@ -21,6 +21,12 @@ export const TextTimerView = ({renderOn, timerOn, timeout}) => {
     },
     onTimeout() {
       timerElement.innerText = `${TIME_LEFT_TEXT}: ${millisToMinutesAndSeconds(0)}`
+    },
+    show() {
+      element.style.display = 'block';
+    },
+    hide() {
+      element.style.display = 'none'
     }
   }
 }

@@ -21,6 +21,12 @@ export const LightsaberTimerView = ({renderOn, timerOn, timeout}) => {
     },
     onTimeout() {
       timerElement.style.width = `0%`
+    },
+    show() {
+      element.style.display = 'flex';
+    },
+    hide() {
+      element.style.display = 'none'
     }
   }
 }
