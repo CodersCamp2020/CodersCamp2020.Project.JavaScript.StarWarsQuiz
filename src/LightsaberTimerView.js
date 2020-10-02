@@ -2,12 +2,12 @@ const TIMER_MAX_WIDTH_PERCENTS = '72'
 
 export const LightsaberTimerView = ({renderOn, timerOn, timeout}) => {
   const element = document.querySelector(renderOn);
-  if(!element){
+  if (!element) {
     throw new Error(`Element ${renderOn} not exists!`)
   }
 
   const timerElement = document.querySelector(timerOn)
-  if(!timerElement){
+  if (!timerElement) {
     throw new Error(`Element ${timerOn} not exists!`)
   }
 
@@ -15,9 +15,12 @@ export const LightsaberTimerView = ({renderOn, timerOn, timeout}) => {
   timerElement.style.width = `${currentTimerWidthPercents}%`;
 
   return {
-    onTimerTick({passedTime, tickMillis}){
+    onTimerTick({passedTime, tickMillis}) {
       currentTimerWidthPercents -= 1.666;
       timerElement.style.width = `${currentTimerWidthPercents}%`
+    },
+    onTimeout() {
+      timerElement.style.width = `0%`
     }
   }
 }

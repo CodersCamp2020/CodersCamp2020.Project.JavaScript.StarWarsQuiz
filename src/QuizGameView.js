@@ -37,6 +37,9 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
     },
     onTimerTick({passedTime, tickMillis}) {
       lightsaberTimerView.onTimerTick({passedTime, tickMillis})
+    },
+    onTimeout(){
+      lightsaberTimerView.onTimeout()
     }
   }
   answerElements.forEach(answerElement => answerElement.addEventListener('click', async e => {
