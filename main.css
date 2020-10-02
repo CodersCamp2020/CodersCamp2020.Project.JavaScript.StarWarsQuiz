@@ -175,9 +175,7 @@ body {
 }
 
 .swquiz-lightsaber-wrapper {
-    width: 100%;
     margin-top: 3%;
-    background-color: #FF0000;
     height: 60px;
     display: flex;
     flex-direction: column;
@@ -189,19 +187,6 @@ body {
     margin-left: 6rem;
 }
 
-.swquiz-lightsaber {
-}
-
-.swquiz-lightsaber-timer {
-    position: relative;
-    width: 72%;
-    height: 36px;
-    background: #FFFFFF;
-    box-shadow: 10px 5px 15px #FF0000, 10px -5px 15px #FF0000, inset 0px 5px 4px rgba(255, 0, 0, 0.25);
-    border-radius: 8px;
-    margin-left: 340px;
-}
-
 .swquiz-lightsaber-background {
     position: absolute;
     width: 72%;
@@ -210,4 +195,13 @@ body {
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
     margin-left: 340px;
+}
+
+.swquiz-lightsaber-timer {
+    position: relative;
+    width: 100%;
+    height: 36px;
+    background: #FFFFFF;
+    box-shadow: 10px 5px 15px #FF0000, 10px -5px 15px #FF0000, inset 0px 5px 4px rgba(255, 0, 0, 0.25);
+    border-radius: 8px;
 }
