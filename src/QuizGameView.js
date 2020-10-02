@@ -1,6 +1,7 @@
 import {LightsaberTimerView} from "./LightsaberTimerView";
 import {QUIZ_MAX_TIME} from "./TimeUnits";
 import {TextTimerView} from "./TextTimerView";
+import {GameResultModal} from "./GameResultModal";
 
 export const QuizGameView = ({renderOn, presenterSupplier}) => {
   const element = document.querySelector(renderOn)
@@ -21,7 +22,7 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
     renderOn: "#swquiz-timer-text",
     timerOn: "#swquiz-timer-text",
     timeout: QUIZ_MAX_TIME,
-  })
+  });
 
   const quizGameView = {
     show() {
