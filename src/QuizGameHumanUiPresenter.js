@@ -1,8 +1,8 @@
 export const QuizGameHumanUiPresenter = ({quizGame, quizGameView}) => {
   return {
     startGame() {
-      quizGame.onTimesUp(() => quizGameView.onTimeout())
-      quizGame.onTimerTick(({passedTime, tickMillis}) => quizGameView.onTimerTick({passedTime, tickMillis}))
+      quizGame.onTimesUp(() => quizGameView.showGameOver())
+      quizGame.onTimerTick(({passedTime, tickMillis}) => quizGameView.showTimePass({passedTime, tickMillis}))
       quizGame.humanPlayer.onQuestionAsked(question => {
         quizGameView.showQuestion({question: question})
       })

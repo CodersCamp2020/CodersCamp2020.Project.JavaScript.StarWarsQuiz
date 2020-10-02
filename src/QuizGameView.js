@@ -36,6 +36,7 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
       textTimerView.hide()
     },
     async startGame() {
+      GameResultModal({renderOn: "#swquiz-game-result-modal"}).show()
       return humanUiPresenter.startGame()
     },
     showQuestion({question}) {
@@ -47,13 +48,13 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
       answerElements.forEach(answerElement => answerElement.disabled = true)
       return humanUiPresenter.giveAnswer({answer: answerName})
     },
-    onTimerTick({passedTime, tickMillis}) {
-      lightsaberTimerView.onTimerTick({passedTime, tickMillis})
-      textTimerView.onTimerTick({passedTime, tickMillis})
+    showTimePass({passedTime, tickMillis}) {
+      lightsaberTimerView.tickTimer({passedTime, tickMillis})
+      textTimerView.tickTimer({passedTime, tickMillis})
     },
-    onTimeout() {
-      lightsaberTimerView.onTimeout()
-      textTimerView.onTimeout()
+    showGameOver() {
+      lightsaberTimerView.timeout()
+      textTimerView.timeout()
     }
   }
   answerElements.forEach(answerElement => answerElement.addEventListener('click', async e => {

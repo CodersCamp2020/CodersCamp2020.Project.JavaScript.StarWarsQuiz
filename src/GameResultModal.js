@@ -4,9 +4,10 @@ export const GameResultModal = ({renderOn}) => {
     throw new Error(`Element ${renderOn} not exists!`)
   }
 
-  return {
+  const modal = {
     show(){
       modalElement.style.display = 'block'
     }
   }
+  return modal;
 }

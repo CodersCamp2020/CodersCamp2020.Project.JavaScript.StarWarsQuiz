@@ -15,11 +15,11 @@ export const TextTimerView = ({renderOn, timerOn, timeout}) => {
   const currentTimerText = () => `${TIME_LEFT_TEXT}: ${millisToMinutesAndSeconds(timeLeft)}`;
   timerElement.innerText = currentTimerText();
   return {
-    onTimerTick({tickMillis}) {
+    tickTimer({tickMillis}) {
       timeLeft -= tickMillis;
       timerElement.innerText = currentTimerText();
     },
-    onTimeout() {
+    timeout() {
       timerElement.innerText = `${TIME_LEFT_TEXT}: ${millisToMinutesAndSeconds(0)}`
     },
     show() {

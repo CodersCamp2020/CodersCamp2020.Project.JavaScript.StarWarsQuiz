@@ -15,11 +15,11 @@ export const LightsaberTimerView = ({renderOn, timerOn, timeout}) => {
   timerElement.style.width = `${currentTimerWidthPercents}%`;
 
   return {
-    onTimerTick({tickMillis}) {
+    tickTimer({tickMillis}) {
       currentTimerWidthPercents -= (tickMillis / timeout * 100);
       timerElement.style.width = `${currentTimerWidthPercents}%`
     },
-    onTimeout() {
+    timeout() {
       timerElement.style.width = `0%`
     },
     show() {
