@@ -67,13 +67,34 @@
         <!-- Modal content -->
         <div class="modal-content">
             <h2>GAME OVER</h2>
-            <p class="sub-title">The force is strong in you young Padawan! During 1 minute you have answered 10 / 23 questions. And Google quessed 5 / 23.</p>
+            <p class="sub-title">The force is strong in you young Padawan! During 1 minute you have answered 10 / 23
+                questions. And Google quessed 5 / 23.</p>
             <h3>Detailed answers</h3>
             <div class="player-name-hall-of-fame-wrapper">
+                <!---<div class="swquiz-yoda-answers-wrapper">
+                    <img class="swquiz-master-yoda" src="static/assets/ui/MasterYodaLeft.png" alt="Master Yoda"/>
+                    <!<div class="swquiz-hall-of-fame-answers">
+                        <div>item 1</div>
+                        <div>item 2</div>
+                        <div>item 3</div>
+                        <div>item 4</div>
+                        <div>item 5</div>
+                        <div>item 6</div>
+                        <div>item 7</div>
+                        <div>item 8</div>
+                    </div>
+                </div>--->
                 <img class="swquiz-master-yoda" src="static/assets/ui/MasterYodaLeft.png" alt="Master Yoda"/>
-                <label for="player-name-hall-of-fame">
-                    <input id="player-name-hall-of-fame" class="player-name-hall-of-fame" type="text" maxlength="20"/>
-                </label>
+
+                <form id="hall-of-fame-save" style="display: flex; align-items: center">
+                    <label for="player-name-hall-of-fame">
+                        <input id="player-name-hall-of-fame" class="player-name-hall-of-fame" type="text" maxlength="20" required/>
+                    </label>
+                    <p style="font-size: 1.30rem; margin: 0; padding-left: 1rem;">Please fill your name in order to receive eternal glory in the whole Galaxy!</p>
+                </form>
+            </div>
+            <div style="text-align: center; margin-top: 4rem;">
+                <button type="submit" form="hall-of-fame-save" class="sw-quiz-save-hall-of-fame-button" id="save-hall-of-fame-button">MAY THE FORCE BE WITH YOU!</button>
             </div>
         </div>
 

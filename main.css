@@ -275,11 +275,54 @@ body {
 }
 
 .swquiz-master-yoda {
-    width: 20%
+    height: 20rem;
+}
+
+.swquiz-yoda-answers-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: end;
 }
 
 .player-name-hall-of-fame-wrapper {
     display: flex;
     flex-direction: column;
     align-items: end;
+}
+
+.yoda-answers-wrapper {
+    padding: 0;
+    margin: 0;
+}
+
+.swquiz-hall-of-fame-answers {
+    background-color: transparent;
+    overflow: auto;
+    white-space: nowrap;
+    padding: 2rem;
+    border-radius: 16px;
+    width: 100%;
+}
+
+.swquiz-hall-of-fame-answers  > div {
+    display: inline-block;
+    background: #FFFFFF;
+    /* Card / Shadow / Red */
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 4px 4px 20px rgba(255, 0, 0, 0.9);
+    border-radius: 16px;
+    width: 338px;
+    height: 300px;
+    margin-right: 2rem;
+}
+
+.sw-quiz-save-hall-of-fame-button {
+    background: rgba(255, 0, 0, 0.8);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 4px 4px 40px rgba(255, 0, 0, 0.9);
+    border-radius: 16px;
+    color: white;
+    font-size: 2rem;
+    flex-grow: 1;
+    border: none;
+    font-weight: 500;
+    padding: 1rem 2rem 1rem 2rem;
 }
