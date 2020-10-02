@@ -6,7 +6,7 @@ export const GameResultModal = ({renderOn}) => {
 
   const modal = {
     show(){
-      modalElement.style.display = 'block'
+      modalElement.style.display = 'flex'
     }
   }
   return modal;

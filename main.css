@@ -228,6 +228,8 @@ body {
 /* The Modal (background) */
 .swquiz-game-result-modal {
     display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
@@ -242,7 +244,6 @@ body {
 /* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
     padding: 4rem;
     width: 60%; /* Could be more or less, depending on screen size */
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25), 4px 4px 40px rgba(255, 0, 0, 0.9);
