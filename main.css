@@ -11,6 +11,10 @@ body {
     overflow: hidden;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 .swquiz-header {
     height: 20vh;
     display: flex;
