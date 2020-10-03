@@ -56,7 +56,9 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
       textTimerView.timeout()
       console.log("GAME OVER", gameOver)
       const gameResultModal = GameResultModal({renderOn: "#swquiz-game-result-modal"})
-      gameResultModal.onScoreSave(({playerName, score}) => {
+      gameResultModal.onScoreSave(({playerName}) => {
+        const humanAnswers = gameOver.answers.map(it => it.humanAnswer)
+        const score = CorrectAnswersScoreCalculator().calculate({answers: humanAnswers})
         humanUiPresenter.saveScore({playerName, score})
       })
       gameResultModal.show({data: gameOver});
@@ -69,4 +71,12 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
   }))
   const humanUiPresenter = presenterSupplier(quizGameView)
   return quizGameView;
+}
+
+const CorrectAnswersScoreCalculator = () => {
+  return {
+    calculate({answers}) {
+      return answers.filter(it => it.isCorrect).length
+    }
+  }
 }

@@ -9,7 +9,7 @@ export const GameResultModal = ({renderOn}) => {
   const submitScoreSaveForm = modalElement.querySelector("#hall-of-fame-save")
   submitScoreSaveForm.addEventListener("submit", () => {
     const playerNameInput = modalElement.querySelector("#player-name-hall-of-fame")
-    modal.submitScoreSave({playerName: playerNameInput.value, score: 10})
+    modal.submitScoreSave({playerName: playerNameInput.value})
   })
 
   const modal = {
@@ -22,8 +22,8 @@ export const GameResultModal = ({renderOn}) => {
     hide() {
       modalElement.style.display = 'none'
     },
-    submitScoreSave({score, playerName}) {
-      onSaveScoreHooks.forEach(hook => hook({score, playerName}))
+    submitScoreSave({playerName}) {
+      onSaveScoreHooks.forEach(hook => hook({playerName}))
     },
     onScoreSave(hook) {
       onSaveScoreHooks.push(hook);
