@@ -352,6 +352,20 @@ body {
     border-radius: 16px;
     width: 90%;
     margin: 1rem auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.swquiz-answer-row img {
+    height: 100%;
+    border-radius: 16px;
+}
+.swquiz-answer-row div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    padding: 0 1rem;
 }
 
 .swquiz-yoda-answers-grid-wrapper {
@@ -360,3 +374,4 @@ body {
     justify-content: end;
     width: 100%;
 }
+
