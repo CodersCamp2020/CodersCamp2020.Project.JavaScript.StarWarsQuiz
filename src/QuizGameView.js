@@ -57,7 +57,7 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
       console.log("GAME OVER", gameOver)
       const gameResultModal = GameResultModal({renderOn: "#swquiz-game-result-modal"})
       gameResultModal.onScoreSave(({playerName}) => {
-        const humanAnswers = gameOver.answers.map(it => it.humanAnswer)
+        const humanAnswers = gameOver.answers.map(it => it.humanAnswer).filter(humanAnswer => humanAnswer !== undefined)
         const score = CorrectAnswersScoreCalculator().calculate({answers: humanAnswers})
         humanUiPresenter.saveScore({playerName, score})
       })
