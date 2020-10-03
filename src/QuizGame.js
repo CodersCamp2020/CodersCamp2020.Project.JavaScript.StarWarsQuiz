@@ -4,7 +4,7 @@ import {ONE_SECOND_MILLIS, QUIZ_MAX_TIME} from "./TimeUnits";
 //TODO: Change times up to game over!
 
 export const QuizGame = ({human, google, mode, startTimer}) => {
-  const onTimesUpHooks = []
+  const onGameOverHooks = []
   const onTimerTickHooks = []
   const questions = {}
   const players = {
@@ -44,7 +44,7 @@ export const QuizGame = ({human, google, mode, startTimer}) => {
           onTimerTickHooks.forEach(hook => hook({passedTime, tickMillis}))
         },
         onTimeout: () => {
-          onTimesUpHooks.forEach(hook => hook())
+          onGameOverHooks.forEach(hook => hook(GameOver({questions, playersAnswers})))
         }
       })
       return Promise.resolve()
@@ -62,8 +62,8 @@ export const QuizGame = ({human, google, mode, startTimer}) => {
       }
       return Promise.resolve()
     },
-    onTimesUp(hook) {
-      onTimesUpHooks.push(hook)
+    onGameOver(hook) {
+      onGameOverHooks.push(hook)
       return game;
     },
     onTimerTick(hook) {
@@ -72,4 +72,32 @@ export const QuizGame = ({human, google, mode, startTimer}) => {
     }
   };
   return game
+}
+
+function GameOver({questions, playersAnswers}) {
+  return Object.keys(questions).map((question, index) => {
+    const googleAnswer = playersAnswers.google[index];
+    const humanAnswer = playersAnswers.human[index];
+    let answers = {
+      image: question.image,
+      correctAnswerName: question.rightAnswer.name
+    }
+    if (googleAnswer) {
+      answers = {
+        ...answers, googleAnswer: {
+          answerName: googleAnswer.answerName,
+          isCorrect: googleAnswer.isCorrect
+        }
+      }
+    }
+    if(humanAnswer){
+      answers = {
+        ...answers, humanAnswer: {
+          answerName: humanAnswer.answerName,
+          isCorrect: humanAnswer.isCorrect
+        }
+      }
+    }
+    return answers;
+  })
 }

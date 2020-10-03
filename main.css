@@ -337,7 +337,7 @@ body {
 }
 
 .swquiz-answers-table-wrapper {
-    background-color: yellow;
+    /*background-color: yellow;*/
     width: 100%;
     height: 20rem;
     overflow-y: scroll;
@@ -375,3 +375,12 @@ body {
     width: 100%;
 }
 
+.sw-quiz-answers-table-correct {
+    color: darkseagreen;
+    font-weight: 700;
+}
+
+.sw-quiz-answers-table-incorrect {
+    color: red;
+    font-weight: 700;
+}

@@ -36,7 +36,6 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
       textTimerView.hide()
     },
     async startGame() {
-      GameResultModal({renderOn: "#swquiz-game-result-modal"}).show()
       return humanUiPresenter.startGame()
     },
     showQuestion({question}) {
@@ -52,9 +51,11 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
       lightsaberTimerView.tickTimer({passedTime, tickMillis})
       textTimerView.tickTimer({passedTime, tickMillis})
     },
-    showGameOver() {
+    showGameOver(gameOver) {
       lightsaberTimerView.timeout()
       textTimerView.timeout()
+      GameResultModal({renderOn: "#swquiz-game-result-modal"}).show()
+      console.log(gameOver)
     }
   }
   answerElements.forEach(answerElement => answerElement.addEventListener('click', async e => {
