@@ -11,7 +11,9 @@ import {GoogleVisionPlayer} from "./GoogleVisionPlayer";
 import {RealTimer} from "./RealTimer";
 
 const API_KEY = 'AIzaSyAu5cv9vSquTVHFDuFRvbNX4FtN0TLwVrk'
-const SW_API_BASE_URL = "https://swapi.dev/api";
+//const SW_API_BASE_URL = "https://swapi.dev/api";
+const SW_API_BASE_URL = "http://localhost:3000";
+
 
 const starWarsPeopleApi = StarWarsPeopleApi({starWarsApiBaseUrl: SW_API_BASE_URL})
 const googleVisionApi = GoogleVisionApi({apiKey: 'AIzaSyAu5cv9vSquTVHFDuFRvbNX4FtN0TLwVrk'})
