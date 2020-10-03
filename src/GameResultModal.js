@@ -1,4 +1,6 @@
 export const GameResultModal = ({renderOn}) => {
+  const onSaveScoreHooks = [];
+
   const modalElement = document.querySelector(renderOn)
   if (!modalElement) {
     throw new Error(`Element ${renderOn} not exists!`)
@@ -13,6 +15,12 @@ export const GameResultModal = ({renderOn}) => {
     },
     hide() {
       modalElement.style.display = 'none'
+    },
+    submitScoreSave({score, playerName}) {
+      onSaveScoreHooks.forEach(hook => hook({score, playerName}))
+    },
+    onScoreSave(hook) {
+      onSaveScoreHooks.push(hook);
     }
   }
   return modal;
