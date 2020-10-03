@@ -54,8 +54,8 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
     showGameOver(gameOver) {
       lightsaberTimerView.timeout()
       textTimerView.timeout()
-      GameResultModal({renderOn: "#swquiz-game-result-modal"}).show()
-      console.log(gameOver)
+      console.log("GAME OVER", gameOver)
+      GameResultModal({renderOn: "#swquiz-game-result-modal"}).show({data: gameOver})
     }
   }
   answerElements.forEach(answerElement => answerElement.addEventListener('click', async e => {

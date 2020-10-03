@@ -75,29 +75,31 @@ export const QuizGame = ({human, google, mode, startTimer}) => {
 }
 
 function GameOver({questions, playersAnswers}) {
-  return Object.keys(questions).map((question, index) => {
-    const googleAnswer = playersAnswers.google[index];
-    const humanAnswer = playersAnswers.human[index];
-    let answers = {
-      image: question.image,
-      correctAnswerName: question.rightAnswer.name
-    }
-    if (googleAnswer) {
-      answers = {
-        ...answers, googleAnswer: {
-          answerName: googleAnswer.answerName,
-          isCorrect: googleAnswer.isCorrect
+  const answerList = Object.values(questions).splice(0, Math.max(Object.keys(playersAnswers.human).length, Object.keys(playersAnswers.google).length))
+      .map((question, index) => {
+        const googleAnswer = playersAnswers.google[index];
+        const humanAnswer = playersAnswers.human[index];
+        let answers = {
+          image: question.image,
+          correctAnswerName: question.rightAnswer.name
         }
-      }
-    }
-    if(humanAnswer){
-      answers = {
-        ...answers, humanAnswer: {
-          answerName: humanAnswer.answerName,
-          isCorrect: humanAnswer.isCorrect
+        if (googleAnswer) {
+          answers = {
+            ...answers, googleAnswer: {
+              answerName: googleAnswer.answerName,
+              isCorrect: googleAnswer.isCorrect
+            }
+          }
         }
-      }
-    }
-    return answers;
-  })
+        if (humanAnswer) {
+          answers = {
+            ...answers, humanAnswer: {
+              answerName: humanAnswer.answerName,
+              isCorrect: humanAnswer.isCorrect
+            }
+          }
+        }
+        return answers;
+      })
+  return {answers: answerList}
 }
