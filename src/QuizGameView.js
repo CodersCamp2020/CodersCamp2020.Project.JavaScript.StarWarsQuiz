@@ -55,7 +55,11 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
       lightsaberTimerView.timeout()
       textTimerView.timeout()
       console.log("GAME OVER", gameOver)
-      GameResultModal({renderOn: "#swquiz-game-result-modal"}).show({data: gameOver})
+      const gameResultModal = GameResultModal({renderOn: "#swquiz-game-result-modal"})
+      gameResultModal.onScoreSave(({playerName, score}) => {
+        humanUiPresenter.saveScore({playerName, score})
+      })
+      gameResultModal.show({data: gameOver});
     }
   }
   answerElements.forEach(answerElement => answerElement.addEventListener('click', async e => {

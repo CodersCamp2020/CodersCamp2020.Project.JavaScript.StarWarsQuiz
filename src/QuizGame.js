@@ -75,7 +75,7 @@ export const QuizGame = ({human, google, mode, startTimer}) => {
 }
 
 function GameOver({questions, playersAnswers}) {
-  const answerList = Object.values(questions).splice(0, Math.max(Object.keys(playersAnswers.human).length, Object.keys(playersAnswers.google).length))
+  const answerList = Object.values(questions).slice(0, Math.max(Object.keys(playersAnswers.human).length, Object.keys(playersAnswers.google).length))
       .map((question, index) => {
         const googleAnswer = playersAnswers.google[index];
         const humanAnswer = playersAnswers.human[index];

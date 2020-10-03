@@ -9,6 +9,7 @@ import {QuizGameView} from "./QuizGameView";
 import {HumanPlayer} from "./HumanPlayer";
 import {GoogleVisionPlayer} from "./GoogleVisionPlayer";
 import {RealTimer} from "./RealTimer";
+import {LocalStorageScoresRepository} from "./LocalStorageScoresRepository";
 
 const API_KEY = 'AIzaSyAu5cv9vSquTVHFDuFRvbNX4FtN0TLwVrk'
 //const SW_API_BASE_URL = "https://swapi.dev/api";
@@ -32,7 +33,11 @@ MainMenuView()
       })
       const quizGameView = QuizGameView({
         renderOn: '#swquiz-game',
-        presenterSupplier: view => QuizGameHumanUiPresenter({quizGame, quizGameView: view})
+        presenterSupplier: view => QuizGameHumanUiPresenter({
+          quizGame,
+          quizGameView: view,
+          scoresRepository: LocalStorageScoresRepository({modeName: mode.name})
+        })
       });
       quizGameView.show();
       quizGameView.startGame().then(() => console.log("GAME STARTED!"));

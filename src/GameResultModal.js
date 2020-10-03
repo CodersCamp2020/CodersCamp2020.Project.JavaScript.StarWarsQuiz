@@ -6,6 +6,12 @@ export const GameResultModal = ({renderOn}) => {
     throw new Error(`Element ${renderOn} not exists!`)
   }
 
+  const submitScoreSaveForm = modalElement.querySelector("#hall-of-fame-save")
+  submitScoreSaveForm.addEventListener("submit", () => {
+    const playerNameInput = modalElement.querySelector("#player-name-hall-of-fame")
+    modal.submitScoreSave({playerName: playerNameInput.value, score: 10})
+  })
+
   const modal = {
     show({data}) {
       modalElement.style.display = 'flex'
@@ -53,6 +59,5 @@ const AnswersRowElement = ({answer}) => {
 
   answersRow.appendChild(questionImageElement);
   answersRow.appendChild(rowContentElement);
-  console.log(answersRow)
   return answersRow;
 }

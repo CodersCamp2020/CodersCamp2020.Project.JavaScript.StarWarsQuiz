@@ -1,4 +1,4 @@
-export const QuizGameHumanUiPresenter = ({quizGame, quizGameView}) => {
+export const QuizGameHumanUiPresenter = ({quizGame, quizGameView, scoresRepository}) => {
   return {
     startGame() {
       quizGame.onGameOver((gameOver) => quizGameView.showGameOver(gameOver))
@@ -10,6 +10,9 @@ export const QuizGameHumanUiPresenter = ({quizGame, quizGameView}) => {
     },
     giveAnswer({answer}) {
       return quizGame.humanPlayer.giveAnswer({player: 'human', answer})
+    },
+    saveScore({playerName, score}) {
+      scoresRepository.saveScore({playerName, score})
     }
   }
 }
