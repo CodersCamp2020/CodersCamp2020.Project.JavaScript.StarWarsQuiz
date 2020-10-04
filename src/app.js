@@ -27,17 +27,17 @@ export const App = () => {
 
   const swApiPeopleRepository = {
     getById({id}) {
-      starWarsApi.find({id, category: "people"})
+      return starWarsApi.find({id, category: "people"})
     }
   }
   const swApiStarshipsRepository = {
     getById({id}) {
-      starWarsApi.find({id, category: "starships"})
+      return starWarsApi.find({id, category: "starships"})
     }
   }
   const swApiVehiclesRepository = {
     getById({id}) {
-      starWarsApi.find({id, category: "vehicles"})
+      return starWarsApi.find({id, category: "vehicles"})
     }
   }
 
