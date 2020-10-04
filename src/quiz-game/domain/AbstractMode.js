@@ -9,7 +9,7 @@ export const AbstractMode = ({name, repository, randomAnswerId}) => {
       for (let i = 0; answersIds.size < 4; i++) {
         answersIds.add(randomAnswerId())
       }
-      const rightAnswerId = [...answersIds][getRandomIntInclusive(0, 4)]
+      const rightAnswerId = [...answersIds][getRandomIntInclusive(0, 3)]
       const answers = await Promise.all([...answersIds].map(id => repository.getById({id})));
       return {
         image: await imageBase64({type: name, id: rightAnswerId}),
