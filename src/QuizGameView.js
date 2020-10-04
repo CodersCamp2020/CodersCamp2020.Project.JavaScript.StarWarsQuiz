@@ -26,17 +26,27 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
 
   const quizGameView = {
     show() {
-      element.style.display = 'flex';
-      lightsaberTimerView.show()
-      textTimerView.show()
+      this.startLoading();
     },
     hide() {
       element.style.display = 'none';
       lightsaberTimerView.hide()
       textTimerView.hide()
     },
+    startLoading(){
+      const loadingElement = document.getElementById("swquiz-loading")
+      loadingElement.style.display = 'flex'
+    },
+    finishLoading(){
+      const loadingElement = document.getElementById("swquiz-loading")
+      loadingElement.style.display = 'none'
+      element.style.display = 'flex';
+      lightsaberTimerView.show()
+      textTimerView.show()
+    },
     async startGame() {
       return humanUiPresenter.startGame()
+          .then(this.finishLoading)
     },
     showQuestion({question}) {
       question.answers.forEach((answer, index) => answerElements[index].innerText = answer.name)

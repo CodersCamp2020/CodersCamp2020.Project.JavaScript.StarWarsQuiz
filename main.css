@@ -393,3 +393,13 @@ body {
 .sw-quiz-answers-table-right {
     font-weight: 800
 }
+
+.swquiz-loading {
+    height: 100%;
+    width: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 6vw;
+}

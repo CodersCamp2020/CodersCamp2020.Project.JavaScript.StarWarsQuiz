@@ -12,8 +12,8 @@ import {RealTimer} from "./RealTimer";
 import {LocalStorageScoresRepository} from "./LocalStorageScoresRepository";
 
 const API_KEY = 'AIzaSyAu5cv9vSquTVHFDuFRvbNX4FtN0TLwVrk'
-//const SW_API_BASE_URL = "https://swapi.dev/api";
-const SW_API_BASE_URL = "http://localhost:3000";
+const SW_API_BASE_URL = "https://swapi.dev/api";
+//const SW_API_BASE_URL = "http://localhost:3000";
 
 
 const starWarsPeopleApi = StarWarsPeopleApi({starWarsApiBaseUrl: SW_API_BASE_URL})
