@@ -412,16 +412,15 @@ body {
 .swquiz-hall-of-fame-header {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    width: 100%;
     padding: 0 1rem;
     align-items: center;
     font-weight: 600;
+    border-bottom: #C4C4C4 1px solid;
 }
 
 .swquiz-hall-of-fame-player-row {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    width: 100%;
     padding: 0 1rem;
     align-items: center;
 }
