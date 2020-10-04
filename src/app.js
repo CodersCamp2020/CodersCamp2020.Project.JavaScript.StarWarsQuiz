@@ -13,6 +13,7 @@ import {LocalStorageScoresRepository} from "./quiz-game/infrastructure/LocalStor
 import {QuizHallOfFameView} from "./quiz-hall-of-fame/presentation/QuizHallOfFameView";
 import {QuizHallOfFamePresenter} from "./quiz-hall-of-fame/presentation/QuizHallOfFamePresenter";
 import {StarshipsMode} from "./quiz-game/domain/StarshipsMode";
+import {VehiclesMode} from "./quiz-game/domain/VehiclesMode";
 
 export const App = () => {
   const API_KEY = 'AIzaSyAu5cv9vSquTVHFDuFRvbNX4FtN0TLwVrk'
@@ -41,7 +42,10 @@ export const App = () => {
   }
 
   //const mode = StarshipsMode({repository: swApiStarshipsRepository});
+  //const mode = VehiclesMode({repository: swApiVehiclesRepository});
+
   const mode = PeopleMode({repository: swApiPeopleRepository});
+
 
   const scoresRepository = LocalStorageScoresRepository({modeName: mode.name})
   MainMenuView()

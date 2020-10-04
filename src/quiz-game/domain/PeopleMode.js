@@ -16,12 +16,12 @@ export const PeopleMode = ({repository}) => {
   return {
     name: modeName,
     async nextQuestion() {
-      const peopleIds = new Set()
-      for (let i = 0; peopleIds.size < 4; i++) {
-        peopleIds.add(randomPersonId())
+      const answersIds = new Set()
+      for (let i = 0; answersIds.size < 4; i++) {
+        answersIds.add(randomPersonId())
       }
-      const rightAnswerId = [...peopleIds][getRandomIntInclusive(0, 3)]
-      const answers = await Promise.all([...peopleIds].map(id => repository.getById({id})));
+      const rightAnswerId = [...answersIds][getRandomIntInclusive(0, 4)]
+      const answers = await Promise.all([...answersIds].map(id => repository.getById({id})));
       return {
         image: await imageBase64({type: modeName, id: rightAnswerId}),
         rightAnswer: answers.find(it => it.id === rightAnswerId),
