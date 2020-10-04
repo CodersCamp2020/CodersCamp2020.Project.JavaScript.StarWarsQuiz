@@ -14,6 +14,12 @@ export const GameResultModal = ({renderOn}) => {
 
   const modal = {
     show({data}) {
+      const googleAnswersStats = answersStats({forPlayer: 'google', answers: data.answers})
+      const humanAnswersStats = answersStats({forPlayer: 'human', answers: data.answers})
+
+      const summaryElement = modalElement.querySelector("#swquiz-game-summary")
+      summaryElement.innerText = `The force is strong in you young Padawan! During 2 minutes you have answered ${humanAnswersStats.correct} / ${humanAnswersStats.all} questions. And Google guessed ${googleAnswersStats.correct} /  ${googleAnswersStats.all}.`
+
       modalElement.style.display = 'flex'
       const answersList = modalElement.querySelector(".swquiz-answers-table-wrapper");
       data.answers.map(answer => AnswersRowElement({answer}))
@@ -60,4 +66,13 @@ const AnswersRowElement = ({answer}) => {
 
   answersRow.appendChild(rowContentElement);
   return answersRow;
+}
+
+function answersStats({forPlayer, answers}) {
+  const playerAnswers = answers.map(answer => answer[`${forPlayer}Answer`])
+      .filter(answer => answer !== undefined)
+  return {
+    all: playerAnswers.length,
+    correct: playerAnswers.filter(answer => answer.isCorrect).length
+  }
 }

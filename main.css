@@ -87,11 +87,11 @@ body {
 .swquiz-question-image-bg {
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25), 4px 4px 40px rgba(255, 0, 0, 0.9);
     border-radius: 16px;
-    background-image: url("static/assets/img/modes/people/1.jpg");
+    background-image: url("static/assets/img/modes/people/36.jpg");
     flex-grow: 1;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: top;
     height: 50vh;
 }
 
