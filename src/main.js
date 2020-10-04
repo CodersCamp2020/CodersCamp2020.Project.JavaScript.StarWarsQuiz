@@ -21,7 +21,7 @@ const googleVisionApi = GoogleVisionApi({apiKey: 'AIzaSyAu5cv9vSquTVHFDuFRvbNX4F
 
 
 MainMenuView()
-    .onPlayTheGame(() => {
+    .onClickPlayTheGameButton(() => {
       const quizModeMenu = document.getElementById("swquiz-mode")
       quizModeMenu.style.display = 'none'
       const mode = PeopleMode({starWarsPeopleApi});
@@ -41,4 +41,7 @@ MainMenuView()
       });
       quizGameView.show();
       quizGameView.startGame().then(() => console.log("GAME STARTED!"));
+    })
+    .onClickHallOfFameButton(() => {
+      console.log("HALL OF FAME SELECTED!")
     })
