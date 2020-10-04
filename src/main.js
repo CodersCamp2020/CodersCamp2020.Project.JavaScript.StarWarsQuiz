@@ -1,15 +1,15 @@
 import 'regenerator-runtime/runtime' //async/await with Parcel
-import {GoogleVisionApi} from "./GoogleVisionApi";
-import {QuizGame} from "./QuizGame";
-import {StarWarsPeopleApi} from "./StarWarsPeopleApi";
-import {PeopleMode} from "./PeopleMode";
-import {MainMenuView} from "./MainMenuView";
-import {QuizGameHumanUiPresenter} from "./QuizGameHumanUiPresenter";
-import {QuizGameView} from "./QuizGameView";
-import {HumanPlayer} from "./HumanPlayer";
-import {GoogleVisionPlayer} from "./GoogleVisionPlayer";
-import {RealTimer} from "./RealTimer";
-import {LocalStorageScoresRepository} from "./LocalStorageScoresRepository";
+import {GoogleVisionApi} from "./quiz-game/infrastructure/GoogleVisionApi";
+import {QuizGame} from "./quiz-game/domain/QuizGame";
+import {StarWarsPeopleApi} from "./quiz-game/infrastructure/StarWarsPeopleApi";
+import {PeopleMode} from "./quiz-game/domain/PeopleMode";
+import {MainMenuView} from "./main-menu/presentation/MainMenuView";
+import {QuizGameHumanUiPresenter} from "./quiz-game/presentation/QuizGameHumanUiPresenter";
+import {QuizGameView} from "./quiz-game/presentation/QuizGameView";
+import {HumanPlayer} from "./quiz-game/domain/HumanPlayer";
+import {GoogleVisionPlayer} from "./quiz-game/domain/GoogleVisionPlayer";
+import {RealTimer} from "./quiz-game/infrastructure/RealTimer";
+import {LocalStorageScoresRepository} from "./quiz-game/infrastructure/LocalStorageScoresRepository";
 
 const API_KEY = 'AIzaSyAu5cv9vSquTVHFDuFRvbNX4FtN0TLwVrk'
 const SW_API_BASE_URL = "https://swapi.dev/api";

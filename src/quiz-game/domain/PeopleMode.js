@@ -1,5 +1,5 @@
-import {getRandomIntInclusive} from "./Random";
-import {imageOf} from "./StarWarsAssetImage";
+import {getRandomIntInclusive} from "../../shared/Random";
+import {imageOf} from "../presentation/StarWarsAssetImage";
 
 const randomPersonId = () => {
   const FIRST_PERSON_ID = 1;

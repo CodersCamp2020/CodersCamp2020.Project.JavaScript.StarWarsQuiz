@@ -1,5 +1,5 @@
 import {LightsaberTimerView} from "./LightsaberTimerView";
-import {QUIZ_MAX_TIME} from "./TimeUnits";
+import {QUIZ_MAX_TIME} from "../domain/TimeUnits";
 import {TextTimerView} from "./TextTimerView";
 import {GameResultModal} from "./GameResultModal";
 
