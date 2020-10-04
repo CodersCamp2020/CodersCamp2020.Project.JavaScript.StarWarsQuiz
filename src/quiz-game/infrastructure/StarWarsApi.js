@@ -5,10 +5,10 @@ const handleErrors = (response) => {
   return response;
 }
 
-export const StarWarsPeopleApi = ({starWarsApiBaseUrl}) => {
+export const StarWarsApi = ({starWarsApiBaseUrl}) => {
   return {
-    getById({id}) {
-      return fetch(`${starWarsApiBaseUrl}/people/${id}`)
+    find({category, id}) {
+      return fetch(`${starWarsApiBaseUrl}/${category}/${id}`)
           .then(handleErrors)
           .then(response => response.json())
           .then(responseJson => {

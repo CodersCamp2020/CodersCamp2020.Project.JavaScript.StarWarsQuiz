@@ -1,7 +1,7 @@
 import 'regenerator-runtime/runtime' //async/await with Parcel
 import {GoogleVisionApi} from "./quiz-game/infrastructure/GoogleVisionApi";
 import {QuizGame} from "./quiz-game/domain/QuizGame";
-import {StarWarsPeopleApi} from "./quiz-game/infrastructure/StarWarsPeopleApi";
+import {StarWarsApi} from "./quiz-game/infrastructure/StarWarsApi";
 import {PeopleMode} from "./quiz-game/domain/PeopleMode";
 import {MainMenuView} from "./main-menu/presentation/MainMenuView";
 import {QuizGamePresenter} from "./quiz-game/presentation/QuizGamePresenter";
@@ -12,6 +12,7 @@ import {RealTimer} from "./quiz-game/infrastructure/RealTimer";
 import {LocalStorageScoresRepository} from "./quiz-game/infrastructure/LocalStorageScoresRepository";
 import {QuizHallOfFameView} from "./quiz-hall-of-fame/presentation/QuizHallOfFameView";
 import {QuizHallOfFamePresenter} from "./quiz-hall-of-fame/presentation/QuizHallOfFamePresenter";
+import {StarshipsMode} from "./quiz-game/domain/StarshipsMode";
 
 export const App = () => {
   const API_KEY = 'AIzaSyAu5cv9vSquTVHFDuFRvbNX4FtN0TLwVrk'
@@ -19,10 +20,10 @@ export const App = () => {
 //const SW_API_BASE_URL = "http://localhost:3000";
 
 
-  const starWarsPeopleApi = StarWarsPeopleApi({starWarsApiBaseUrl: SW_API_BASE_URL})
+  const starWarsApi = StarWarsApi({starWarsApiBaseUrl: SW_API_BASE_URL})
   const googleVisionApi = GoogleVisionApi({apiKey: 'AIzaSyAu5cv9vSquTVHFDuFRvbNX4FtN0TLwVrk'})
 
-  const mode = PeopleMode({starWarsPeopleApi});
+  const mode = StarshipsMode({starWarsApi});
   const scoresRepository = LocalStorageScoresRepository({modeName: mode.name})
   MainMenuView()
       .onClickPlayTheGameButton(() => {

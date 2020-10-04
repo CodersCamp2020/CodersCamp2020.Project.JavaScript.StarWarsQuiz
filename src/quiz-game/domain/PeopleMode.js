@@ -11,7 +11,7 @@ const randomPersonId = () => {
   return random;
 }
 
-export const PeopleMode = ({starWarsPeopleApi}) => {
+export const PeopleMode = ({starWarsApi}) => {
   return {
     name: "people",
     async nextQuestion() {
@@ -20,7 +20,7 @@ export const PeopleMode = ({starWarsPeopleApi}) => {
         peopleIds.add(randomPersonId())
       }
       const rightAnswerId = [...peopleIds][getRandomIntInclusive(0, 3)]
-      const answers = await Promise.all([...peopleIds].map(id => starWarsPeopleApi.getById({id})));
+      const answers = await Promise.all([...peopleIds].map(id => starWarsApi.find({category: 'people', id})));
       return {
         image: await imageOf({type: "people", id: rightAnswerId}),
         rightAnswer: answers.find(it => it.id === rightAnswerId),
