@@ -1,4 +1,4 @@
-export const QuizGameHumanUiPresenter = ({quizGame, quizGameView, scoresRepository}) => {
+export const QuizGamePresenter = ({quizGame, quizGameView, scoresRepository}) => {
   return {
     startGame() {
       quizGame.onGameOver((gameOver) => quizGameView.showGameOver(gameOver))

@@ -45,7 +45,7 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
       textTimerView.show()
     },
     async startGame() {
-      return humanUiPresenter.startGame()
+      return quizGamePresenter.startGame()
           .then(this.finishLoading)
     },
     showQuestion({question}) {
@@ -55,7 +55,7 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
     },
     selectAnswer({answerName}) {
       answerElements.forEach(answerElement => answerElement.disabled = true)
-      return humanUiPresenter.giveAnswer({answer: answerName})
+      return quizGamePresenter.giveAnswer({answer: answerName})
     },
     showTimePass({passedTime, tickMillis}) {
       lightsaberTimerView.tickTimer({passedTime, tickMillis})
@@ -69,7 +69,7 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
       gameResultModal.onScoreSave(({playerName}) => {
         const humanAnswers = gameOver.answers.map(it => it.humanAnswer).filter(humanAnswer => humanAnswer !== undefined)
         const score = CorrectAnswersScoreCalculator().calculate({answers: humanAnswers})
-        humanUiPresenter.saveScore({playerName, score})
+        quizGamePresenter.saveScore({playerName, score})
       })
       gameResultModal.show({data: gameOver});
     }
@@ -79,7 +79,7 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
       await quizGameView.selectAnswer({answerName: answerElement.innerText})
     }
   }))
-  const humanUiPresenter = presenterSupplier(quizGameView)
+  const quizGamePresenter = presenterSupplier(quizGameView)
   return quizGameView;
 }
 
