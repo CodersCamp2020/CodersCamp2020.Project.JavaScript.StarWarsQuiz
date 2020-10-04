@@ -1,5 +1,5 @@
 import {getRandomIntInclusive} from "../../shared/Random";
-import {imageOf} from "../presentation/StarWarsAssetImage";
+import {imageBase64} from "../presentation/StarWarsAssetImage";
 
 const randomPersonId = () => {
   const FIRST_PERSON_ID = 1;
@@ -11,18 +11,19 @@ const randomPersonId = () => {
   return random;
 }
 
-export const PeopleMode = ({starWarsApi}) => {
+export const PeopleMode = ({repository}) => {
+  const modeName = "people";
   return {
-    name: "people",
+    name: modeName,
     async nextQuestion() {
       const peopleIds = new Set()
       for (let i = 0; peopleIds.size < 4; i++) {
         peopleIds.add(randomPersonId())
       }
       const rightAnswerId = [...peopleIds][getRandomIntInclusive(0, 3)]
-      const answers = await Promise.all([...peopleIds].map(id => starWarsApi.find({category: 'people', id})));
+      const answers = await Promise.all([...peopleIds].map(id => repository.getById({id})));
       return {
-        image: await imageOf({type: "people", id: rightAnswerId}),
+        image: await imageBase64({type: modeName, id: rightAnswerId}),
         rightAnswer: answers.find(it => it.id === rightAnswerId),
         answers
       }

@@ -23,7 +23,26 @@ export const App = () => {
   const starWarsApi = StarWarsApi({starWarsApiBaseUrl: SW_API_BASE_URL})
   const googleVisionApi = GoogleVisionApi({apiKey: 'AIzaSyAu5cv9vSquTVHFDuFRvbNX4FtN0TLwVrk'})
 
-  const mode = StarshipsMode({starWarsApi});
+
+  const swApiPeopleRepository = {
+    getById({id}) {
+      starWarsApi.find({id, category: "people"})
+    }
+  }
+  const swApiStarshipsRepository = {
+    getById({id}) {
+      starWarsApi.find({id, category: "starships"})
+    }
+  }
+  const swApiVehiclesRepository = {
+    getById({id}) {
+      starWarsApi.find({id, category: "vehicles"})
+    }
+  }
+
+  //const mode = StarshipsMode({repository: swApiStarshipsRepository});
+  const mode = PeopleMode({repository: swApiPeopleRepository});
+
   const scoresRepository = LocalStorageScoresRepository({modeName: mode.name})
   MainMenuView()
       .onClickPlayTheGameButton(() => {
