@@ -281,6 +281,7 @@ body {
 
 .swquiz-master-yoda {
     height: 20rem;
+    align-self: flex-end;
 }
 
 .swquiz-yoda-answers-wrapper {
@@ -307,6 +308,15 @@ body {
     padding: 0;
     margin: 0;
 }
+
+.swquiz-hall-of-fame-answers-header-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 100%;
+    flex-direction: column;
+}
+
 
 .swquiz-hall-of-fame-answers {
     background-color: transparent;
@@ -367,10 +377,11 @@ body {
 
 .swquiz-answer-row div {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 6rem 1fr 1fr 1fr;
     width: 100%;
     padding: 0 1rem;
     align-items: center;
+    height: 100%
 }
 
 .swquiz-yoda-answers-grid-wrapper {
@@ -416,6 +427,16 @@ body {
     align-items: center;
     font-weight: 600;
     border-bottom: #C4C4C4 1px solid;
+}
+
+.swquiz-game-result-answers-header {
+    display: grid;
+    grid-template-columns: 6rem 1fr 1fr 1fr;
+    padding: 0 1rem;
+    align-items: center;
+    font-weight: 600;
+    border-bottom: #C4C4C4 1px solid;
+    width: 100%;
 }
 
 .swquiz-hall-of-fame-player-row {

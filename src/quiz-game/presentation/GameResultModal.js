@@ -53,11 +53,11 @@ const AnswersRowElement = ({answer}) => {
   googleAnswerNameElement.innerText = googleAnswer ? googleAnswer.answerName : "None"
   googleAnswerNameElement.className = googleAnswer && googleAnswer.isCorrect ? "sw-quiz-answers-table-correct" : "sw-quiz-answers-table-incorrect"
 
+  rowContentElement.appendChild(questionImageElement);
   rowContentElement.appendChild(correctAnswerNameElement)
   rowContentElement.appendChild(humanAnswerNameElement)
   rowContentElement.appendChild(googleAnswerNameElement)
 
-  answersRow.appendChild(questionImageElement);
   answersRow.appendChild(rowContentElement);
   return answersRow;
 }
