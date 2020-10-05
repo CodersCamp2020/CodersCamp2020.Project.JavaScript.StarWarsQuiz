@@ -44,6 +44,7 @@ const AnswersRowElement = ({answer}) => {
   const {image, correctAnswerName, humanAnswer, googleAnswer} = answer;
   const questionImageElement = document.createElement("img");
   questionImageElement.src = `data:image/png;base64, ${image}`;
+  questionImageElement.style.maxWidth = '90%'
 
   const rowContentElement = document.createElement("div");
 

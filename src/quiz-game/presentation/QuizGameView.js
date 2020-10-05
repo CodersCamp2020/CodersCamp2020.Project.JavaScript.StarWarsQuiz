@@ -64,14 +64,13 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
     showGameOver(gameOver) {
       lightsaberTimerView.timeout()
       textTimerView.timeout()
-      console.log("GAME OVER", gameOver)
       const gameResultModal = GameResultModal({renderOn: "#swquiz-game-result-modal"})
       gameResultModal.onScoreSave(({playerName}) => {
         const humanAnswers = gameOver.answers.map(it => it.humanAnswer).filter(humanAnswer => humanAnswer !== undefined)
         const score = CorrectAnswersScoreCalculator().calculate({answers: humanAnswers})
         quizGamePresenter.saveScore({playerName, score})
       })
-      gameResultModal.show({data: gameOver});
+      //gameResultModal.show({data: gameOver});
     }
   }
   answerElements.forEach(answerElement => answerElement.addEventListener('click', async e => {

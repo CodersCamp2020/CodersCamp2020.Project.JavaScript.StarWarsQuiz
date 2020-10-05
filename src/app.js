@@ -41,14 +41,18 @@ export const App = () => {
     }
   }
 
-  //const mode = StarshipsMode({repository: swApiStarshipsRepository});
-  //const mode = VehiclesMode({repository: swApiVehiclesRepository});
+  const modes = {
+    people: PeopleMode({repository: swApiPeopleRepository}),
+    vehicles: VehiclesMode({repository: swApiVehiclesRepository}),
+    starships: StarshipsMode({repository: swApiStarshipsRepository}),
+  };
 
-  const mode = PeopleMode({repository: swApiPeopleRepository});
-
+  let mode = modes.people;
 
   const scoresRepository = LocalStorageScoresRepository({modeName: mode.name})
-  MainMenuView()
+  MainMenuView({
+    defaultModeName: mode.name
+  })
       .onClickPlayTheGameButton(() => {
         const quizModeMenu = document.getElementById("swquiz-mode")
         quizModeMenu.style.display = 'none'
@@ -78,6 +82,9 @@ export const App = () => {
           })
         });
         quizHallOfFameView.loadBestScores();
+      })
+      .onModeSelected(modeName => {
+        mode = modes[modeName]
       })
 }
 
