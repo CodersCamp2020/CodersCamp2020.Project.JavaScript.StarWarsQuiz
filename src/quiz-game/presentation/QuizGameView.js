@@ -3,7 +3,6 @@ import {QUIZ_MAX_TIME} from "../domain/TimeUnits";
 import {TextTimerView} from "./TextTimerView";
 import {GameResultModal} from "./GameResultModal";
 import {render} from "../../shared/dom";
-import {TextLoaderView} from "../../loader/TextLoaderView";
 import {CircleLoaderView} from "../../loader/CircleLoaderView";
 
 const viewTemplateHtml = `
