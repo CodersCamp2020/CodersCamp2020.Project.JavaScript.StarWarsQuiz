@@ -1,0 +1,26 @@
+.swquiz-mainmenu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 70%;
+    height: 60%;
+    background: #FFFFFF;
+    /* Card / Shadow / Red */
+
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 4px 4px 40px rgba(255, 0, 0, 0.9);
+    border-radius: 16px;
+}
+
+.swquiz-mainmenu-option {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2rem;
+    text-transform: capitalize;
+}
+
+.swquiz-mainmenu-option.selected {
+    border-bottom: 6px rgba(255, 0, 0, 0.5);
+    padding-bottom: 0.50rem;
+    border-bottom-style: solid;
+    border-radius: 4px;
+}
