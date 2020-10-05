@@ -1,4 +1,3 @@
-import 'regenerator-runtime/runtime' //async/await with Parcel
 import {GoogleVisionApi} from "../quiz-game/infrastructure/GoogleVisionApi";
 import {QuizGame} from "../quiz-game/domain/QuizGame";
 import {StarWarsApi} from "../quiz-game/infrastructure/StarWarsApi";
@@ -38,6 +37,9 @@ export const App = ({renderOn}) => {
     }
   }
 
+  const googleVisionPlayer = GoogleVisionPlayer({googleVisionApi});
+  const humanPlayer = HumanPlayer();
+
   const modes = {
     people: PeopleMode({repository: swApiPeopleRepository}),
     vehicles: VehiclesMode({repository: swApiVehiclesRepository}),
@@ -67,8 +69,8 @@ export const App = ({renderOn}) => {
         quizModeMenu.style.display = 'none'
         const quizGame = QuizGame({
           mode: modes[modeName],
-          google: GoogleVisionPlayer({googleVisionApi}),
-          human: HumanPlayer(),
+          google: googleVisionPlayer,
+          human: humanPlayer,
           startTimer: ({tickMillis, timeout, onTick, onTimeout}) => RealTimer({tickMillis, timeout, onTick, onTimeout})
         })
         const quizGameView = QuizGameView({

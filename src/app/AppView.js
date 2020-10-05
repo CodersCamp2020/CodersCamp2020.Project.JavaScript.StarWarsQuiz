@@ -10,9 +10,7 @@ const templateHtml = `
     <div id="swquiz-mode" class="swquiz-mode">
         <div class="swquiz-question-image-bg"></div>
         <div style="width: 2rem"></div>
-        <div id="swquiz-mode-menu" class="swquiz-mode-menu">
-          
-        </div>
+        <div id="swquiz-mode-menu" class="swquiz-mode-menu"></div>
     </div>
 
     <div id="swquiz-loading" class="swquiz-loading"><h1>FEEL THE FORCE...</h1></div>
@@ -22,28 +20,24 @@ const templateHtml = `
 `
 
 export const AppView = ({renderOn, defaultModeName, modes}) => {
-  let selectedModeName = defaultModeName;
-
   const onClickPlayTheGameButtonHooks = []
   const onClickHallOfFameButtonHooks = []
 
   const appView = document.querySelector(renderOn)
   appView.innerHTML = templateHtml;
 
-
   const view = {
     selectMode({modeName}) {
-      selectedModeName = modeName;
 
-      const modeMenuView = ModeMenuView({
+      ModeMenuView({
         renderOn: "#swquiz-mode-menu",
-        data: {title: modes[modeName].title, rules: modes[modeName].rules}
+        data: {name: modeName, title: modes[modeName].title, rules: modes[modeName].rules}
       })
 
       const playTheGameButton = document.getElementById("play-the-game-button")
-      playTheGameButton.addEventListener('click', () => onClickPlayTheGameButtonHooks.forEach(hook => hook(selectedModeName)))
+      playTheGameButton.addEventListener('click', () => onClickPlayTheGameButtonHooks.forEach(hook => hook(modeName)))
       const hallOfFameButton = document.getElementById("swquiz-mode-hall-of-fame-button")
-      hallOfFameButton.addEventListener('click', () => onClickHallOfFameButtonHooks.forEach(hook => hook(selectedModeName)))
+      hallOfFameButton.addEventListener('click', () => onClickHallOfFameButtonHooks.forEach(hook => hook(modeName)))
 
       return view;
     },

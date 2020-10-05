@@ -13,5 +13,5 @@ const templateHtml = ({title,rules}) => `
 
 export const ModeMenuView = ({renderOn, data}) => {
   const element = document.querySelector(renderOn)
-  element.innerHTML = templateHtml({title: data.title, rules: data.rules})
+  element.innerHTML = templateHtml({name: data.name, title: data.title, rules: data.rules})
 }
