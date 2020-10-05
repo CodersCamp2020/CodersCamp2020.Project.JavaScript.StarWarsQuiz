@@ -22,8 +22,7 @@ export const App = () => {
 
 
   const starWarsApi = StarWarsApi({starWarsApiBaseUrl: SW_API_BASE_URL})
-  const googleVisionApi = GoogleVisionApi({apiKey: 'AIzaSyAu5cv9vSquTVHFDuFRvbNX4FtN0TLwVrk'})
-
+  const googleVisionApi = GoogleVisionApi({apiKey: API_KEY})
 
   const swApiPeopleRepository = {
     getById({id}) {
@@ -52,17 +51,15 @@ export const App = () => {
     modes: {
       people: {
         title: "Who is this character?",
-        rules: `You have two minutes (2m) to answer as many questions as possible. During the game on each question
-                    you need to select who from Star Wars is showed on the left (Jar Jar Binks right now) from available
-                    options, or select that the character is none of above.`
+        rules: `You have two minutes (2m) to answer as many questions as possible. During the game on each question you need to select who from Star Wars is showed on the left (Jar Jar Binks right now) from available options.`
       },
       vehicles: {
         title: "Do you recognize this vehicle?",
-        rules: `Guess vehicle`
+        rules: `You have two minutes (2m) to answer as many questions as possible. During the game on each question you need to select which vehicle from Star Wars is showed on the left.`
       },
       starships: {
         title: "Do you recognize this starship?",
-        rules: `Guess starship`
+        rules: `You have two minutes (2m) to answer as many questions as possible. During the game on each question you need to select which starship from Star Wars is showed on the left.`
       }
     }
   })
@@ -84,7 +81,8 @@ export const App = () => {
           })
         });
         quizGameView.show();
-        quizGameView.startGame().then(() => console.log("GAME STARTED!"));
+        quizGameView.startGame()
+            .then(() => console.log("GAME STARTED!"));
       })
       .onClickHallOfFameButton(modeName => {
         console.log("CLICK HALL OF FAME", modeName)

@@ -22,6 +22,12 @@ export const MainMenuView = ({defaultModeName, modes}) => {
 
   const view = {
     selectMode({modeName}) {
+      const modeContentElement = document.querySelector("#swquiz-mode-content")
+      modeContentElement.innerHTML = `
+        <h2>Mode Rules</h2>
+        <p id="swquiz-mode-rules-text"></p>
+      `
+
       const otherModesOptions = document.getElementsByClassName("swquiz-mainmenu-option")
       for (const otherModeOption of otherModesOptions) {
         otherModeOption.classList.remove("selected")
@@ -31,12 +37,10 @@ export const MainMenuView = ({defaultModeName, modes}) => {
       selectedModeName = modeName;
 
       const modeTitleElement = document.getElementById("swquiz-mode-title-text")
-      if (modeTitleElement) {
-        modeTitleElement.innerText = modes[modeName].title
+      modeTitleElement.innerText = modes[modeName].title
 
-        const modeRulesElement = document.getElementById("swquiz-mode-rules-text")
-        modeRulesElement.innerText = modes[modeName].rules
-      }
+      const modeRulesElement = document.getElementById("swquiz-mode-rules-text")
+      modeRulesElement.innerText = modes[modeName].rules
       return view;
     },
     onClickPlayTheGameButton(hook) {
