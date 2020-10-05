@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-image: url("./static/assets/ui/QuizBackground.png");
+    background-image: url("static/assets/ui/QuizBackground.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -24,7 +24,7 @@ body {
 }
 
 .swquiz-logo {
-    background-image: url("./static/assets/ui/StarWarsLogo.png");
+    background-image: url("static/assets/ui/StarWarsLogo.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -197,7 +197,7 @@ body {
     display: none;
     flex-direction: column;
     justify-content: center;
-    background-image: url("./static/assets/ui/LightsaberHandle.png");
+    background-image: url("static/assets/ui/LightsaberHandle.png");
     background-repeat: no-repeat;
     background-position: left;
     background-size: contain;
