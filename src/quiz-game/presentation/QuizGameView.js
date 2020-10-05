@@ -81,7 +81,7 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
     showGameOver(gameOver) {
       lightsaberTimerView.timeout()
       textTimerView.timeout()
-      const gameResultModal = GameResultModal({renderOn: "#swquiz-game-result-modal"})
+      const gameResultModal = GameResultModal()
       gameResultModal.onScoreSave(({playerName}) => {
         const humanAnswers = gameOver.answers.map(it => it.humanAnswer).filter(humanAnswer => humanAnswer !== undefined)
         const score = CorrectAnswersScoreCalculator().calculate({answers: humanAnswers})

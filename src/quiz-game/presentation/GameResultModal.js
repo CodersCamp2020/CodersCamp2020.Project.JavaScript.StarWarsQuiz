@@ -32,14 +32,14 @@ const modalElementInnerHTML = `
     </div>
 `
 
-export const GameResultModal = ({renderOn}) => {
+export const GameResultModal = () => {
   const onSaveScoreHooks = [];
 
-  const modalElement = document.querySelector(renderOn)
-  if (!modalElement) {
-    throw new Error(`Element ${renderOn} not exists!`)
-  }
+  const modalElement = document.createElement("div")
+  modalElement.id = "swquiz-game-result-modal"
+  modalElement.classList.add("swquiz-game-result-modal")
   modalElement.innerHTML = modalElementInnerHTML;
+  document.querySelector("body").appendChild(modalElement)
 
   const submitScoreSaveForm = modalElement.querySelector("#hall-of-fame-save")
   submitScoreSaveForm.addEventListener("submit", () => {
