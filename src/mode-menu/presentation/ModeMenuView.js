@@ -20,7 +20,7 @@ const templateHtml = ({title, rules}) => `
 `
 
 export const ModeMenuView = ({renderOn, data}) => {
-  render({on: renderOn, html: templateHtml({name: data.name, title: data.title, rules: data.rules})})
+  const element =render({on: renderOn, html: templateHtml({name: data.name, title: data.title, rules: data.rules})})
 
   const onClickPlayTheGameButtonHooks = []
   const onClickHallOfFameButtonHooks = []

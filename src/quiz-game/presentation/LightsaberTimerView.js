@@ -1,17 +1,17 @@
+import {render} from "../../shared/dom";
+
 const TIMER_MAX_WIDTH_PERCENTS = '100'
 
 const viewTemplateHtml = `
+    <div id="swquiz-lightsaber" class="swquiz-lightsaber-wrapper">
         <div class="swquiz-lightsaber-background">
             <div class="swquiz-lightsaber-timer"></div>
         </div>
+    </div>
 `
 
 export const LightsaberTimerView = ({renderOn, timeout}) => {
-  const element = document.querySelector(renderOn);
-  if (!element) {
-    throw new Error(`Element ${renderOn} not exists!`)
-  }
-  element.innerHTML = viewTemplateHtml
+  const element = render({on: renderOn, html: viewTemplateHtml})
 
   const timerElement = document.querySelector(".swquiz-lightsaber-timer")
   if (!timerElement) {

@@ -4,7 +4,7 @@ import {QuizGameView} from "../quiz-game/presentation/QuizGameView";
 import {QuizGamePresenter} from "../quiz-game/presentation/QuizGamePresenter";
 import {QuizHallOfFameView} from "../quiz-hall-of-fame/presentation/QuizHallOfFameView";
 import {QuizHallOfFamePresenter} from "../quiz-hall-of-fame/presentation/QuizHallOfFamePresenter";
-import { render} from "../shared/dom";
+import {render} from "../shared/dom";
 
 const templateHtml = `
     <div id="swquiz-app">

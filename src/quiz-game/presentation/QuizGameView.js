@@ -18,7 +18,7 @@ const viewTemplateHtml = `
                 </div>
             </div>        
         </div>
-        <div id="swquiz-lightsaber" class="swquiz-lightsaber-wrapper"></div>
+        <div id="swquiz-lightsaber"></div>
         <div id="swquiz-timer-text" class="swquiz-timer-text"></div>
 `
 
