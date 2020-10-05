@@ -3,8 +3,6 @@ import {MainMenuView} from "./MainMenuView";
 export const AppView = ({defaultModeName, modes}) => {
   let selectedModeName = defaultModeName;
 
-  const onModeSelectedHooks = []
-
   const onClickPlayTheGameButtonHooks = []
   const playTheGameButton = document.getElementById("play-the-game-button")
   playTheGameButton.addEventListener('click', () => onClickPlayTheGameButtonHooks.forEach(hook => hook(selectedModeName)))
@@ -15,7 +13,7 @@ export const AppView = ({defaultModeName, modes}) => {
 
   MainMenuView({
     renderOn: "#swquiz-mainmenu",
-    options: ["People", "Vehicles", "Starships"]
+    options: ["people", "vehicles", "starships"]
   }).onOptionSelected(({option}) => {
     view.selectMode({modeName: option})
   });
@@ -49,10 +47,6 @@ export const AppView = ({defaultModeName, modes}) => {
     },
     onClickHallOfFameButton(hook) {
       onClickHallOfFameButtonHooks.push(hook)
-      return view;
-    },
-    onModeSelected(hook) {
-      onModeSelectedHooks.push(hook)
       return view;
     }
   }

@@ -7,9 +7,9 @@ export const MainMenuView = ({renderOn, options}) => {
   const viewElement = document.querySelector(renderOn);
   viewElement.innerHTML = viewTemplateHtml({options})
 
-  const mainMenuOptions = document.getElementsByClassName("swquiz-mainmenu-option")
-  for (const modeOption of mainMenuOptions) {
-    modeOption.addEventListener('click', e => {
+  const optionsElements = document.getElementsByClassName("swquiz-mainmenu-option")
+  for (const optionElement of optionsElements) {
+    optionElement.addEventListener('click', e => {
       const option = e.target.id;
       onOptionSelectedHooks.forEach(hook => hook({option}))
     })
