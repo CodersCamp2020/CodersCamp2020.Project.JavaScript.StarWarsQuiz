@@ -1,5 +1,12 @@
 import {MainMenuView} from "../main-menu/presentation/MainMenuView";
 import {ModeMenuView} from "../mode-menu/presentation/ModeMenuView";
+import {QuizGame} from "../quiz-game/domain/QuizGame";
+import {RealTimer} from "../quiz-game/infrastructure/RealTimer";
+import {QuizGameView} from "../quiz-game/presentation/QuizGameView";
+import {QuizGamePresenter} from "../quiz-game/presentation/QuizGamePresenter";
+import {LocalStorageScoresRepository} from "../quiz-game/infrastructure/LocalStorageScoresRepository";
+import {QuizHallOfFameView} from "../quiz-hall-of-fame/presentation/QuizHallOfFameView";
+import {QuizHallOfFamePresenter} from "../quiz-hall-of-fame/presentation/QuizHallOfFamePresenter";
 
 const templateHtml = `
     <div class="swquiz-header">
@@ -19,34 +26,52 @@ const templateHtml = `
     <div id="swquiz-timer-text" class="swquiz-timer-text"></div>
 `
 
-export const AppView = ({renderOn, defaultModeName, modes}) => {
-  const onClickPlayTheGameButtonHooks = []
-  const onClickHallOfFameButtonHooks = []
-
+export const AppView = ({renderOn, data}) => {
   const appView = document.querySelector(renderOn)
   appView.innerHTML = templateHtml;
+
+  const {defaultModeName, humanPlayer, googleVisionPlayer, modes, modesDescriptions} = data;
 
   const view = {
     selectMode({modeName}) {
 
       ModeMenuView({
         renderOn: "#swquiz-mode-menu",
-        data: {name: modeName, title: modes[modeName].title, rules: modes[modeName].rules}
+        data: {name: modeName, title: modesDescriptions[modeName].title, rules: modesDescriptions[modeName].rules}
+      }).onClickPlayTheGameButton(modeName => {
+        const quizModeMenu = document.getElementById("swquiz-mode")
+        quizModeMenu.style.display = 'none'
+        const quizGame = QuizGame({
+          mode: modes[modeName],
+          google: googleVisionPlayer,
+          human: humanPlayer,
+          startTimer: ({tickMillis, timeout, onTick, onTimeout}) => RealTimer({tickMillis, timeout, onTick, onTimeout})
+        })
+        const quizGameView = QuizGameView({
+          renderOn: '#swquiz-game',
+          presenterSupplier: view => QuizGamePresenter({
+            quizGame,
+            quizGameView: view,
+            scoresRepository: LocalStorageScoresRepository({modeName})
+          })
+        });
+        quizGameView.show();
+        quizGameView.startGame()
+            .then(() => console.log("GAME STARTED!"));
       })
+          .onClickHallOfFameButton(modeName => {
+            console.log("CLICK HALL OF FAME", modeName)
+            const quizHallOfFameView = QuizHallOfFameView({
+              renderOn: "#swquiz-mode-content",
+              presenterSupplier: view => QuizHallOfFamePresenter({
+                scoresRepository: LocalStorageScoresRepository({modeName}),
+                quizHallOfFameView: view
+              })
+            });
+            quizHallOfFameView.loadBestScores();
+          });
 
-      const playTheGameButton = document.getElementById("play-the-game-button")
-      playTheGameButton.addEventListener('click', () => onClickPlayTheGameButtonHooks.forEach(hook => hook(modeName)))
-      const hallOfFameButton = document.getElementById("swquiz-mode-hall-of-fame-button")
-      hallOfFameButton.addEventListener('click', () => onClickHallOfFameButtonHooks.forEach(hook => hook(modeName)))
 
-      return view;
-    },
-    onClickPlayTheGameButton(hook) {
-      onClickPlayTheGameButtonHooks.push(hook)
-      return view;
-    },
-    onClickHallOfFameButton(hook) {
-      onClickHallOfFameButtonHooks.push(hook)
       return view;
     }
   }

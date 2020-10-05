@@ -14,4 +14,23 @@ const templateHtml = ({title,rules}) => `
 export const ModeMenuView = ({renderOn, data}) => {
   const element = document.querySelector(renderOn)
   element.innerHTML = templateHtml({name: data.name, title: data.title, rules: data.rules})
+
+  const onClickPlayTheGameButtonHooks = []
+  const onClickHallOfFameButtonHooks = []
+
+  const playTheGameButton = document.getElementById("play-the-game-button")
+  playTheGameButton.addEventListener('click', () => onClickPlayTheGameButtonHooks.forEach(hook => hook(data.name)))
+  const hallOfFameButton = document.getElementById("swquiz-mode-hall-of-fame-button")
+  hallOfFameButton.addEventListener('click', () => onClickHallOfFameButtonHooks.forEach(hook => hook(data.name)))
+  const view = {
+    onClickPlayTheGameButton(hook) {
+      onClickPlayTheGameButtonHooks.push(hook)
+      return view;
+    },
+    onClickHallOfFameButton(hook) {
+      onClickHallOfFameButtonHooks.push(hook)
+      return view;
+    }
+  }
+  return view;
 }

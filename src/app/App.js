@@ -48,54 +48,27 @@ export const App = ({renderOn}) => {
 
   AppView({
     renderOn,
-    defaultModeName: "people",
-    modes: {
-      people: {
-        title: "Who is this character?",
-        rules: `You have one minute (1m) to answer as many questions as possible. During the game on each question you need to select who from Star Wars is showed on the left (Jar Jar Binks right now) from available options.`
-      },
-      vehicles: {
-        title: "Do you recognize this vehicle?",
-        rules: `You have one minute (1m) to answer as many questions as possible. During the game on each question you need to select which vehicle from Star Wars is showed on the left.`
-      },
-      starships: {
-        title: "Do you recognize this starship?",
-        rules: `You have one minute (1m) to answer as many questions as possible. During the game on each question you need to select which starship from Star Wars is showed on the left.`
+    data: {
+      defaultModeName: "people",
+      modes,
+      googleVisionPlayer,
+      humanPlayer,
+      modesDescriptions: {
+        people: {
+          title: "Who is this character?",
+          rules: `You have one minute (1m) to answer as many questions as possible. During the game on each question you need to select who from Star Wars is showed on the left (Jar Jar Binks right now) from available options.`
+        },
+        vehicles: {
+          title: "Do you recognize this vehicle?",
+          rules: `You have one minute (1m) to answer as many questions as possible. During the game on each question you need to select which vehicle from Star Wars is showed on the left.`
+        },
+        starships: {
+          title: "Do you recognize this starship?",
+          rules: `You have one minute (1m) to answer as many questions as possible. During the game on each question you need to select which starship from Star Wars is showed on the left.`
+        }
       }
     }
-  })
-      .onClickPlayTheGameButton(modeName => {
-        const quizModeMenu = document.getElementById("swquiz-mode")
-        quizModeMenu.style.display = 'none'
-        const quizGame = QuizGame({
-          mode: modes[modeName],
-          google: googleVisionPlayer,
-          human: humanPlayer,
-          startTimer: ({tickMillis, timeout, onTick, onTimeout}) => RealTimer({tickMillis, timeout, onTick, onTimeout})
-        })
-        const quizGameView = QuizGameView({
-          renderOn: '#swquiz-game',
-          presenterSupplier: view => QuizGamePresenter({
-            quizGame,
-            quizGameView: view,
-            scoresRepository: LocalStorageScoresRepository({modeName})
-          })
-        });
-        quizGameView.show();
-        quizGameView.startGame()
-            .then(() => console.log("GAME STARTED!"));
-      })
-      .onClickHallOfFameButton(modeName => {
-        console.log("CLICK HALL OF FAME", modeName)
-        const quizHallOfFameView = QuizHallOfFameView({
-          renderOn: "#swquiz-mode-content",
-          presenterSupplier: view => QuizHallOfFamePresenter({
-            scoresRepository: LocalStorageScoresRepository({modeName}),
-            quizHallOfFameView: view
-          })
-        });
-        quizHallOfFameView.loadBestScores();
-      });
+  });
 }
 
 
