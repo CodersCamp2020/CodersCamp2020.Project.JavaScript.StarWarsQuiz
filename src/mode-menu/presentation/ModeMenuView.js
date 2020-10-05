@@ -1,4 +1,7 @@
-const templateHtml = ({title,rules}) => `
+import {render} from "../../shared/dom";
+
+const templateHtml = ({title, rules}) => `
+    <div id="swquiz-mode" class="swquiz-mode">
         <div class="swquiz-question-image-bg"></div>
         <div style="width: 2rem"></div>
         <div id="swquiz-mode-menu" class="swquiz-mode-menu">
@@ -13,11 +16,11 @@ const templateHtml = ({title,rules}) => `
                 <button class="sw-quiz-mode-button-play" id="play-the-game-button">PLAY THE GAME</button>
             </div>
         </div>
+    </div>
 `
 
 export const ModeMenuView = ({renderOn, data}) => {
-  const element = document.querySelector(renderOn)
-  element.innerHTML = templateHtml({name: data.name, title: data.title, rules: data.rules})
+  render({on: renderOn, html: templateHtml({name: data.name, title: data.title, rules: data.rules})})
 
   const onClickPlayTheGameButtonHooks = []
   const onClickHallOfFameButtonHooks = []
@@ -36,7 +39,7 @@ export const ModeMenuView = ({renderOn, data}) => {
       onClickHallOfFameButtonHooks.push(hook)
       return view;
     },
-    hide(){
+    hide() {
       element.style.display = 'none'
     }
   }

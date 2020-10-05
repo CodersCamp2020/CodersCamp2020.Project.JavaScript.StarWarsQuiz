@@ -4,22 +4,23 @@ import {QuizGameView} from "../quiz-game/presentation/QuizGameView";
 import {QuizGamePresenter} from "../quiz-game/presentation/QuizGamePresenter";
 import {QuizHallOfFameView} from "../quiz-hall-of-fame/presentation/QuizHallOfFameView";
 import {QuizHallOfFamePresenter} from "../quiz-hall-of-fame/presentation/QuizHallOfFamePresenter";
+import { render} from "../shared/dom";
 
 const templateHtml = `
-    <div class="swquiz-header">
-        <a class="swquiz-logo-image" href="/"><img class="swquiz-logo-image" src="static/assets/ui/StarWarsLogo.png" alt="Star Wars Logo"/></a>
-            <div id="swquiz-mainmenu" class="swquiz-mainmenu">
+    <div id="swquiz-app">
+        <div class="swquiz-header">
+            <a class="swquiz-logo-image" href="/"><img class="swquiz-logo-image" src="static/assets/ui/StarWarsLogo.png" alt="Star Wars Logo"/></a>
+                <template id="swquiz-mainmenu" class="swquiz-mainmenu"></template>
         </div>
-    </div>
-    <div id="swquiz-mode" class="swquiz-mode"></div>
+        <template id="swquiz-mode"></template>
 
-    <div id="swquiz-loading" class="swquiz-loading"><h1>FEEL THE FORCE...</h1></div>
-    <div id="swquiz-game-wrapper"></div>
+        <div id="swquiz-loading" class="swquiz-loading"><h1>FEEL THE FORCE...</h1></div>
+        <div id="swquiz-game-wrapper"></div>
+    </div>
 `
 
 export const AppView = ({renderOn, quizGameProvider, scoresRepositoryProvider, data}) => {
-  const appView = document.querySelector(renderOn)
-  appView.innerHTML = templateHtml;
+  render({on: renderOn, html: templateHtml})
 
   const {defaultModeName, modesDescriptions} = data;
 

@@ -1,11 +1,17 @@
-const viewTemplateHtml = ({options}) =>
+import {render} from "../../shared/dom";
+
+const templateHtml = (inner) => `
+  <div id="swquiz-mainmenu" class="swquiz-mainmenu">${inner}</div>
+`
+
+const optionsTemplateHtml = ({options}) =>
     options.map(option => `<p class="swquiz-mainmenu-option" id="${option.toLowerCase()}">${option}</p>`)
         .reduce((x, y) => x + y)
 
 export const MainMenuView = ({renderOn, options, selectedOption}) => {
+  render({on: renderOn, html: templateHtml(optionsTemplateHtml({options}))})
+
   const onOptionSelectedHooks = [];
-  const viewElement = document.querySelector(renderOn);
-  viewElement.innerHTML = viewTemplateHtml({options})
 
   const optionsElements = document.getElementsByClassName("swquiz-mainmenu-option")
   for (const optionElement of optionsElements) {
