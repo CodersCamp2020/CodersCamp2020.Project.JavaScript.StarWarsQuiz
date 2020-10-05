@@ -15,13 +15,19 @@ describe("Model-View-Presenter | Quiz Hall Of Fame", () => {
     scoresRepository: InMemoryScoresRepository({modeName: "SampleModeName", initialData})
   })
 
+  afterEach(() => {
+    showBestScoresMock.mockClear();
+  })
+
   describe("loadBestScores", () => {
 
-    sut.loadBestScores();
+    beforeEach(() => {
+      sut.loadBestScores();
+    })
 
     it("should showBestScores on view", () => {
-      expect(showBestScoresMock.calls.length).toEqual(1)
-      expect(showBestScoresMock.calls[0][0]).toEqual(initialData)
+      expect(showBestScoresMock.mock.calls.length).toEqual(1)
+      expect(showBestScoresMock.mock.calls[0][0]).toEqual({bestScores: initialData})
     })
 
   })

@@ -37,3 +37,6 @@ Może się przydać do odczytania np. cieni i kolorów. Nie zwracajcie uwagi na 
 - Star Wars API
 - Google Vision API
 
+## Opis kodu startowego:
+1. Został dodany Jest w sposób opisany [TUTAJ](https://ryankubik.com/blog/parcel-and-jest/)
+
