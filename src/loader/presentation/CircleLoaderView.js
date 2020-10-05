@@ -1,4 +1,4 @@
-import {elementFrom} from "../shared/dom";
+import {elementFrom} from "../../shared/dom";
 
 const templateHtml = `
 <div id="preloader" style="display: none">

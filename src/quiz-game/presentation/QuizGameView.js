@@ -3,7 +3,7 @@ import {QUIZ_MAX_TIME} from "../domain/TimeUnits";
 import {TextTimerView} from "./TextTimerView";
 import {GameResultModal} from "./GameResultModal";
 import {render} from "../../shared/dom";
-import {CircleLoaderView} from "../../loader/CircleLoaderView";
+import {CircleLoaderView} from "../../loader/presentation/CircleLoaderView";
 
 const viewTemplateHtml = `
      <div id="swquiz-game-wrapper">
