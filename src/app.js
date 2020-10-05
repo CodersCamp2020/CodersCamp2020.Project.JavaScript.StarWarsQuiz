@@ -47,17 +47,30 @@ export const App = () => {
     starships: StarshipsMode({repository: swApiStarshipsRepository}),
   };
 
-  let mode = modes.people;
-
-  const scoresRepository = LocalStorageScoresRepository({modeName: mode.name})
   MainMenuView({
-    defaultModeName: mode.name
+    defaultModeName: "people",
+    modes: {
+      people: {
+        title: "Who is this character?",
+        rules: `You have two minutes (2m) to answer as many questions as possible. During the game on each question
+                    you need to select who from Star Wars is showed on the left (Jar Jar Binks right now) from available
+                    options, or select that the character is none of above.`
+      },
+      vehicles: {
+        title: "Do you recognize this vehicle?",
+        rules: `Guess vehicle`
+      },
+      starships: {
+        title: "Do you recognize this starship?",
+        rules: `Guess starship`
+      }
+    }
   })
-      .onClickPlayTheGameButton(() => {
+      .onClickPlayTheGameButton(modeName => {
         const quizModeMenu = document.getElementById("swquiz-mode")
         quizModeMenu.style.display = 'none'
         const quizGame = QuizGame({
-          mode,
+          mode: modes[modeName],
           google: GoogleVisionPlayer({googleVisionApi}),
           human: HumanPlayer(),
           startTimer: ({tickMillis, timeout, onTick, onTimeout}) => RealTimer({tickMillis, timeout, onTick, onTimeout})
@@ -67,25 +80,22 @@ export const App = () => {
           presenterSupplier: view => QuizGamePresenter({
             quizGame,
             quizGameView: view,
-            scoresRepository
+            scoresRepository: LocalStorageScoresRepository({modeName})
           })
         });
         quizGameView.show();
         quizGameView.startGame().then(() => console.log("GAME STARTED!"));
       })
-      .onClickHallOfFameButton(() => {
+      .onClickHallOfFameButton(modeName => {
         const quizHallOfFameView = QuizHallOfFameView({
           renderOn: "#swquiz-mode-content",
           presenterSupplier: view => QuizHallOfFamePresenter({
-            scoresRepository,
+            scoresRepository: LocalStorageScoresRepository({modeName}),
             quizHallOfFameView: view
           })
         });
         quizHallOfFameView.loadBestScores();
-      })
-      .onModeSelected(modeName => {
-        mode = modes[modeName]
-      })
+      });
 }
 
 

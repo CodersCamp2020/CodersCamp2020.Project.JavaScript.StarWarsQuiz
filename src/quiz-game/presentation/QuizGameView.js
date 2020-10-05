@@ -70,7 +70,7 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
         const score = CorrectAnswersScoreCalculator().calculate({answers: humanAnswers})
         quizGamePresenter.saveScore({playerName, score})
       })
-      //gameResultModal.show({data: gameOver});
+      gameResultModal.show({data: gameOver});
     }
   }
   answerElements.forEach(answerElement => answerElement.addEventListener('click', async e => {

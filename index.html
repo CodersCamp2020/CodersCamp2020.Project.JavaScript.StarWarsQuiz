@@ -13,21 +13,21 @@
 
 <div id="swquiz-app">
     <div class="swquiz-header">
-        <img class="swquiz-logo-image" src="static/assets/ui/StarWarsLogo.png" alt="Star Wars Logo"/>
+        <a class="swquiz-logo-image" href="/"><img class="swquiz-logo-image" src="static/assets/ui/StarWarsLogo.png" alt="Star Wars Logo"/></a>
         <div class="swquiz-mainmenu">
             <p class="swquiz-mainmenu-option" id="people">People</p>
             <p class="swquiz-mainmenu-option" id="vehicles">Vehicles</p>
-            <p class="swquiz-mainmenu-option" id="spaceships">Spaceships</p>
+            <p class="swquiz-mainmenu-option" id="starships">Starships</p>
         </div>
     </div>
     <div id="swquiz-mode" class="swquiz-mode">
         <div class="swquiz-question-image-bg"></div>
         <div style="width: 2rem"></div>
         <div id="swquiz-mode-menu" class="swquiz-mode-menu">
-            <div class="swquiz-mode-title"><p>MODE: Who is this character?</p></div>
+            <div class="swquiz-mode-title"><p id="swquiz-mode-title-text">MODE: Who is this character?</p></div>
             <div id="swquiz-mode-content" class="swquiz-mode-content">
                 <h2>Mode Rules</h2>
-                <p>
+                <p id="swquiz-mode-rules-text">
                     You have one minute (1m) to answer as many questions as possible. During the game on each question
                     you need to select who from Star Wars is showed on the left (Jar Jar Binks right now) from available
                     options, or select that the character is none of above.

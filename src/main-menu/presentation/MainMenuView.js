@@ -1,14 +1,14 @@
-export const MainMenuView = ({defaultModeName}) => {
+export const MainMenuView = ({defaultModeName, modes}) => {
   let selectedModeName = defaultModeName;
   const onModeSelectedHooks = []
 
   const onClickPlayTheGameButtonHooks = []
   const playTheGameButton = document.getElementById("play-the-game-button")
-  playTheGameButton.addEventListener('click', () => onClickPlayTheGameButtonHooks.forEach(hook => hook({modeName: selectedModeName})))
+  playTheGameButton.addEventListener('click', () => onClickPlayTheGameButtonHooks.forEach(hook => hook(selectedModeName)))
 
   const onClickHallOfFameButtonHooks = []
   const hallOfFameButton = document.getElementById("swquiz-mode-hall-of-fame-button")
-  hallOfFameButton.addEventListener('click', () => onClickHallOfFameButtonHooks.forEach(hook => hook({modeName: selectedModeName})))
+  hallOfFameButton.addEventListener('click', () => onClickHallOfFameButtonHooks.forEach(hook => hook(selectedModeName)))
 
   const mainMenuOptions = document.getElementsByClassName("swquiz-mainmenu-option")
   for (const modeOption of mainMenuOptions) {
@@ -28,6 +28,13 @@ export const MainMenuView = ({defaultModeName}) => {
       const menuModeOptionElement = document.getElementById(`${modeName}`)
       menuModeOptionElement.classList.add("selected")
       this.selectedModeName = modeName;
+
+      const modeTitleElement = document.getElementById("swquiz-mode-title-text")
+      modeTitleElement.innerText = modes[modeName].title
+
+      const modeRulesElement = document.getElementById("swquiz-mode-rules-text")
+      modeRulesElement.innerText = modes[modeName].rules
+
       return view;
     },
     onClickPlayTheGameButton(hook) {
