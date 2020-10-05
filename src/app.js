@@ -3,7 +3,7 @@ import {GoogleVisionApi} from "./quiz-game/infrastructure/GoogleVisionApi";
 import {QuizGame} from "./quiz-game/domain/QuizGame";
 import {StarWarsApi} from "./quiz-game/infrastructure/StarWarsApi";
 import {PeopleMode} from "./quiz-game/domain/PeopleMode";
-import {MainMenuView} from "./main-menu/presentation/MainMenuView";
+import {AppView} from "./main-menu/presentation/AppView";
 import {QuizGamePresenter} from "./quiz-game/presentation/QuizGamePresenter";
 import {QuizGameView} from "./quiz-game/presentation/QuizGameView";
 import {HumanPlayer} from "./quiz-game/domain/HumanPlayer";
@@ -18,7 +18,7 @@ import {VehiclesMode} from "./quiz-game/domain/VehiclesMode";
 const templateHtml = `
     <div class="swquiz-header">
         <a class="swquiz-logo-image" href="/"><img class="swquiz-logo-image" src="static/assets/ui/StarWarsLogo.png" alt="Star Wars Logo"/></a>
-        <div class="swquiz-mainmenu">
+        <div id="swquiz-mainmenu" class="swquiz-mainmenu">
             <p class="swquiz-mainmenu-option" id="people">People</p>
             <p class="swquiz-mainmenu-option" id="vehicles">Vehicles</p>
             <p class="swquiz-mainmenu-option" id="starships">Starships</p>
@@ -52,15 +52,14 @@ const templateHtml = `
 `
 
 export const App = ({renderOn}) => {
-  const API_KEY = 'AIzaSyAu5cv9vSquTVHFDuFRvbNX4FtN0TLwVrk'
-  const SW_API_BASE_URL = "https://swapi.dev/api";
-//const SW_API_BASE_URL = "http://localhost:3000";
+  const GOOGLE_VISION_API_KEY = process.env.GOOGLE_VISION_API_KEY || "AIzaSyAu5cv9vSquTVHFDuFRvbNX4FtN0TLwVrk"
+  const SW_API_BASE_URL = process.env.SW_API_BASE_URL || "https://swapi.dev/api";
 
   const appElement = document.querySelector(renderOn)
   appElement.innerHTML = templateHtml;
 
   const starWarsApi = StarWarsApi({starWarsApiBaseUrl: SW_API_BASE_URL})
-  const googleVisionApi = GoogleVisionApi({apiKey: API_KEY})
+  const googleVisionApi = GoogleVisionApi({apiKey: GOOGLE_VISION_API_KEY})
 
   const swApiPeopleRepository = {
     getById({id}) {
@@ -84,20 +83,20 @@ export const App = ({renderOn}) => {
     starships: StarshipsMode({repository: swApiStarshipsRepository}),
   };
 
-  MainMenuView({
+  AppView({
     defaultModeName: "people",
     modes: {
       people: {
         title: "Who is this character?",
-        rules: `You have two minutes (2m) to answer as many questions as possible. During the game on each question you need to select who from Star Wars is showed on the left (Jar Jar Binks right now) from available options.`
+        rules: `You have one minute (1m) to answer as many questions as possible. During the game on each question you need to select who from Star Wars is showed on the left (Jar Jar Binks right now) from available options.`
       },
       vehicles: {
         title: "Do you recognize this vehicle?",
-        rules: `You have two minutes (2m) to answer as many questions as possible. During the game on each question you need to select which vehicle from Star Wars is showed on the left.`
+        rules: `You have one minute (1m) to answer as many questions as possible. During the game on each question you need to select which vehicle from Star Wars is showed on the left.`
       },
       starships: {
         title: "Do you recognize this starship?",
-        rules: `You have two minutes (2m) to answer as many questions as possible. During the game on each question you need to select which starship from Star Wars is showed on the left.`
+        rules: `You have one minute (1m) to answer as many questions as possible. During the game on each question you need to select which starship from Star Wars is showed on the left.`
       }
     }
   })
