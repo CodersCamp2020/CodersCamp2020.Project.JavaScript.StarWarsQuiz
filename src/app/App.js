@@ -1,19 +1,19 @@
 import 'regenerator-runtime/runtime' //async/await with Parcel
-import {GoogleVisionApi} from "./quiz-game/infrastructure/GoogleVisionApi";
-import {QuizGame} from "./quiz-game/domain/QuizGame";
-import {StarWarsApi} from "./quiz-game/infrastructure/StarWarsApi";
-import {PeopleMode} from "./quiz-game/domain/PeopleMode";
+import {GoogleVisionApi} from "../quiz-game/infrastructure/GoogleVisionApi";
+import {QuizGame} from "../quiz-game/domain/QuizGame";
+import {StarWarsApi} from "../quiz-game/infrastructure/StarWarsApi";
+import {PeopleMode} from "../quiz-game/domain/PeopleMode";
 import {AppView} from "./AppView";
-import {QuizGamePresenter} from "./quiz-game/presentation/QuizGamePresenter";
-import {QuizGameView} from "./quiz-game/presentation/QuizGameView";
-import {HumanPlayer} from "./quiz-game/domain/HumanPlayer";
-import {GoogleVisionPlayer} from "./quiz-game/domain/GoogleVisionPlayer";
-import {RealTimer} from "./quiz-game/infrastructure/RealTimer";
-import {LocalStorageScoresRepository} from "./quiz-game/infrastructure/LocalStorageScoresRepository";
-import {QuizHallOfFameView} from "./quiz-hall-of-fame/presentation/QuizHallOfFameView";
-import {QuizHallOfFamePresenter} from "./quiz-hall-of-fame/presentation/QuizHallOfFamePresenter";
-import {StarshipsMode} from "./quiz-game/domain/StarshipsMode";
-import {VehiclesMode} from "./quiz-game/domain/VehiclesMode";
+import {QuizGamePresenter} from "../quiz-game/presentation/QuizGamePresenter";
+import {QuizGameView} from "../quiz-game/presentation/QuizGameView";
+import {HumanPlayer} from "../quiz-game/domain/HumanPlayer";
+import {GoogleVisionPlayer} from "../quiz-game/domain/GoogleVisionPlayer";
+import {RealTimer} from "../quiz-game/infrastructure/RealTimer";
+import {LocalStorageScoresRepository} from "../quiz-game/infrastructure/LocalStorageScoresRepository";
+import {QuizHallOfFameView} from "../quiz-hall-of-fame/presentation/QuizHallOfFameView";
+import {QuizHallOfFamePresenter} from "../quiz-hall-of-fame/presentation/QuizHallOfFamePresenter";
+import {StarshipsMode} from "../quiz-game/domain/StarshipsMode";
+import {VehiclesMode} from "../quiz-game/domain/VehiclesMode";
 
 export const App = ({renderOn}) => {
   const GOOGLE_VISION_API_KEY = process.env.GOOGLE_VISION_API_KEY || "AIzaSyAu5cv9vSquTVHFDuFRvbNX4FtN0TLwVrk"

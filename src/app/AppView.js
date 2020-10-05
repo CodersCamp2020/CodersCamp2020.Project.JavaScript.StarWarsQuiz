@@ -1,5 +1,5 @@
-import {MainMenuView} from "./main-menu/presentation/MainMenuView";
-import {ModeMenuView} from "./mode-menu/presentation/ModeMenuView";
+import {MainMenuView} from "../main-menu/presentation/MainMenuView";
+import {ModeMenuView} from "../mode-menu/presentation/ModeMenuView";
 
 const templateHtml = `
     <div class="swquiz-header">
