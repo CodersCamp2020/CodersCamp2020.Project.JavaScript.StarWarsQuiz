@@ -1,6 +1,6 @@
 const TIMER_MAX_WIDTH_PERCENTS = '100'
 
-const viewInnerHtml = `
+const viewTemplateHtml = `
         <div class="swquiz-lightsaber-background">
             <div class="swquiz-lightsaber-timer"></div>
         </div>
@@ -11,7 +11,7 @@ export const LightsaberTimerView = ({renderOn, timerOn, timeout}) => {
   if (!element) {
     throw new Error(`Element ${renderOn} not exists!`)
   }
-  element.innerHTML = viewInnerHtml
+  element.innerHTML = viewTemplateHtml
 
   const timerElement = document.querySelector(timerOn)
   if (!timerElement) {

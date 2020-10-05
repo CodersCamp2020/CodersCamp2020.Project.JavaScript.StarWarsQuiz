@@ -15,11 +15,49 @@ import {QuizHallOfFamePresenter} from "./quiz-hall-of-fame/presentation/QuizHall
 import {StarshipsMode} from "./quiz-game/domain/StarshipsMode";
 import {VehiclesMode} from "./quiz-game/domain/VehiclesMode";
 
-export const App = () => {
+const templateHtml = `
+    <div class="swquiz-header">
+        <a class="swquiz-logo-image" href="/"><img class="swquiz-logo-image" src="static/assets/ui/StarWarsLogo.png" alt="Star Wars Logo"/></a>
+        <div class="swquiz-mainmenu">
+            <p class="swquiz-mainmenu-option" id="people">People</p>
+            <p class="swquiz-mainmenu-option" id="vehicles">Vehicles</p>
+            <p class="swquiz-mainmenu-option" id="starships">Starships</p>
+        </div>
+    </div>
+    <div id="swquiz-mode" class="swquiz-mode">
+        <div class="swquiz-question-image-bg"></div>
+        <div style="width: 2rem"></div>
+        <div id="swquiz-mode-menu" class="swquiz-mode-menu">
+            <div class="swquiz-mode-title"><p id="swquiz-mode-title-text">MODE: Who is this character?</p></div>
+            <div id="swquiz-mode-content" class="swquiz-mode-content">
+                <h2>Mode Rules</h2>
+                <p id="swquiz-mode-rules-text"></p>
+            </div>
+            <div class="sw-quiz-mode-buttons">
+                <button id="swquiz-mode-hall-of-fame-button" class="sw-quiz-mode-button-secondary">Hall of fame</button>
+                <div style="width: 2rem"></div>
+                <button class="sw-quiz-mode-button-play" id="play-the-game-button">PLAY THE GAME</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="swquiz-loading" class="swquiz-loading"><h1>FEEL THE FORCE...</h1></div>
+    <div id="swquiz-game" class="swquiz-game"></div>
+    <div id="swquiz-lightsaber" class="swquiz-lightsaber-wrapper"></div>
+    <div id="swquiz-timer-text" class="swquiz-timer-text"></div>
+
+
+    <div id="swquiz-game-result-modal" class="swquiz-game-result-modal"></div>
+`
+
+export const App = ({renderOn}) => {
   const API_KEY = 'AIzaSyAu5cv9vSquTVHFDuFRvbNX4FtN0TLwVrk'
   const SW_API_BASE_URL = "https://swapi.dev/api";
 //const SW_API_BASE_URL = "http://localhost:3000";
 
+  const appElement = document.querySelector(renderOn)
+  appElement.innerHTML = templateHtml;
 
   const starWarsApi = StarWarsApi({starWarsApiBaseUrl: SW_API_BASE_URL})
   const googleVisionApi = GoogleVisionApi({apiKey: API_KEY})

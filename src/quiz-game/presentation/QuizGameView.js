@@ -3,7 +3,7 @@ import {QUIZ_MAX_TIME} from "../domain/TimeUnits";
 import {TextTimerView} from "./TextTimerView";
 import {GameResultModal} from "./GameResultModal";
 
-const quizGameInnerHtml = `
+const viewTemplateHtml = `
         <div id="swquiz-image-to-recognize" class="swquiz-question-image-bg"></div>
         <div style="width: 2rem"></div>
         <div class="swquiz-question">
@@ -23,7 +23,7 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
   if (!element) {
     throw new Error(`Element ${renderOn} not exists!`)
   }
-  element.innerHTML = quizGameInnerHtml;
+  element.innerHTML = viewTemplateHtml;
 
   const answerElements = ["swquiz-answer-1", "swquiz-answer-2", "swquiz-answer-3", "swquiz-answer-4"]
       .map(answerElementId => document.getElementById(answerElementId));

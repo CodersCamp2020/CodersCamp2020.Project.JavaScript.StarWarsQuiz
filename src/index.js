@@ -1,5 +1,7 @@
 import {App} from "./app";
 
 window.onload = function () {
-  App()
+  App({
+    renderOn: "#swquiz-app"
+  })
 }
