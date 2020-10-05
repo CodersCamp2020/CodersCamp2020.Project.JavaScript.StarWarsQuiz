@@ -47,9 +47,8 @@
       "ts"
     ],
     "rootDir": "test",
-    "testRegex": ".spec.*",
-    "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "testRegex": "spec.*",
+    "coverageDirectory": "../coverage"
   },
   "staticFiles": {
     "staticPath": [

@@ -7,10 +7,8 @@ export const LocalStorageScoresRepository = ({modeName}) => {
       } else {
         localStorage[modeName] = JSON.stringify([...JSON.parse(localStorage[modeName]), newSave])
       }
-      console.log("SAVED", localStorage[modeName])
     },
     findBestScores({max}) {
-      console.log("MODE NAME", modeName)
       if (!localStorage.getItem(modeName)) {
         return []
       }
