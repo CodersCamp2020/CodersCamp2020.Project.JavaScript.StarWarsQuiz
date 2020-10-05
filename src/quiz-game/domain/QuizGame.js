@@ -1,8 +1,6 @@
 import {AnswerChecker, PartialMatchCheckStrategy} from "./AnswerChecker";
 import {ONE_SECOND_MILLIS, QUIZ_MAX_TIME} from "./TimeUnits";
 
-//TODO: Change times up to game over!
-
 export const QuizGame = ({human, google, mode, startTimer}) => {
   const onGameOverHooks = []
   const onTimerTickHooks = []
