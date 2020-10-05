@@ -6,14 +6,14 @@ const viewTemplateHtml = `
         </div>
 `
 
-export const LightsaberTimerView = ({renderOn, timerOn, timeout}) => {
+export const LightsaberTimerView = ({renderOn, timeout}) => {
   const element = document.querySelector(renderOn);
   if (!element) {
     throw new Error(`Element ${renderOn} not exists!`)
   }
   element.innerHTML = viewTemplateHtml
 
-  const timerElement = document.querySelector(timerOn)
+  const timerElement = document.querySelector(".swquiz-lightsaber-timer")
   if (!timerElement) {
     throw new Error(`Element ${timerOn} not exists!`)
   }

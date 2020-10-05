@@ -35,7 +35,6 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
 
   const lightsaberTimerView = LightsaberTimerView({
     renderOn: "#swquiz-lightsaber",
-    timerOn: ".swquiz-lightsaber-timer",
     timeout: QUIZ_MAX_TIME
   });
 
