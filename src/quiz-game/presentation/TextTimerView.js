@@ -1,26 +1,22 @@
+import {render} from "../../shared/dom";
+
 const TIME_LEFT_TEXT = `Time Left`;
 
-export const TextTimerView = ({renderOn, timerOn, timeout}) => {
-  const element = document.querySelector(renderOn);
-  if (!element) {
-    throw new Error(`Element ${renderOn} not exists!`)
-  }
+const templateHtml = `<div id="swquiz-timer-text" class="swquiz-timer-text"></div>`
 
-  const timerElement = document.querySelector(timerOn)
-  if (!timerElement) {
-    throw new Error(`Element ${timerOn} not exists!`)
-  }
+export const TextTimerView = ({renderOn, timeout}) => {
+  const element = render({on: renderOn, html: templateHtml})
 
   let timeLeft = timeout;
   const currentTimerText = () => `${TIME_LEFT_TEXT}: ${millisToMinutesAndSeconds(timeLeft)}`;
-  timerElement.innerText = currentTimerText();
+  element.innerText = currentTimerText();
   return {
     tickTimer({tickMillis}) {
       timeLeft -= tickMillis;
-      timerElement.innerText = currentTimerText();
+      element.innerText = currentTimerText();
     },
     timeout() {
-      timerElement.innerText = `${TIME_LEFT_TEXT}: ${millisToMinutesAndSeconds(0)}`
+      element.innerText = `${TIME_LEFT_TEXT}: ${millisToMinutesAndSeconds(0)}`
     },
     show() {
       element.style.display = 'block';

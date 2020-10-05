@@ -2,8 +2,10 @@ import {LightsaberTimerView} from "./LightsaberTimerView";
 import {QUIZ_MAX_TIME} from "../domain/TimeUnits";
 import {TextTimerView} from "./TextTimerView";
 import {GameResultModal} from "./GameResultModal";
+import {render} from "../../shared/dom";
 
 const viewTemplateHtml = `
+     <div id="swquiz-game-wrapper">
         <div id="swquiz-game" class="swquiz-game">
             <div id="swquiz-image-to-recognize" class="swquiz-question-image-bg"></div>
             <div style="width: 2rem"></div>
@@ -18,16 +20,13 @@ const viewTemplateHtml = `
                 </div>
             </div>        
         </div>
-        <div id="swquiz-lightsaber"></div>
-        <div id="swquiz-timer-text" class="swquiz-timer-text"></div>
+        <template id="swquiz-lightsaber"></template>
+        <template id="swquiz-timer-text"></template>
+     </div>
 `
 
 export const QuizGameView = ({renderOn, presenterSupplier}) => {
-  const element = document.querySelector(renderOn)
-  if (!element) {
-    throw new Error(`Element ${renderOn} not exists!`)
-  }
-  element.innerHTML = viewTemplateHtml;
+  const element = render({on: renderOn, html: viewTemplateHtml})
 
   const answerElements = ["swquiz-answer-1", "swquiz-answer-2", "swquiz-answer-3", "swquiz-answer-4"]
       .map(answerElementId => document.getElementById(answerElementId));
@@ -40,7 +39,6 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
 
   const textTimerView = TextTimerView({
     renderOn: "#swquiz-timer-text",
-    timerOn: "#swquiz-timer-text",
     timeout: QUIZ_MAX_TIME,
   });
 
@@ -53,11 +51,11 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
       lightsaberTimerView.hide()
       textTimerView.hide()
     },
-    startLoading(){
+    startLoading() {
       const loadingElement = document.getElementById("swquiz-loading")
       loadingElement.style.display = 'flex'
     },
-    finishLoading(){
+    finishLoading() {
       const loadingElement = document.getElementById("swquiz-loading")
       loadingElement.style.display = 'none'
       element.style.display = 'block';

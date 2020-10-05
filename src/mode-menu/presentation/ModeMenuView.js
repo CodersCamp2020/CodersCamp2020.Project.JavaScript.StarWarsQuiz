@@ -19,8 +19,9 @@ const templateHtml = ({title, rules}) => `
     </div>
 `
 
+//TODO: Add tabs!
 export const ModeMenuView = ({renderOn, data}) => {
-  const element =render({on: renderOn, html: templateHtml({name: data.name, title: data.title, rules: data.rules})})
+  const element = render({on: renderOn, html: templateHtml({name: data.name, title: data.title, rules: data.rules})})
 
   const onClickPlayTheGameButtonHooks = []
   const onClickHallOfFameButtonHooks = []
