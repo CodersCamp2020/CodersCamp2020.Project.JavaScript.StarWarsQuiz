@@ -1,3 +1,37 @@
+const modalElementInnerHTML = `
+    <div class="modal-content">
+        <h2 style="margin-top: 0">GAME OVER</h2>
+        <p id="swquiz-game-summary" class="sub-title">The force is strong in you young Padawan! During 2 minutes you have answered X / Y
+            questions. And Google guessed X / Y.</p>
+        <div class="player-name-hall-of-fame-wrapper">
+            <div class="swquiz-yoda-answers-table-wrapper">
+                <img class="swquiz-master-yoda" src="static/assets/ui/MasterYodaLeft.png" alt="Master Yoda"/>
+                <div class="swquiz-hall-of-fame-answers-header-wrapper">
+                    <div class="swquiz-game-result-answers-header">
+                        <p></p>
+                        <p>Correct</p>
+                        <p>You</p>
+                        <p>Google</p>
+                    </div>
+                    <div class="swquiz-answers-table-wrapper"></div>
+                </div>
+            </div>
+            <form id="hall-of-fame-save" style="display: flex; align-items: center">
+                <label for="player-name-hall-of-fame">
+                    <input id="player-name-hall-of-fame" name="player-name-hall-of-fame"
+                           class="player-name-hall-of-fame" type="text" minlength="3"
+                           maxlength="15" required/>
+                </label>
+                <p style="font-size: 1.30rem; margin: 0; padding-left: 1rem;">Please fill your name in order to
+                    receive eternal glory in the whole Galaxy!</p>
+            </form>
+        </div>
+        <div style="text-align: center; margin-top: 4rem;">
+            <button type="submit" form="hall-of-fame-save" class="sw-quiz-save-hall-of-fame-button" id="save-hall-of-fame-button">MAY THE FORCE BE WITH YOU!</button>
+        </div>
+    </div>
+`
+
 export const GameResultModal = ({renderOn}) => {
   const onSaveScoreHooks = [];
 
@@ -5,6 +39,7 @@ export const GameResultModal = ({renderOn}) => {
   if (!modalElement) {
     throw new Error(`Element ${renderOn} not exists!`)
   }
+  modalElement.innerHTML = modalElementInnerHTML;
 
   const submitScoreSaveForm = modalElement.querySelector("#hall-of-fame-save")
   submitScoreSaveForm.addEventListener("submit", () => {

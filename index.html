@@ -37,72 +37,16 @@
         </div>
     </div>
 
-    <!-- QUIZ GAME VIEW BEGIN -->
-    <div id="swquiz-loading" class="swquiz-loading">
-        <h1>FEEL THE FORCE...</h1>
-    </div>
-    <div id="swquiz-game" class="swquiz-game">
-        <div id="swquiz-image-to-recognize" class="swquiz-question-image-bg"></div>
-        <div style="width: 2rem"></div>
-        <div class="swquiz-question">
-            <div class="swquiz-question-content"><p>Question: Who is this character?</p></div>
-            <div style="height: 2rem"></div>
-            <div class="swquiz-question-answers">
-                <div id="swquiz-answer-1" class="sqwuiz-question-answer">Answer1</div>
-                <div id="swquiz-answer-2" class="sqwuiz-question-answer">Answer2</div>
-                <div id="swquiz-answer-3" class="sqwuiz-question-answer">Answer3</div>
-                <div id="swquiz-answer-4" class="sqwuiz-question-answer">Answer4</div>
-            </div>
-        </div>
-    </div>
-    <div id="swquiz-lightsaber" class="swquiz-lightsaber-wrapper">
-        <div class="swquiz-lightsaber-background">
-            <div class="swquiz-lightsaber-timer"></div>
-        </div>
-    </div>
+
+    <div id="swquiz-loading" class="swquiz-loading"><h1>FEEL THE FORCE...</h1></div>
+    <div id="swquiz-game" class="swquiz-game"></div>
+    <div id="swquiz-lightsaber" class="swquiz-lightsaber-wrapper"></div>
     <div id="swquiz-timer-text" class="swquiz-timer-text"></div>
 
-    <!-- GAME RESULT MODAL BEGIN -->
-    <div id="swquiz-game-result-modal" class="swquiz-game-result-modal">
-        <div class="modal-content">
-            <h2 style="margin-top: 0">GAME OVER</h2>
-            <p id="swquiz-game-summary" class="sub-title">The force is strong in you young Padawan! During 2 minutes you have answered X / Y
-                questions. And Google guessed X / Y.</p>
-            <div class="player-name-hall-of-fame-wrapper">
-                <div class="swquiz-yoda-answers-table-wrapper">
-                    <img class="swquiz-master-yoda" src="static/assets/ui/MasterYodaLeft.png" alt="Master Yoda"/>
-                    <div class="swquiz-hall-of-fame-answers-header-wrapper">
-                        <div class="swquiz-game-result-answers-header">
-                            <p></p>
-                            <p>Correct</p>
-                            <p>You</p>
-                            <p>Google</p>
-                        </div>
-                        <div class="swquiz-answers-table-wrapper"></div>
-                    </div>
-                </div>
-                <form id="hall-of-fame-save" style="display: flex; align-items: center">
-                    <label for="player-name-hall-of-fame">
-                        <input id="player-name-hall-of-fame" name="player-name-hall-of-fame"
-                               class="player-name-hall-of-fame" type="text" minlength="3"
-                               maxlength="15" required/>
-                    </label>
-                    <p style="font-size: 1.30rem; margin: 0; padding-left: 1rem;">Please fill your name in order to
-                        receive eternal glory in the whole Galaxy!</p>
-                </form>
-            </div>
-            <div style="text-align: center; margin-top: 4rem;">
-                <button type="submit" form="hall-of-fame-save" class="sw-quiz-save-hall-of-fame-button"
-                        id="save-hall-of-fame-button">MAY THE FORCE BE WITH YOU!
-                </button>
-            </div>
-        </div>
 
-    </div>
-    <!-- GAME RESULT MODAL END -->
-
-    <!-- QUIZ GAME VIEW END -->
+    <div id="swquiz-game-result-modal" class="swquiz-game-result-modal"></div>
 </div>
+
 
 <script src="src/index.js"></script>
 </body>

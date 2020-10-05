@@ -3,11 +3,28 @@ import {QUIZ_MAX_TIME} from "../domain/TimeUnits";
 import {TextTimerView} from "./TextTimerView";
 import {GameResultModal} from "./GameResultModal";
 
+const quizGameInnerHtml = `
+        <div id="swquiz-image-to-recognize" class="swquiz-question-image-bg"></div>
+        <div style="width: 2rem"></div>
+        <div class="swquiz-question">
+            <div class="swquiz-question-content"><p>Question: Who is this character?</p></div>
+            <div style="height: 2rem"></div>
+            <div class="swquiz-question-answers">
+                <div id="swquiz-answer-1" class="sqwuiz-question-answer">Answer1</div>
+                <div id="swquiz-answer-2" class="sqwuiz-question-answer">Answer2</div>
+                <div id="swquiz-answer-3" class="sqwuiz-question-answer">Answer3</div>
+                <div id="swquiz-answer-4" class="sqwuiz-question-answer">Answer4</div>
+            </div>
+        </div>
+`
+
 export const QuizGameView = ({renderOn, presenterSupplier}) => {
   const element = document.querySelector(renderOn)
   if (!element) {
     throw new Error(`Element ${renderOn} not exists!`)
   }
+  element.innerHTML = quizGameInnerHtml;
+
   const answerElements = ["swquiz-answer-1", "swquiz-answer-2", "swquiz-answer-3", "swquiz-answer-4"]
       .map(answerElementId => document.getElementById(answerElementId));
   const imageToRecognizeElement = document.getElementById('swquiz-image-to-recognize');
