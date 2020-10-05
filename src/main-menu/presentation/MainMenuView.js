@@ -1,5 +1,6 @@
 export const MainMenuView = ({defaultModeName, modes}) => {
   let selectedModeName = defaultModeName;
+
   const onModeSelectedHooks = []
 
   const onClickPlayTheGameButtonHooks = []
@@ -27,14 +28,15 @@ export const MainMenuView = ({defaultModeName, modes}) => {
       }
       const menuModeOptionElement = document.getElementById(`${modeName}`)
       menuModeOptionElement.classList.add("selected")
-      this.selectedModeName = modeName;
+      selectedModeName = modeName;
 
       const modeTitleElement = document.getElementById("swquiz-mode-title-text")
-      modeTitleElement.innerText = modes[modeName].title
+      if (modeTitleElement) {
+        modeTitleElement.innerText = modes[modeName].title
 
-      const modeRulesElement = document.getElementById("swquiz-mode-rules-text")
-      modeRulesElement.innerText = modes[modeName].rules
-
+        const modeRulesElement = document.getElementById("swquiz-mode-rules-text")
+        modeRulesElement.innerText = modes[modeName].rules
+      }
       return view;
     },
     onClickPlayTheGameButton(hook) {

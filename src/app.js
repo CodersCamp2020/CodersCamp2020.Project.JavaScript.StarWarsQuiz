@@ -87,6 +87,7 @@ export const App = () => {
         quizGameView.startGame().then(() => console.log("GAME STARTED!"));
       })
       .onClickHallOfFameButton(modeName => {
+        console.log("CLICK HALL OF FAME", modeName)
         const quizHallOfFameView = QuizHallOfFameView({
           renderOn: "#swquiz-mode-content",
           presenterSupplier: view => QuizHallOfFamePresenter({
