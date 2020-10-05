@@ -11,16 +11,7 @@ const templateHtml = `
         <div class="swquiz-question-image-bg"></div>
         <div style="width: 2rem"></div>
         <div id="swquiz-mode-menu" class="swquiz-mode-menu">
-            <div class="swquiz-mode-title"><p id="swquiz-mode-title-text">Mode Title</p></div>
-            <div id="swquiz-mode-content" class="swquiz-mode-content">
-                <h2>Mode Rules</h2>
-                <p id="swquiz-mode-rules-text"></p>
-            </div>
-            <div class="sw-quiz-mode-buttons">
-                <button id="swquiz-mode-hall-of-fame-button" class="sw-quiz-mode-button-secondary">Hall of fame</button>
-                <div style="width: 2rem"></div>
-                <button class="sw-quiz-mode-button-play" id="play-the-game-button">PLAY THE GAME</button>
-            </div>
+          
         </div>
     </div>
 
@@ -34,16 +25,11 @@ export const AppView = ({renderOn, defaultModeName, modes}) => {
   let selectedModeName = defaultModeName;
 
   const onClickPlayTheGameButtonHooks = []
+  const onClickHallOfFameButtonHooks = []
 
   const appView = document.querySelector(renderOn)
   appView.innerHTML = templateHtml;
 
-  const playTheGameButton = document.getElementById("play-the-game-button")
-  playTheGameButton.addEventListener('click', () => onClickPlayTheGameButtonHooks.forEach(hook => hook(selectedModeName)))
-
-  const onClickHallOfFameButtonHooks = []
-  const hallOfFameButton = document.getElementById("swquiz-mode-hall-of-fame-button")
-  hallOfFameButton.addEventListener('click', () => onClickHallOfFameButtonHooks.forEach(hook => hook(selectedModeName)))
 
   const view = {
     selectMode({modeName}) {
@@ -53,6 +39,11 @@ export const AppView = ({renderOn, defaultModeName, modes}) => {
         renderOn: "#swquiz-mode-menu",
         data: {title: modes[modeName].title, rules: modes[modeName].rules}
       })
+
+      const playTheGameButton = document.getElementById("play-the-game-button")
+      playTheGameButton.addEventListener('click', () => onClickPlayTheGameButtonHooks.forEach(hook => hook(selectedModeName)))
+      const hallOfFameButton = document.getElementById("swquiz-mode-hall-of-fame-button")
+      hallOfFameButton.addEventListener('click', () => onClickHallOfFameButtonHooks.forEach(hook => hook(selectedModeName)))
 
       return view;
     },
