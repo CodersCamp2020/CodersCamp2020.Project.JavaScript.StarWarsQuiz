@@ -3,6 +3,8 @@ import {QUIZ_MAX_TIME} from "../domain/TimeUnits";
 import {TextTimerView} from "./TextTimerView";
 import {GameResultModal} from "./GameResultModal";
 import {render} from "../../shared/dom";
+import {TextLoaderView} from "../../loader/TextLoaderView";
+import {CircleLoaderView} from "../../loader/CircleLoaderView";
 
 const viewTemplateHtml = `
      <div id="swquiz-game-wrapper">
@@ -42,25 +44,22 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
     timeout: QUIZ_MAX_TIME,
   });
 
+  const loaderView = CircleLoaderView();
+
   const quizGameView = {
     show() {
-      this.startLoading();
+      loaderView.show();
     },
     hide() {
       element.style.display = 'none';
       lightsaberTimerView.hide()
       textTimerView.hide()
     },
-    startLoading() {
-      const loadingElement = document.getElementById("swquiz-loading")
-      loadingElement.style.display = 'flex'
-    },
     finishLoading() {
-      const loadingElement = document.getElementById("swquiz-loading")
-      loadingElement.style.display = 'none'
       element.style.display = 'block';
       lightsaberTimerView.show()
       textTimerView.show()
+      loaderView.hide();
     },
     async startGame() {
       return quizGamePresenter.startGame()

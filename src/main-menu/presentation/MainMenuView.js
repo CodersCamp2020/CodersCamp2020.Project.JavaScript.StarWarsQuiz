@@ -13,14 +13,6 @@ export const MainMenuView = ({renderOn, options, selectedOption}) => {
 
   const onOptionSelectedHooks = [];
 
-  const optionsElements = document.getElementsByClassName("swquiz-mainmenu-option")
-  for (const optionElement of optionsElements) {
-    optionElement.addEventListener('click', e => {
-      const option = e.target.id;
-      view.selectOption({option})
-    })
-  }
-
   const view = {
     selectOption({option}) {
       const options = document.getElementsByClassName("swquiz-mainmenu-option")
@@ -30,13 +22,37 @@ export const MainMenuView = ({renderOn, options, selectedOption}) => {
       const selectedOptionElement = document.getElementById(`${option}`)
       selectedOptionElement.classList.add("selected")
       onOptionSelectedHooks.forEach(hook => hook({option}))
+      return view;
     },
     onOptionSelected(hook) {
       onOptionSelectedHooks.push(hook);
+      return view;
+    },
+    disable() {
+      forEachOptionElement(optionElement =>
+          optionElement.replaceWith(optionElement.cloneNode(true))
+      )
+      return view;
+    },
+    enable() {
+      forEachOptionElement(optionElement =>
+          optionElement.addEventListener('click', e => {
+            const option = e.target.id;
+            view.selectOption({option})
+          })
+      )
     }
   }
+  view.enable();
   if (selectedOption) {
     view.selectOption({option: selectedOption})
   }
   return view;
+}
+
+function forEachOptionElement(eachFn) {
+  const optionsElements = document.getElementsByClassName("swquiz-mainmenu-option")
+  for (const optionElement of optionsElements) {
+    eachFn(optionElement)
+  }
 }

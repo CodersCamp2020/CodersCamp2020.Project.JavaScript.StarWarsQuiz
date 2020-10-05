@@ -41,6 +41,7 @@ export const AppView = ({renderOn, quizGameProvider, scoresRepositoryProvider, d
             scoresRepository: scoresRepositoryProvider(modeName)
           })
         });
+        mainMenuView.disable()
         quizGameView.show();
         quizGameView.startGame()
             .then(() => console.log("GAME STARTED!"));
@@ -62,7 +63,7 @@ export const AppView = ({renderOn, quizGameProvider, scoresRepositoryProvider, d
     }
   }
 
-  MainMenuView({
+  const mainMenuView = MainMenuView({
     renderOn: "#swquiz-mainmenu",
     options: ["people", "vehicles", "starships"],
     selectedOption: "people"
