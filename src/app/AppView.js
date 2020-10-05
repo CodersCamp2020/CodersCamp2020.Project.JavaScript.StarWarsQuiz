@@ -1,10 +1,7 @@
 import {MainMenuView} from "../main-menu/presentation/MainMenuView";
 import {ModeMenuView} from "../mode-menu/presentation/ModeMenuView";
-import {QuizGame} from "../quiz-game/domain/QuizGame";
-import {RealTimer} from "../quiz-game/infrastructure/RealTimer";
 import {QuizGameView} from "../quiz-game/presentation/QuizGameView";
 import {QuizGamePresenter} from "../quiz-game/presentation/QuizGamePresenter";
-import {LocalStorageScoresRepository} from "../quiz-game/infrastructure/LocalStorageScoresRepository";
 import {QuizHallOfFameView} from "../quiz-hall-of-fame/presentation/QuizHallOfFameView";
 import {QuizHallOfFamePresenter} from "../quiz-hall-of-fame/presentation/QuizHallOfFamePresenter";
 
@@ -14,11 +11,7 @@ const templateHtml = `
         <div id="swquiz-mainmenu" class="swquiz-mainmenu">
         </div>
     </div>
-    <div id="swquiz-mode" class="swquiz-mode">
-        <div class="swquiz-question-image-bg"></div>
-        <div style="width: 2rem"></div>
-        <div id="swquiz-mode-menu" class="swquiz-mode-menu"></div>
-    </div>
+    <div id="swquiz-mode" class="swquiz-mode"></div>
 
     <div id="swquiz-loading" class="swquiz-loading"><h1>FEEL THE FORCE...</h1></div>
     <div id="swquiz-game" class="swquiz-game"></div>
@@ -35,12 +28,11 @@ export const AppView = ({renderOn, quizGameProvider,scoresRepositoryProvider, da
   const view = {
     selectMode({modeName}) {
 
-      ModeMenuView({
-        renderOn: "#swquiz-mode-menu",
+      const modeMenuView = ModeMenuView({
+        renderOn: "#swquiz-mode",
         data: {name: modeName, title: modesDescriptions[modeName].title, rules: modesDescriptions[modeName].rules}
       }).onClickPlayTheGameButton(modeName => {
-        const quizModeMenu = document.getElementById("swquiz-mode")
-        quizModeMenu.style.display = 'none'
+        modeMenuView.hide();
         const quizGame = quizGameProvider(modeName)
         const quizGameView = QuizGameView({
           renderOn: '#swquiz-game',
