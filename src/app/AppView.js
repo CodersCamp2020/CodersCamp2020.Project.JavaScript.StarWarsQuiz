@@ -13,8 +13,6 @@ const templateHtml = `
                 <template id="swquiz-mainmenu" class="swquiz-mainmenu"></template>
         </div>
         <template id="swquiz-mode"></template>
-
-        <div id="swquiz-loading" class="swquiz-loading"><h1>FEEL THE FORCE...</h1></div>
         <template id="swquiz-game-wrapper"></template>
     </div>
 `
