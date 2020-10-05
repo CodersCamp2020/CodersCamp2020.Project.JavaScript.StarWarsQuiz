@@ -4,18 +4,22 @@ import {TextTimerView} from "./TextTimerView";
 import {GameResultModal} from "./GameResultModal";
 
 const viewTemplateHtml = `
-        <div id="swquiz-image-to-recognize" class="swquiz-question-image-bg"></div>
-        <div style="width: 2rem"></div>
-        <div class="swquiz-question">
-            <div class="swquiz-question-content"><p>Question: Who is this character?</p></div>
-            <div style="height: 2rem"></div>
-            <div class="swquiz-question-answers">
-                <div id="swquiz-answer-1" class="sqwuiz-question-answer">Answer1</div>
-                <div id="swquiz-answer-2" class="sqwuiz-question-answer">Answer2</div>
-                <div id="swquiz-answer-3" class="sqwuiz-question-answer">Answer3</div>
-                <div id="swquiz-answer-4" class="sqwuiz-question-answer">Answer4</div>
-            </div>
+        <div id="swquiz-game" class="swquiz-game">
+            <div id="swquiz-image-to-recognize" class="swquiz-question-image-bg"></div>
+            <div style="width: 2rem"></div>
+            <div class="swquiz-question">
+                <div class="swquiz-question-content"><p>Question: Who is this character?</p></div>
+                <div style="height: 2rem"></div>
+                <div class="swquiz-question-answers">
+                    <div id="swquiz-answer-1" class="sqwuiz-question-answer">Answer1</div>
+                    <div id="swquiz-answer-2" class="sqwuiz-question-answer">Answer2</div>
+                    <div id="swquiz-answer-3" class="sqwuiz-question-answer">Answer3</div>
+                    <div id="swquiz-answer-4" class="sqwuiz-question-answer">Answer4</div>
+                </div>
+            </div>        
         </div>
+        <div id="swquiz-lightsaber" class="swquiz-lightsaber-wrapper"></div>
+        <div id="swquiz-timer-text" class="swquiz-timer-text"></div>
 `
 
 export const QuizGameView = ({renderOn, presenterSupplier}) => {
@@ -57,7 +61,7 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
     finishLoading(){
       const loadingElement = document.getElementById("swquiz-loading")
       loadingElement.style.display = 'none'
-      element.style.display = 'flex';
+      element.style.display = 'block';
       lightsaberTimerView.show()
       textTimerView.show()
     },

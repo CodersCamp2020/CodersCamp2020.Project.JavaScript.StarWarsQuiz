@@ -8,18 +8,16 @@ import {QuizHallOfFamePresenter} from "../quiz-hall-of-fame/presentation/QuizHal
 const templateHtml = `
     <div class="swquiz-header">
         <a class="swquiz-logo-image" href="/"><img class="swquiz-logo-image" src="static/assets/ui/StarWarsLogo.png" alt="Star Wars Logo"/></a>
-        <div id="swquiz-mainmenu" class="swquiz-mainmenu">
+            <div id="swquiz-mainmenu" class="swquiz-mainmenu">
         </div>
     </div>
     <div id="swquiz-mode" class="swquiz-mode"></div>
 
     <div id="swquiz-loading" class="swquiz-loading"><h1>FEEL THE FORCE...</h1></div>
-    <div id="swquiz-game" class="swquiz-game"></div>
-    <div id="swquiz-lightsaber" class="swquiz-lightsaber-wrapper"></div>
-    <div id="swquiz-timer-text" class="swquiz-timer-text"></div>
+    <div id="swquiz-game-wrapper"></div>
 `
 
-export const AppView = ({renderOn, quizGameProvider,scoresRepositoryProvider, data}) => {
+export const AppView = ({renderOn, quizGameProvider, scoresRepositoryProvider, data}) => {
   const appView = document.querySelector(renderOn)
   appView.innerHTML = templateHtml;
 
@@ -35,7 +33,7 @@ export const AppView = ({renderOn, quizGameProvider,scoresRepositoryProvider, da
         modeMenuView.hide();
         const quizGame = quizGameProvider(modeName)
         const quizGameView = QuizGameView({
-          renderOn: '#swquiz-game',
+          renderOn: '#swquiz-game-wrapper',
           presenterSupplier: view => QuizGamePresenter({
             quizGame,
             quizGameView: view,
