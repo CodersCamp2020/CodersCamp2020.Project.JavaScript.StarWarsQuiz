@@ -26,11 +26,11 @@ const templateHtml = `
     <div id="swquiz-timer-text" class="swquiz-timer-text"></div>
 `
 
-export const AppView = ({renderOn, data}) => {
+export const AppView = ({renderOn, quizGameProvider,scoresRepositoryProvider, data}) => {
   const appView = document.querySelector(renderOn)
   appView.innerHTML = templateHtml;
 
-  const {defaultModeName, humanPlayer, googleVisionPlayer, modes, modesDescriptions} = data;
+  const {defaultModeName, modesDescriptions} = data;
 
   const view = {
     selectMode({modeName}) {
@@ -41,18 +41,13 @@ export const AppView = ({renderOn, data}) => {
       }).onClickPlayTheGameButton(modeName => {
         const quizModeMenu = document.getElementById("swquiz-mode")
         quizModeMenu.style.display = 'none'
-        const quizGame = QuizGame({
-          mode: modes[modeName],
-          google: googleVisionPlayer,
-          human: humanPlayer,
-          startTimer: ({tickMillis, timeout, onTick, onTimeout}) => RealTimer({tickMillis, timeout, onTick, onTimeout})
-        })
+        const quizGame = quizGameProvider(modeName)
         const quizGameView = QuizGameView({
           renderOn: '#swquiz-game',
           presenterSupplier: view => QuizGamePresenter({
             quizGame,
             quizGameView: view,
-            scoresRepository: LocalStorageScoresRepository({modeName})
+            scoresRepository: scoresRepositoryProvider(modeName)
           })
         });
         quizGameView.show();
@@ -64,7 +59,7 @@ export const AppView = ({renderOn, data}) => {
             const quizHallOfFameView = QuizHallOfFameView({
               renderOn: "#swquiz-mode-content",
               presenterSupplier: view => QuizHallOfFamePresenter({
-                scoresRepository: LocalStorageScoresRepository({modeName}),
+                scoresRepository: scoresRepositoryProvider(modeName),
                 quizHallOfFameView: view
               })
             });

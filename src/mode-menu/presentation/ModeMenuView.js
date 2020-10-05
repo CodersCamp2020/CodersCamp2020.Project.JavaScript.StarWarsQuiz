@@ -1,4 +1,5 @@
 const templateHtml = ({title,rules}) => `
+
             <div class="swquiz-mode-title"><p id="swquiz-mode-title-text">${title}</p></div>
             <div id="swquiz-mode-content" class="swquiz-mode-content">
                 <h2>Mode Rules</h2>
@@ -30,6 +31,9 @@ export const ModeMenuView = ({renderOn, data}) => {
     onClickHallOfFameButton(hook) {
       onClickHallOfFameButtonHooks.push(hook)
       return view;
+    },
+    hide(){
+      element.style.display = 'none'
     }
   }
   return view;
