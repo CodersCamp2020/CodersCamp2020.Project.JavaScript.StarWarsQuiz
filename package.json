@@ -50,11 +50,13 @@
       "json",
       "ts"
     ],
-    "rootDir": "test",
-    "testRegex": "spec.*",
+    "testRegex": "spec[.](ts|js)",
     "coverageDirectory": "../coverage",
     "setupFiles": [
-      "./setupJest.js"
+      "./test/setupJest.js"
+    ],
+    "collectCoverageFrom": [
+      "./src/**"
     ]
   },
   "staticFiles": {
