@@ -18,11 +18,11 @@ describe("HumanPlayer", () => {
     })
 
     it("should notify about asked question", () => {
-      expect(onQuestionAskedHook1.mock.calls.length).toEqual(1)
-      expect(onQuestionAskedHook1.mock.calls[0][0]).toEqual(aQuestion)
+      expect(onQuestionAskedHook1).toBeCalledTimes(1)
+      expect(onQuestionAskedHook1).toBeCalledWith(aQuestion)
 
-      expect(onQuestionAskedHook2.mock.calls.length).toEqual(1)
-      expect(onQuestionAskedHook2.mock.calls[0][0]).toEqual(aQuestion)
+      expect(onQuestionAskedHook2).toBeCalledTimes(1)
+      expect(onQuestionAskedHook2).toBeCalledWith(aQuestion)
     })
 
   })

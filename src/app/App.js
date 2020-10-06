@@ -59,7 +59,7 @@ export const App = ({renderOn}) => {
       quizMaxTime,
       google: googleVisionPlayer,
       human: humanPlayer,
-      startTimer: ({tickMillis, timeout, onTick, onTimeout}) => RealTimer({tickMillis, timeout, onTick, onTimeout})
+      startTimer: ({tickMillis, timeout, onTick, onTimeout}) => RealTimer({tickMillis, timeoutMillis: timeout, onTick, onTimeout})
     }),
     scoresRepositoryProvider: (modeName) => LocalStorageScoresRepository({modeName}),
     data: {

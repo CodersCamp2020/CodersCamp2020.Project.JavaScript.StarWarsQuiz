@@ -24,11 +24,11 @@ describe("GoogleVisionPlayer", () => {
     })
 
     it("should try to answer with help of google vision api", () => {
-      expect(onAnswerGivenHook1.mock.calls.length).toEqual(1)
-      expect(onAnswerGivenHook1.mock.calls[0][0]).toEqual(googleVisionApiResponse)
+      expect(onAnswerGivenHook1).toBeCalledTimes(1)
+      expect(onAnswerGivenHook1).toBeCalledWith(googleVisionApiResponse)
 
-      expect(onAnswerGivenHook2.mock.calls.length).toEqual(1)
-      expect(onAnswerGivenHook2.mock.calls[0][0]).toEqual(googleVisionApiResponse)
+      expect(onAnswerGivenHook2).toBeCalledTimes(1)
+      expect(onAnswerGivenHook2).toBeCalledWith(googleVisionApiResponse)
     })
 
   })

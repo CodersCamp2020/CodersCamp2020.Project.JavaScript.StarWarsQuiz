@@ -16,7 +16,7 @@ describe("Answer checking policies", () => {
       expect(correctFirstWord).toBeTruthy();
 
       const correctSecondWord = partialMatchAnswerChecker.isAnswerCorrect({correctAnswer: "Test Answer", givenAnswer: "Answer"})
-      expect(correctFirstWord).toBeTruthy();
+      expect(correctSecondWord).toBeTruthy();
 
       const differentOrderWords = partialMatchAnswerChecker.isAnswerCorrect({correctAnswer: "Test Answer", givenAnswer: "Answer Test"})
       expect(differentOrderWords).toBeTruthy();
