@@ -4,7 +4,7 @@ export const GoogleVisionPlayer = ({googleVisionApi}) => {
     async askQuestion({question}) {
       const recognized = await googleVisionApi.recognizeImage({
         image: question.image
-      }).then(result => result.value);
+      });
       this.giveAnswer({answer: recognized})
       return Promise.resolve();
     },

@@ -1,20 +1,27 @@
 import 'regenerator-runtime/runtime' //async/await with Parcel
 import {HumanPlayer} from "../../../src/domain/players/HumanPlayer";
 import {aQuestion} from "../../fixtures";
+import {GoogleVisionPlayer} from "../../../src/domain/players/GoogleVisionPlayer";
 
-describe("HumanPlayer", () => {
+describe("GoogleVisionPlayer", () => {
 
-  const humanPlayer = HumanPlayer();
+  const recognizeImageMockFn = jest.fn().mockReturnValue()
+
+  const googleVisionPlayer = GoogleVisionPlayer({
+    googleVisionApi: {
+      recognizeImage: recognizeImageMockFn
+    }
+  });
 
   describe("when is asked", () => {
 
     const onQuestionAskedHook1 = jest.fn();
     const onQuestionAskedHook2 = jest.fn();
 
-    beforeEach(async (done)=>{
-      humanPlayer.onQuestionAsked(onQuestionAskedHook1)
-      humanPlayer.onQuestionAsked(onQuestionAskedHook2)
-      await humanPlayer.askQuestion({question: aQuestion})
+    beforeEach(async (done) => {
+      googleVisionPlayer.onQuestionAsked(onQuestionAskedHook1)
+      googleVisionPlayer.onQuestionAsked(onQuestionAskedHook2)
+      await googleVisionPlayer.askQuestion({question: aQuestion})
       done()
     })
 
@@ -24,6 +31,10 @@ describe("HumanPlayer", () => {
 
       expect(onQuestionAskedHook2.mock.calls.length).toEqual(1)
       expect(onQuestionAskedHook2.mock.calls[0][0]).toEqual(aQuestion)
+    })
+
+    it("should try to answer with help of google vision api", () => {
+
     })
 
   })

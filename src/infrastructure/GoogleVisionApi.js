@@ -1,19 +1,21 @@
-import {Ok, Error} from 'folktale/result'
-
 export const GoogleVisionApi = ({apiKey}) => {
   return {
     recognizeImage({image}) {
-      const request = {
-        "requests": [{
-          "features": [{
-            "type": "WEB_DETECTION",
-            "maxResults": 3
-          }],
-          "image": {
-            "content": image
+      const postRequestBody = {
+        requests: [
+          {
+            features: [
+              {
+                type: "WEB_DETECTION",
+                maxResults: 3
+              }
+            ],
+            image: {
+              content: image
+            }
           }
-        }]
-      };
+        ]
+      }
       return fetch(`https://vision.googleapis.com/v1/images:annotate?key=${apiKey}`, {
         method: 'POST',
         headers: {
@@ -21,9 +23,13 @@ export const GoogleVisionApi = ({apiKey}) => {
         },
         redirect: 'follow',
         cache: 'no-cache',
-        body: JSON.stringify(request)
+        body: JSON.stringify(postRequestBody)
+      }).then(async resp => {
+        if (!resp.ok) {
+          throw new Error(resp.statusText)
+        }
+        return (await resp.json()).responses[0].webDetection.webEntities[0].description
       })
-          .then(async resp => resp.ok ? Ok((await resp.json()).responses[0].webDetection.webEntities[0].description) : Error(resp.statusText))
     }
   }
 }
