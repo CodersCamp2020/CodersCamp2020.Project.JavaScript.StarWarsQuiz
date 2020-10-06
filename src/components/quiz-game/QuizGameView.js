@@ -1,9 +1,9 @@
-import {LightsaberTimerView} from "./LightsaberTimerView";
-import {QUIZ_MAX_TIME} from "../domain/TimeUnits";
-import {TextTimerView} from "./TextTimerView";
-import {GameResultModal} from "./GameResultModal";
+import {LightsaberTimerView} from "../timer/LightsaberTimerView";
+import {QUIZ_MAX_TIME} from "../../domain/TimeUnits";
+import {TextTimerView} from "../timer/TextTimerView";
+import {GameResultModal} from "../game-result-modal/GameResultModal";
 import {render} from "../../shared/dom";
-import {CircleLoaderView} from "../../loader/presentation/CircleLoaderView";
+import {CircleLoaderView} from "../loader/CircleLoaderView";
 
 const viewTemplateHtml = `
      <div id="swquiz-game-wrapper">

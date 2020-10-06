@@ -1,14 +1,14 @@
-import {GoogleVisionApi} from "../quiz-game/infrastructure/GoogleVisionApi";
-import {StarWarsApi} from "../quiz-game/infrastructure/StarWarsApi";
-import {PeopleMode} from "../quiz-game/domain/PeopleMode";
+import {GoogleVisionApi} from "../infrastructure/GoogleVisionApi";
+import {StarWarsApi} from "../infrastructure/StarWarsApi";
+import {PeopleMode} from "../domain/PeopleMode";
 import {AppView} from "./AppView";
-import {HumanPlayer} from "../quiz-game/domain/HumanPlayer";
-import {GoogleVisionPlayer} from "../quiz-game/domain/GoogleVisionPlayer";
-import {StarshipsMode} from "../quiz-game/domain/StarshipsMode";
-import {VehiclesMode} from "../quiz-game/domain/VehiclesMode";
-import {QuizGame} from "../quiz-game/domain/QuizGame";
-import {RealTimer} from "../quiz-game/infrastructure/RealTimer";
-import {LocalStorageScoresRepository} from "../quiz-game/infrastructure/LocalStorageScoresRepository";
+import {HumanPlayer} from "../domain/HumanPlayer";
+import {GoogleVisionPlayer} from "../domain/GoogleVisionPlayer";
+import {StarshipsMode} from "../domain/StarshipsMode";
+import {VehiclesMode} from "../domain/VehiclesMode";
+import {QuizGame} from "../domain/QuizGame";
+import {RealTimer} from "../infrastructure/RealTimer";
+import {LocalStorageScoresRepository} from "../infrastructure/LocalStorageScoresRepository";
 
 export const App = ({renderOn}) => {
   const GOOGLE_VISION_API_KEY = process.env.GOOGLE_VISION_API_KEY || "AIzaSyAu5cv9vSquTVHFDuFRvbNX4FtN0TLwVrk"

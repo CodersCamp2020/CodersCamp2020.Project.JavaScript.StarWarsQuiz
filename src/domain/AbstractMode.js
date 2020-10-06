@@ -1,5 +1,5 @@
-import {getRandomIntInclusive} from "../../shared/Random";
-import {imageBase64} from "../presentation/StarWarsAssetImage";
+import {getRandomIntInclusive} from "../shared/Random";
+import {imageBase64} from "../components/quiz-game/StarWarsAssetImage";
 
 export const AbstractMode = ({name, repository, randomAnswerId}) => {
   return {

@@ -1,9 +1,9 @@
-import {MainMenuView} from "../main-menu/presentation/MainMenuView";
-import {ModeMenuView} from "../mode-menu/presentation/ModeMenuView";
-import {QuizGameView} from "../quiz-game/presentation/QuizGameView";
-import {QuizGamePresenter} from "../quiz-game/presentation/QuizGamePresenter";
-import {QuizHallOfFameView} from "../quiz-hall-of-fame/presentation/QuizHallOfFameView";
-import {QuizHallOfFamePresenter} from "../quiz-hall-of-fame/presentation/QuizHallOfFamePresenter";
+import {MainMenuView} from "../components/main-menu/MainMenuView";
+import {ModeMenuView} from "../components/mode-menu/ModeMenuView";
+import {QuizGameView} from "../components/quiz-game/QuizGameView";
+import {QuizGamePresenter} from "../components/quiz-game/QuizGamePresenter";
+import {QuizHallOfFameView} from "../components/quiz-hall-of-fame/QuizHallOfFameView";
+import {QuizHallOfFamePresenter} from "../components/quiz-hall-of-fame/QuizHallOfFamePresenter";
 import {render} from "../shared/dom";
 
 const templateHtml = `

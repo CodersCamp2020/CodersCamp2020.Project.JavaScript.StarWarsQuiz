@@ -1,5 +1,5 @@
-import {InMemoryScoresRepository} from "../../../src/quiz-game/infrastructure/InMemoryScoresRepository";
-import {QuizHallOfFamePresenter} from "../../../src/quiz-hall-of-fame/presentation/QuizHallOfFamePresenter";
+import {InMemoryScoresRepository} from "../../../src/infrastructure/InMemoryScoresRepository";
+import {QuizHallOfFamePresenter} from "../../../src/components/quiz-hall-of-fame/QuizHallOfFamePresenter";
 
 describe("Model-View-Presenter | Quiz Hall Of Fame", () => {
 
