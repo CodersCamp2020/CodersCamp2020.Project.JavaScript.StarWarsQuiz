@@ -59,15 +59,19 @@ export const GameResultModal = () => {
       const answersList = modalElement.querySelector(".swquiz-answers-table-wrapper");
       data.answers.map(answer => AnswersRowElement({answer}))
           .forEach(answersRowElement => answersList.appendChild(answersRowElement))
+      return modal;
     },
     hide() {
       modalElement.style.display = 'none'
+      return modal;
     },
     submitScoreSave({playerName}) {
       onSaveScoreHooks.forEach(hook => hook({playerName}))
+      return modal;
     },
     onScoreSave(hook) {
       onSaveScoreHooks.push(hook);
+      return modal;
     }
   }
   return modal;

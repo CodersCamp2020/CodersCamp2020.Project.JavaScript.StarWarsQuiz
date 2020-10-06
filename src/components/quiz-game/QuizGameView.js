@@ -79,13 +79,12 @@ export const QuizGameView = ({renderOn, quizMaxTime, presenterSupplier}) => {
     showGameOver(gameOver) {
       lightsaberTimerView.timeout()
       textTimerView.timeout()
-      const gameResultModal = GameResultModal()
-      gameResultModal.onScoreSave(({playerName}) => {
-        const humanAnswers = gameOver.answers.map(it => it.humanAnswer).filter(humanAnswer => humanAnswer !== undefined)
-        const score = CorrectAnswersScoreCalculator().calculate({answers: humanAnswers})
-        quizGamePresenter.saveScore({playerName, score})
-      })
-      gameResultModal.show({data: gameOver});
+      GameResultModal()
+          .onScoreSave(({playerName}) => {
+            const humanAnswers = gameOver.answers.map(it => it.humanAnswer).filter(humanAnswer => humanAnswer !== undefined)
+            const score = CorrectAnswersScoreCalculator().calculate({answers: humanAnswers})
+            quizGamePresenter.saveScore({playerName, score})
+          }).show({data: gameOver});
     }
   }
   answerElements.forEach(answerElement => answerElement.addEventListener('click', async e => {

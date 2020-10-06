@@ -46,7 +46,6 @@ export const AppView = ({renderOn, quizGameProvider, scoresRepositoryProvider, q
             .then(() => console.log("GAME STARTED!"));
       })
           .onClickHallOfFameButton(modeName => {
-            console.log("CLICK HALL OF FAME", modeName)
             const quizHallOfFameView = QuizHallOfFameView({
               renderOn: "#swquiz-mode-content",
               presenterSupplier: view => QuizHallOfFamePresenter({
@@ -56,7 +55,6 @@ export const AppView = ({renderOn, quizGameProvider, scoresRepositoryProvider, q
             });
             quizHallOfFameView.loadBestScores();
           });
-
 
       return view;
     }
