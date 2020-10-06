@@ -51,7 +51,10 @@
     ],
     "rootDir": "test",
     "testRegex": "spec.*",
-    "coverageDirectory": "../coverage"
+    "coverageDirectory": "../coverage",
+    "setupFiles": [
+      "./setupJest.js"
+    ]
   },
   "staticFiles": {
     "staticPath": [

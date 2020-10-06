@@ -7,7 +7,7 @@ export const GoogleVisionApi = ({apiKey}) => {
             features: [
               {
                 type: "WEB_DETECTION",
-                maxResults: 3
+                maxResults: 1
               }
             ],
             image: {

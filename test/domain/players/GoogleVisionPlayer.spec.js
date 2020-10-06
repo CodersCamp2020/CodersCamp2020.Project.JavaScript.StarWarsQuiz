@@ -1,11 +1,10 @@
-import 'regenerator-runtime/runtime' //async/await with Parcel
-import {HumanPlayer} from "../../../src/domain/players/HumanPlayer";
 import {aQuestion} from "../../fixtures";
 import {GoogleVisionPlayer} from "../../../src/domain/players/GoogleVisionPlayer";
 
 describe("GoogleVisionPlayer", () => {
 
-  const recognizeImageMockFn = jest.fn().mockReturnValue()
+  const googleVisionApiResponse = "Luke Skywalker"
+  const recognizeImageMockFn = jest.fn().mockReturnValue(googleVisionApiResponse)
 
   const googleVisionPlayer = GoogleVisionPlayer({
     googleVisionApi: {
@@ -14,27 +13,22 @@ describe("GoogleVisionPlayer", () => {
   });
 
   describe("when is asked", () => {
-
-    const onQuestionAskedHook1 = jest.fn();
-    const onQuestionAskedHook2 = jest.fn();
+    const onAnswerGivenHook1 = jest.fn();
+    const onAnswerGivenHook2 = jest.fn();
 
     beforeEach(async (done) => {
-      googleVisionPlayer.onQuestionAsked(onQuestionAskedHook1)
-      googleVisionPlayer.onQuestionAsked(onQuestionAskedHook2)
+      googleVisionPlayer.onAnswerGiven(onAnswerGivenHook1)
+      googleVisionPlayer.onAnswerGiven(onAnswerGivenHook2)
       await googleVisionPlayer.askQuestion({question: aQuestion})
       done()
     })
 
-    it("should notify about asked question", () => {
-      expect(onQuestionAskedHook1.mock.calls.length).toEqual(1)
-      expect(onQuestionAskedHook1.mock.calls[0][0]).toEqual(aQuestion)
-
-      expect(onQuestionAskedHook2.mock.calls.length).toEqual(1)
-      expect(onQuestionAskedHook2.mock.calls[0][0]).toEqual(aQuestion)
-    })
-
     it("should try to answer with help of google vision api", () => {
+      expect(onAnswerGivenHook1.mock.calls.length).toEqual(1)
+      expect(onAnswerGivenHook1.mock.calls[0][0]).toEqual(googleVisionApiResponse)
 
+      expect(onAnswerGivenHook2.mock.calls.length).toEqual(1)
+      expect(onAnswerGivenHook2.mock.calls[0][0]).toEqual(googleVisionApiResponse)
     })
 
   })

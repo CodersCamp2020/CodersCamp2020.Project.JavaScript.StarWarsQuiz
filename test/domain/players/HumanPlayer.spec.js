@@ -1,4 +1,3 @@
-import 'regenerator-runtime/runtime' //async/await with Parcel
 import {HumanPlayer} from "../../../src/domain/players/HumanPlayer";
 import {aQuestion} from "../../fixtures";
 
