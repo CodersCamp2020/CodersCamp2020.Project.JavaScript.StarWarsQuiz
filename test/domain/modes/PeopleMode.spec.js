@@ -40,13 +40,11 @@ describe("People mode", () => {
       jest.spyOn(global.Math, 'random').mockRestore();
     })
 
-    it("should", () => {
-      expect(Math.random()).toEqual(1)
-      expect(Math.random()).toEqual(2)
-    })
-
     it("should2", async (done) => {
       const generatedQuestion = await peopleMode.generateQuestion();
+      expect(generatedQuestion).toEqual({
+        image: anImage
+      })
       done()
     })
 
