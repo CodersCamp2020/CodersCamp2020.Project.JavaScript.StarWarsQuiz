@@ -21,29 +21,34 @@ export const App = ({renderOn}) => {
   const googleVisionApi = GoogleVisionApi({apiKey: GOOGLE_VISION_API_KEY})
 
   const staticImagesRepository = StaticImagesRepository()
-  const swApiPeopleRepository = {
-    getById({id}) {
-      return starWarsApi.find({id, category: "people"})
-    }
-  }
-  const swApiStarshipsRepository = {
-    getById({id}) {
-      return starWarsApi.find({id, category: "starships"})
-    }
-  }
-  const swApiVehiclesRepository = {
-    getById({id}) {
-      return starWarsApi.find({id, category: "vehicles"})
-    }
-  }
-
   const googleVisionPlayer = GoogleVisionPlayer({googleVisionApi});
   const humanPlayer = HumanPlayer();
 
   const modes = {
-    people: PeopleMode({repository: swApiPeopleRepository, images: staticImagesRepository}),
-    vehicles: VehiclesMode({repository: swApiVehiclesRepository, images: staticImagesRepository}),
-    starships: StarshipsMode({repository: swApiStarshipsRepository, images: staticImagesRepository}),
+    people: PeopleMode({
+      images: staticImagesRepository,
+      repository: {
+        getById({id}) {
+          return starWarsApi.find({id, category: "people"})
+        }
+      }
+    }),
+    vehicles: VehiclesMode({
+      images: staticImagesRepository,
+      repository: {
+        getById({id}) {
+          return starWarsApi.find({id, category: "vehicles"})
+        }
+      }
+    }),
+    starships: StarshipsMode({
+      images: staticImagesRepository,
+      repository: {
+        getById({id}) {
+          return starWarsApi.find({id, category: "starships"})
+        }
+      }
+    }),
   };
 
   AppView({
