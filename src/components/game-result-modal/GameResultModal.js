@@ -48,6 +48,7 @@ export const GameResultModal = () => {
   })
 
   const modal = {
+    element: modalElement,
     show({data}) {
       const googleAnswersStats = answersStats({forPlayer: 'google', answers: data.answers})
       const humanAnswersStats = answersStats({forPlayer: 'human', answers: data.answers})
