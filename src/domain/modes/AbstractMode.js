@@ -3,7 +3,7 @@ import {getRandomIntInclusive} from "../../shared/Random";
 export const AbstractMode = ({name, repository, generateRandomAnswerId, images}) => {
   return {
     name,
-    async nextQuestion() {
+    async generateQuestion() {
       const answersIds = new Set()
       for (let i = 0; answersIds.size < 4; i++) {
         answersIds.add(generateRandomAnswerId())

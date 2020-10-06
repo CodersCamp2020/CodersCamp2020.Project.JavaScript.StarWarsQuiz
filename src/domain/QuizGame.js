@@ -16,7 +16,7 @@ export const QuizGame = ({human, google, mode, quizMaxTime, startTimer}) => {
 
   async function generateQuestions(next = 10) {
     for (let i = 0; i < next; i++) {
-      questions[Object.keys(questions).length] = await mode.nextQuestion()
+      questions[Object.keys(questions).length] = await mode.generateQuestion()
     }
   }
 

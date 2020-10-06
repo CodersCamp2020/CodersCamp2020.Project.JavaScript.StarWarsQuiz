@@ -9,12 +9,24 @@ const optionsTemplateHtml = ({options}) =>
         .reduce((x, y) => x + y)
 
 export const MainMenuView = ({renderOn, options, selectedOption}) => {
-  render({on: renderOn, html: templateHtml(optionsTemplateHtml({options}))})
+  const element = render({on: renderOn, html: templateHtml(optionsTemplateHtml({options}))})
 
   const onOptionSelectedHooks = [];
 
+  forEachOptionElement(optionElement =>
+      optionElement.addEventListener('click', e => {
+        const option = e.target.id;
+        view.selectOption({option})
+      })
+  )
+
   const view = {
+    element,
+    enabled: true,
     selectOption({option}) {
+      if(!this.enabled){
+        return view;
+      }
       const options = document.getElementsByClassName("swquiz-mainmenu-option")
       for (const otherModeOption of options) {
         otherModeOption.classList.remove("selected")
@@ -29,21 +41,13 @@ export const MainMenuView = ({renderOn, options, selectedOption}) => {
       return view;
     },
     disable() {
-      forEachOptionElement(optionElement =>
-          optionElement.replaceWith(optionElement.cloneNode(true))
-      )
+      this.enabled = false;
       return view;
     },
     enable() {
-      forEachOptionElement(optionElement =>
-          optionElement.addEventListener('click', e => {
-            const option = e.target.id;
-            view.selectOption({option})
-          })
-      )
+      this.enabled = true;
     }
   }
-  view.enable();
   if (selectedOption) {
     view.selectOption({option: selectedOption})
   }

@@ -28,7 +28,7 @@ describe("render | Replacing element with new one ", () => {
   describe("should replace by given query selector", () => {
 
     it("#id query selector", () => {
-      document.body.innerHTML = `<html lang="pl"><body><template id="test-template-to-render"></template></body></html>`
+      document.body.innerHTML = `<template id="test-template-to-render"></template>`
 
       render({html: `<h1 id="rendered-element">Render Test</h1>`, on: "#test-template-to-render"})
 

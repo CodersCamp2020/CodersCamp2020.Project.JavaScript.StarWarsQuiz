@@ -12,7 +12,7 @@ export const StarWarsApi = ({starWarsApiBaseUrl}) => {
           .then(handleErrors)
           .then(response => response.json())
           .then(responseJson => {
-            return {id, ...responseJson}
+            return {id, name: responseJson.name}
           });
     }
   }

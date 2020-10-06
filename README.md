@@ -50,3 +50,6 @@ Jednakże nie używaj żadnego frameworka JavaScript takiego jak Angular / React
 https://www.atlassian.com/agile/project-management/user-stories
 https://torre.me.uk/2019/03/28/using-github-as-project-management-platform/
 https://zube.io/blog/agile-project-management-workflow-for-github-issues/
+
+## Dodatkowe (wykraczające poza zakres kursu):
+Testy E2E - przy użyciu Cypress

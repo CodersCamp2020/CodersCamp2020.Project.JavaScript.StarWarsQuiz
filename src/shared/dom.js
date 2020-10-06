@@ -10,3 +10,7 @@ export function render({html, on}){
   placeholder.parentNode.replaceChild(element,placeholder)
   return element;
 }
+
+export function replaceAllListenersFrom(optionElement) {
+  return optionElement.replaceWith(optionElement.cloneNode(true));
+}
