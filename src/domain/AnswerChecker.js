@@ -12,9 +12,8 @@ export const IncludesCheckStrategy = ({correctAnswer, givenAnswer}) => {
 
 export const AnswerChecker = ({checkStrategy}) => {
   return {
-    isAnswerCorrect({question, givenAnswer}) {
-      const rightAnswerName = question.rightAnswer.name;
-      return checkStrategy({correctAnswer: rightAnswerName, givenAnswer})
+    isAnswerCorrect({correctAnswer, givenAnswer}) {
+      return checkStrategy({correctAnswer, givenAnswer})
     }
   }
 }
