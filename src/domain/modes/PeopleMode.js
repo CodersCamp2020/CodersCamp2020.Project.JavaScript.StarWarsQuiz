@@ -1,4 +1,4 @@
-import {getRandomIntInclusive} from "../shared/Random";
+import {getRandomIntInclusive} from "../../shared/Random";
 import {AbstractMode} from "./AbstractMode";
 
 const randomAnswerId = () => {

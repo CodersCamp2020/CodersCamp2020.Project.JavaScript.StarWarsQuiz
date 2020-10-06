@@ -1,18 +1,20 @@
 import {GoogleVisionApi} from "../infrastructure/GoogleVisionApi";
 import {StarWarsApi} from "../infrastructure/StarWarsApi";
-import {PeopleMode} from "../domain/PeopleMode";
+import {PeopleMode} from "../domain/modes/PeopleMode";
 import {AppView} from "./AppView";
-import {HumanPlayer} from "../domain/HumanPlayer";
-import {GoogleVisionPlayer} from "../domain/GoogleVisionPlayer";
-import {StarshipsMode} from "../domain/StarshipsMode";
-import {VehiclesMode} from "../domain/VehiclesMode";
+import {HumanPlayer} from "../domain/players/HumanPlayer";
+import {GoogleVisionPlayer} from "../domain/players/GoogleVisionPlayer";
+import {StarshipsMode} from "../domain/modes/StarshipsMode";
+import {VehiclesMode} from "../domain/modes/VehiclesMode";
 import {QuizGame} from "../domain/QuizGame";
 import {RealTimer} from "../infrastructure/RealTimer";
 import {LocalStorageScoresRepository} from "../infrastructure/LocalStorageScoresRepository";
+import {ONE_SECOND_MILLIS} from "../shared/TimeUnits";
 
 export const App = ({renderOn}) => {
   const GOOGLE_VISION_API_KEY = process.env.GOOGLE_VISION_API_KEY || "AIzaSyAu5cv9vSquTVHFDuFRvbNX4FtN0TLwVrk"
   const SW_API_BASE_URL = process.env.SW_API_BASE_URL || "https://swapi.dev/api";
+  const QUIZ_MAX_TIME = process.env.QUIZ_MAX_TIME_SECONDS ? process.env.QUIZ_MAX_TIME_SECONDS * ONE_SECOND_MILLIS : 10 * ONE_SECOND_MILLIS;
 
   const starWarsApi = StarWarsApi({starWarsApiBaseUrl: SW_API_BASE_URL})
   const googleVisionApi = GoogleVisionApi({apiKey: GOOGLE_VISION_API_KEY})
@@ -44,8 +46,10 @@ export const App = ({renderOn}) => {
 
   AppView({
     renderOn,
-    quizGameProvider: (modeName) => QuizGame({
+    quizMaxTime: QUIZ_MAX_TIME,
+    quizGameProvider: ({modeName, quizMaxTime}) => QuizGame({
       mode: modes[modeName],
+      quizMaxTime,
       google: googleVisionPlayer,
       human: humanPlayer,
       startTimer: ({tickMillis, timeout, onTick, onTimeout}) => RealTimer({tickMillis, timeout, onTick, onTimeout})

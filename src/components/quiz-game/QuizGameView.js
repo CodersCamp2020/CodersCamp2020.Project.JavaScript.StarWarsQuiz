@@ -1,5 +1,4 @@
 import {LightsaberTimerView} from "../timer/LightsaberTimerView";
-import {QUIZ_MAX_TIME} from "../../domain/TimeUnits";
 import {TextTimerView} from "../timer/TextTimerView";
 import {GameResultModal} from "../game-result-modal/GameResultModal";
 import {render} from "../../shared/dom";
@@ -26,7 +25,7 @@ const viewTemplateHtml = `
      </div>
 `
 
-export const QuizGameView = ({renderOn, presenterSupplier}) => {
+export const QuizGameView = ({renderOn, quizMaxTime, presenterSupplier}) => {
   const element = render({on: renderOn, html: viewTemplateHtml})
 
   const answerElements = ["swquiz-answer-1", "swquiz-answer-2", "swquiz-answer-3", "swquiz-answer-4"]
@@ -35,12 +34,12 @@ export const QuizGameView = ({renderOn, presenterSupplier}) => {
 
   const lightsaberTimerView = LightsaberTimerView({
     renderOn: "#swquiz-lightsaber",
-    timeout: QUIZ_MAX_TIME
+    timeout: quizMaxTime
   });
 
   const textTimerView = TextTimerView({
     renderOn: "#swquiz-timer-text",
-    timeout: QUIZ_MAX_TIME,
+    timeout: quizMaxTime,
   });
 
   const loaderView = CircleLoaderView();

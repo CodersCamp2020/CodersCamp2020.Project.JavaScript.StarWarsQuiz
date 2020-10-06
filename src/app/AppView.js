@@ -17,7 +17,7 @@ const templateHtml = `
     </div>
 `
 
-export const AppView = ({renderOn, quizGameProvider, scoresRepositoryProvider, data}) => {
+export const AppView = ({renderOn, quizGameProvider, scoresRepositoryProvider, quizMaxTime, data}) => {
   render({on: renderOn, html: templateHtml})
 
   const {defaultModeName, modesDescriptions} = data;
@@ -30,9 +30,10 @@ export const AppView = ({renderOn, quizGameProvider, scoresRepositoryProvider, d
         data: {name: modeName, title: modesDescriptions[modeName].title, rules: modesDescriptions[modeName].rules}
       }).onClickPlayTheGameButton(modeName => {
         modeMenuView.hide();
-        const quizGame = quizGameProvider(modeName)
+        const quizGame = quizGameProvider({modeName, quizMaxTime})
         const quizGameView = QuizGameView({
           renderOn: '#swquiz-game-wrapper',
+          quizMaxTime,
           presenterSupplier: view => QuizGamePresenter({
             quizGame,
             quizGameView: view,

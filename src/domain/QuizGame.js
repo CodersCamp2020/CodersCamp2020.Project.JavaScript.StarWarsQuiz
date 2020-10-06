@@ -1,7 +1,7 @@
 import {AnswerChecker, PartialMatchCheckStrategy} from "./AnswerChecker";
-import {ONE_SECOND_MILLIS, QUIZ_MAX_TIME} from "./TimeUnits";
+import {ONE_SECOND_MILLIS} from "../shared/TimeUnits";
 
-export const QuizGame = ({human, google, mode, startTimer}) => {
+export const QuizGame = ({human, google, mode, quizMaxTime, startTimer}) => {
   const onGameOverHooks = []
   const onTimerTickHooks = []
   const questions = {}
@@ -37,7 +37,7 @@ export const QuizGame = ({human, google, mode, startTimer}) => {
       )
       startTimer({
         tickMillis: ONE_SECOND_MILLIS,
-        timeout: QUIZ_MAX_TIME,
+        timeout: quizMaxTime,
         onTick: ({passedTime, tickMillis}) => {
           onTimerTickHooks.forEach(hook => hook({passedTime, tickMillis}))
         },
