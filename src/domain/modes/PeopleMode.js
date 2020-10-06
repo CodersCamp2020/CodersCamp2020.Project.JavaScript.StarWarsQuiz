@@ -11,4 +11,9 @@ const randomAnswerId = () => {
   return random;
 }
 
-export const PeopleMode = ({repository}) => AbstractMode({name: "people", repository, randomAnswerId})
+export const PeopleMode = ({repository, images}) => AbstractMode({
+  name: "people",
+  repository,
+  generateRandomAnswerId: randomAnswerId,
+  images
+})

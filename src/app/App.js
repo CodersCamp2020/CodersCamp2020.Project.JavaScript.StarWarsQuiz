@@ -10,6 +10,7 @@ import {QuizGame} from "../domain/QuizGame";
 import {RealTimer} from "../infrastructure/RealTimer";
 import {LocalStorageScoresRepository} from "../infrastructure/LocalStorageScoresRepository";
 import {ONE_SECOND_MILLIS} from "../shared/TimeUnits";
+import {StaticImagesRepository} from "../infrastructure/StaticImagesRepository";
 
 export const App = ({renderOn}) => {
   const GOOGLE_VISION_API_KEY = process.env.GOOGLE_VISION_API_KEY || "AIzaSyAu5cv9vSquTVHFDuFRvbNX4FtN0TLwVrk"
@@ -19,6 +20,7 @@ export const App = ({renderOn}) => {
   const starWarsApi = StarWarsApi({starWarsApiBaseUrl: SW_API_BASE_URL})
   const googleVisionApi = GoogleVisionApi({apiKey: GOOGLE_VISION_API_KEY})
 
+  const staticImagesRepository = StaticImagesRepository()
   const swApiPeopleRepository = {
     getById({id}) {
       return starWarsApi.find({id, category: "people"})
@@ -39,9 +41,9 @@ export const App = ({renderOn}) => {
   const humanPlayer = HumanPlayer();
 
   const modes = {
-    people: PeopleMode({repository: swApiPeopleRepository}),
-    vehicles: VehiclesMode({repository: swApiVehiclesRepository}),
-    starships: StarshipsMode({repository: swApiStarshipsRepository}),
+    people: PeopleMode({repository: swApiPeopleRepository, images: staticImagesRepository}),
+    vehicles: VehiclesMode({repository: swApiVehiclesRepository, images: staticImagesRepository}),
+    starships: StarshipsMode({repository: swApiStarshipsRepository, images: staticImagesRepository}),
   };
 
   AppView({

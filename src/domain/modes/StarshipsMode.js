@@ -6,4 +6,9 @@ function randomAnswerId() {
   return AVAILABLE_STARSHIP_IDS[Math.floor(Math.random() * AVAILABLE_STARSHIP_IDS.length)];
 }
 
-export const StarshipsMode = ({repository}) => AbstractMode({name: "starships", repository, randomAnswerId})
+export const StarshipsMode = ({repository, images}) => AbstractMode({
+  name: "starships",
+  repository,
+  generateRandomAnswerId: randomAnswerId,
+  images
+})

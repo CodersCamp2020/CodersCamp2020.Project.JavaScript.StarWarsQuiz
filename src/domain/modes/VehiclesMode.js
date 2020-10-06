@@ -6,4 +6,9 @@ function randomAnswerId() {
   return AVAILABLE_VEHICLE_IDS[Math.floor(Math.random() * AVAILABLE_VEHICLE_IDS.length)];
 }
 
-export const VehiclesMode = ({repository}) => AbstractMode({name: "vehicles", repository, randomAnswerId})
+export const VehiclesMode = ({repository, images}) => AbstractMode({
+  name: "vehicles",
+  repository,
+  generateRandomAnswerId: randomAnswerId,
+  images
+})
