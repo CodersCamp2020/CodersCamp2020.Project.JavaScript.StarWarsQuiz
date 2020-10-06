@@ -36,10 +36,15 @@ Może się przydać do odczytania np. cieni i kolorów. Nie zwracajcie uwagi na 
 - CSS / SCSS
 - Star Wars API
 - Google Vision API
+Uwaga: Każda inna technologia / Biblioteka jak najbardziej mile widziana, jeśli pomoże Ci osiągnąć zamierzony cel :) 
+Jednakże nie używaj żadnego frameworka JavaScript takiego jak Angular / React / Vue.js - w tym dziale chodzi o praktykę czystego JavaScripta :) 
+
 
 ## Opis kodu startowego:
 1. Został dodany Jest w sposób opisany [TUTAJ](https://ryankubik.com/blog/parcel-and-jest/)
 
+## Porady nt. testowanie poprzez Jest:
+1. Elementy widoku (DOM) można testować wg. Guide: https://jestjs.io/docs/en/tutorial-jquery (w tym przykładzie jQuery, którego prawdopodobnie nie będziecie używać)
 
 ## Organizacja
 https://www.atlassian.com/agile/project-management/user-stories
