@@ -40,3 +40,8 @@ Może się przydać do odczytania np. cieni i kolorów. Nie zwracajcie uwagi na 
 ## Opis kodu startowego:
 1. Został dodany Jest w sposób opisany [TUTAJ](https://ryankubik.com/blog/parcel-and-jest/)
 
+
+## Organizacja
+https://www.atlassian.com/agile/project-management/user-stories
+https://torre.me.uk/2019/03/28/using-github-as-project-management-platform/
+https://zube.io/blog/agile-project-management-workflow-for-github-issues/
