@@ -1,7 +1,7 @@
 import {AnswerChecker, PartialMatchCheckStrategy} from "./AnswerChecker";
 import {ONE_SECOND_MILLIS} from "../shared/TimeUnits";
 
-export const QuizGame = ({human, google, mode, quizMaxTime, startTimer}) => {
+export const QuizGame = ({human, google, mode, quizMaxTime, startTimer, answerChecker}) => {
   const onGameOverHooks = []
   const onTimerTickHooks = []
   const questions = {}
@@ -20,45 +20,53 @@ export const QuizGame = ({human, google, mode, quizMaxTime, startTimer}) => {
     }
   }
 
+  async function askAllPlayers(question) {
+    await Promise.all(
+        Object.keys(players).map(async playerName => {
+          const player = players[playerName]
+          player.onAnswerGiven(answer => {
+            game.giveAnswer({player: playerName, answer})
+          })
+          await player.askQuestion({question})
+        })
+    )
+  }
+
+  function startCountingTime() {
+    startTimer({
+      tickMillis: ONE_SECOND_MILLIS,
+      timeout: quizMaxTime,
+      onTick: ({passedTime, tickMillis}) => {
+        onTimerTickHooks.forEach(hook => hook({passedTime, tickMillis}))
+      },
+      onTimeout: () => {
+        onGameOverHooks.forEach(hook => hook(GameOver({questions, playersAnswers})))
+      }
+    })
+  }
+
   const game = {
     humanPlayer: human,
     googlePlayer: google,
     async startGame() {
       await generateQuestions();
       const firstQuestion = questions[0];
-      await Promise.all(
-          Object.keys(players).map(async playerName => {
-            const player = players[playerName]
-            player.onAnswerGiven(answer => {
-              game.giveAnswer({player: playerName, answer})
-            })
-            await player.askQuestion({question: firstQuestion})
-          })
-      )
-      startTimer({
-        tickMillis: ONE_SECOND_MILLIS,
-        timeout: quizMaxTime,
-        onTick: ({passedTime, tickMillis}) => {
-          onTimerTickHooks.forEach(hook => hook({passedTime, tickMillis}))
-        },
-        onTimeout: () => {
-          onGameOverHooks.forEach(hook => hook(GameOver({questions, playersAnswers})))
-        }
-      })
-      return Promise.resolve()
+      await askAllPlayers(firstQuestion);
+      startCountingTime();
     },
     async giveAnswer({player, answer}) {
-      const answeredQuestion = questions[Object.keys(playersAnswers[player]).length];
-      const answerChecker = AnswerChecker({checkStrategy: PartialMatchCheckStrategy})
+      const playerAnswers = playersAnswers[player];
+      const questionIndex = Object.keys(playerAnswers).length;
+      const answeredQuestion = questions[questionIndex];
       const isCorrect = answerChecker.isAnswerCorrect({correctAnswer: answeredQuestion.rightAnswer.name, givenAnswer: answer})
-      playersAnswers[player][Object.keys(playersAnswers[player]).length] = {answerName: answer, isCorrect}
-      const questionToAsk = questions[Object.keys(playersAnswers[player]).length];
+      playerAnswers[questionIndex] = {answerName: answer, isCorrect}
+      const questionToAsk = questions[questionIndex];
       await players[player].askQuestion({question: questionToAsk})
 
-      if (Object.keys(questions).length - Object.keys(playersAnswers[player]).length <= 5) {
+      const questionsToAsk = Object.keys(questions).length;
+      if (questionsToAsk - questionIndex <= 5) {
         await generateQuestions()
       }
-      return Promise.resolve()
     },
     onGameOver(hook) {
       onGameOverHooks.push(hook)

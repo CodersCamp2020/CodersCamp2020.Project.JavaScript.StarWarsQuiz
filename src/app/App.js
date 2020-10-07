@@ -11,6 +11,7 @@ import {RealTimer} from "../infrastructure/RealTimer";
 import {LocalStorageScoresRepository} from "../infrastructure/LocalStorageScoresRepository";
 import {ONE_SECOND_MILLIS} from "../shared/TimeUnits";
 import {StaticImagesRepository} from "../infrastructure/StaticImagesRepository";
+import {AnswerChecker, PartialMatchCheckStrategy} from "../domain/AnswerChecker";
 
 export const App = ({renderOn}) => {
   const GOOGLE_VISION_API_KEY = process.env.GOOGLE_VISION_API_KEY || "AIzaSyAu5cv9vSquTVHFDuFRvbNX4FtN0TLwVrk"
@@ -50,6 +51,7 @@ export const App = ({renderOn}) => {
       }
     }),
   };
+  const answerChecker = AnswerChecker({checkStrategy: PartialMatchCheckStrategy})
 
   AppView({
     renderOn,
@@ -59,6 +61,7 @@ export const App = ({renderOn}) => {
       quizMaxTime,
       google: googleVisionPlayer,
       human: humanPlayer,
+      answerChecker,
       startTimer: ({tickMillis, timeout, onTick, onTimeout}) => RealTimer({tickMillis, timeoutMillis: timeout, onTick, onTimeout})
     }),
     scoresRepositoryProvider: (modeName) => LocalStorageScoresRepository({modeName}),

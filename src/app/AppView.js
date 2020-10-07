@@ -28,7 +28,7 @@ export const AppView = ({renderOn, quizGameProvider, scoresRepositoryProvider, q
       const modeMenuView = ModeMenuView({
         renderOn: "#swquiz-mode",
         data: {name: modeName, title: modesDescriptions[modeName].title, rules: modesDescriptions[modeName].rules}
-      }).onClickPlayTheGameButton(modeName => {
+      }).onClickPlayTheGameButton(async modeName => {
         modeMenuView.hide();
         const quizGame = quizGameProvider({modeName, quizMaxTime})
         const quizGameView = QuizGameView({
@@ -42,8 +42,7 @@ export const AppView = ({renderOn, quizGameProvider, scoresRepositoryProvider, q
         });
         mainMenuView.disable()
         quizGameView.show();
-        quizGameView.startGame()
-            .then(() => console.log("GAME STARTED!"));
+        await quizGameView.startGame();
       })
           .onClickHallOfFameButton(modeName => {
             const quizHallOfFameView = QuizHallOfFameView({
