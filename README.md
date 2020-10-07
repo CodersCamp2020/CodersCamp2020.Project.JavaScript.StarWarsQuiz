@@ -123,7 +123,7 @@ Dostarczona została także lista funkcjonalności.
     - zostaje pobrany losowy zasób z danego trybu (np people o id 5)
     - zostanie pobrane dla wylosowanego zasobu zdjęcie (z dysku)
     - losowane są 3 odpowiedzi z calla do api (dla People) będzie to: https://swapi.co/api/people (jedna brana jest z wcześniej wylosowanego, musi być poprawna)
-6. Odpowiedź Google Vision API generowana jest w następujący sposób
+6. Odpowiedź [Google Vision API](https://cloud.google.com/vision/docs/request) generowana jest w następujący sposób
     - zdjęcie jest przesyłane do GoogleVision API, z którego bierze się najwyższy wynik prawdopodobieństwa rozpoznania (albo kilka z nich, alorytm trzeba ustalić)
     - przeszukiwane są wyniki działania GoogleVision dla zdjęcia, czy któryś z nich pokrywa się z odpowiedzią (ustalić stopień podobieństwa, np. odpowiedź to może być Jabba, a Google API zwróci "Jabba The Hutt")
 7. Po ukończeniu czasu wynik gracza zapisywany jest w rankingu dla danej przeglądarki (LocalStorage) i pokazywany jest ranking 3 najlepszych wyników.
