@@ -116,7 +116,7 @@ Dostarczona została także lista funkcjonalności.
 
 1. Wybór trybu quizu (People, Vehicles, Spaceships)
 2. Opis zasad dla quizu. Obok zasad pokazuje się losowe zdjęcie z danego trybu (dostosowany opis, jeśli np. imię osoby ze zdjęcia jest w opisie zasad).
-3. Po rozpoczęciu gry rozpoczyna się odliczanie czasu (2 minut).
+3. Po rozpoczęciu gry rozpoczyna się odliczanie czasu (2 minuty).
 4. Zadaniem gracza jest odpowiedzieć na jak najwięcej pytań w ciągu ustalonego czasu (dodatkowo gracz konkuruje także z Google Vision API!). W trakcie trwania quizu miecz świetlny pokazuje ile jeszcze czasu zostało. Po wybraniu odpowiedzi zostaje ukazane przez sekundę czy odpowiedź była dobra czy zła. Następnie pytanie zostaje zmienione na kolejne (prototyp pokazuje jedynie 1 pytanie) i tak do końca czasu.
 5. Pytania są generowane w następujący sposób: 
     - zostaje pobrany losowy zasób z danego trybu (np people o id 5)
