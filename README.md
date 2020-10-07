@@ -84,6 +84,7 @@ Ocenianie będzie miało kilka etapów.
 - Spotkanie OnLine: 
     - Podczas spotkania zbierają się 2 lub 3 wcześniej wylosowane grupy z CodersCamp. Wzajemnie prezentujecie wykonane przez Was projekty.
     Forma prezentacji pozostaje dowolna. Możecie przygotować jakieś slajdy, ale niekoniecznie. Na pewno musi zostać pokazana działająca aplikacja, reszta wg uznania.
+    Wszelkie zmiany czy brak funkcjonalności w projekcie należy po prostu dobrze zaprezentować. 
 - Ocena zaangażowania przez Waszego mentora:
     - Mentor określa procentowo jakie było wasze zaangażowanie w projekt. Składa się na to: terminowość, spełnianie ról. Szczegóły mentorzy 
     dostaną w osobnym dokumencie. 
