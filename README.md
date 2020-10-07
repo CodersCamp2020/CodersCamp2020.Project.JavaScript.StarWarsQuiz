@@ -82,7 +82,7 @@ Klient dostarczył prototyp interfejsu użytkownika dostosowany pod Desktop ([TU
 Pokazany został tylko jeden tryb i jedno pytanie. Cała reszta działa analogicznie.
 Projekt: https://www.figma.com/file/L3XaDSR7whIjiZVw2HI0gO/CodersCamp2019_Projekt3_AsyncJS-and-REST?node-id=0%3A1
 Może się przydać do odczytania np. cieni i kolorów. Nie zwracajcie uwagi na jednostki w px, należy użyć jednostek responsywnych.
-Dostarczona została także lista funkcjonalności.
+Dostarczona została także lista funkcjonalności. 
 
 1. Wybór trybu quizu (People, Vehicles, Spaceships)
 2. Opis zasad dla quizu. Obok zasad pokazuje się losowe zdjęcie z danego trybu (dostosowany opis, jeśli np. imię osoby ze zdjęcia jest w opisie zasad).
@@ -103,6 +103,9 @@ wersję responsywną aplikacji (dostosowaną do wyświetlania na Tabletach i Tel
 W celu zaprezentowania działania aplikacja musi być możliwa do odwiedzenia w internecie.
 Klient nie chce ponosić za to żadnych dodatkowych kosztów, dlatego należy wykorzystać jedną z usług oferujących darmowe
 uruchomienie takiej aplikacji (np. GitHub Pages).
+Klient wymaga także, aby aplikacja nie tylko działała, ale była odpowiednio pokryta testami.
+Naprawdę macie szczęście co do klienta! Wielu uważa testy za niepotrzebne i jedynie stratę pieniędzy.
+A co znaczy „odpowiednio pokryta" to już należy właśnie ustalić z samym Klientem :) 
 
 
 ## Możliwe usprawnienia i dodatkowe funkcjonalności:
