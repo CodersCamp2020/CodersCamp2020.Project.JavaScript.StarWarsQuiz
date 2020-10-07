@@ -1,3 +1,18 @@
+#### Instrukcja dla mentora
+Drogi mentorze, cały projekt jak i wytyczne traktuj jako "wskazówki". 
+Pamiętaj, że nadrzędnym celem na CodersCamp jest przekazać wiedzę i nauczyć :) 
+Wszystko co wg. Twojej najlepszej wiedzy będzie służyć do osiągnięcia tego celu możesz zastosować. 
+Jednakże pamiętaj o trzymaniu się ogólnych wytycznych oceny i programu kursu (minimum musi zostać spełnione, abyśmy na na koniec kursu mogli potwierdzić uczestnikom opanowanie umiejętności stosownym dokumentem).
+
+Aby przygotować TEN projekt do wykonania przez zespół.
+1. Sklonuj repozytorium.
+2. Usuń branch z proponowanym rozwiązaniem, aby nie hamować kreatywności zespołu. 
+Możesz się nią zainspirować albo wykonać projekt zupełnie inaczej. 
+Dostarczamy Ci ten kod dla ułatwienia mentorowania, ale nie traktuj go jako jakiegoś _wyznacznika_, czy dobrego, albo _jedynego poprawnego_ rozwiązania.
+3. Usuń instrukcję dla mentora z README.md
+4. Jeśli chcesz korzystać z utworzonych Issues skorzystaj z narzędzia.
+
+
 # CodersCamp 2020 - Projekt JavaScript
 Coders Camp (coderscamp.edu.pl) - Projekt JavaScript. 
 Wykorzystanie asynchronicznego JavaScript oraz korzystanie z REST API.
@@ -69,13 +84,6 @@ Ocenianie będzie miało kilka etapów.
     - Jako zespół otrzymacie liczbę punktów od obu mentorów (wg kryteriów //TODO podlinkować), która zostanie pomnożona przez procenty zaangażowania.
 - Punkty dodatkowe:
     - Każda osoba pełniąca w czasie trwania projektu jakąś rolę otrzyma dodatkowe 0-10% zaangażowania (wg. uznania mentora zespołu).
-
-#### Dislacimer
-Drogi mentorze, cały projekt jak i wytyczne traktuj jako "wskazówki". 
-Pamiętaj, że nadrzędnym celem na CodersCamp jest przekazać wiedzę i nauczyć :) 
-Wszystko co wg. Twojej najlepszej wiedzy będzie służyć do osiągnięcia tego celu możesz zastosować. 
-Jednakże pamiętaj o trzymaniu się ogólnych wytycznych oceny i programu kursu (minimum musi zostać spełnione, abyśmy na na koniec kursu mogli potwierdzić uczestnikom opanowanie umiejętności stosownym dokumentem).
-
 
 ## Quiz Gwiezdne Wojny
 Teraz przechodzimy do przykładowego projektu, który został przygotowany przez organizatorów kursu.
@@ -152,7 +160,3 @@ https://zube.io/blog/agile-project-management-workflow-for-github-issues/
 
 ## Dodatkowe (wykraczające poza zakres kursu):
 Testy E2E - przy użyciu Cypress
-
-
-## Przykładowa implementacja:
-Przykładowa implementacja znajduje 
