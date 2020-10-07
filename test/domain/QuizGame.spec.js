@@ -2,7 +2,6 @@ import {QuizGame} from "../../src/domain/QuizGame";
 import {GoogleVisionPlayer} from "../../src/domain/players/GoogleVisionPlayer";
 import {HumanPlayer} from "../../src/domain/players/HumanPlayer";
 import {PeopleMode} from "../../src/domain/modes/PeopleMode";
-import {RealTimer} from "../../src/infrastructure/RealTimer";
 import * as Random from "../../src/shared/Random";
 import {getRandomIntInclusive} from "../../src/shared/Random";
 import {AnswerChecker, PartialMatchCheckStrategy} from "../../src/domain/AnswerChecker";
@@ -24,6 +23,8 @@ describe("QuizGame", () => {
     repository: {
       getById: jest.fn().mockImplementation(({id}) => {
         switch (id) {
+          case 0:
+            return {id, name: "Jar Jar Binks"}
           case 1:
             return {id, name: "Luke Skywalker"}
           case 2:
@@ -68,7 +69,7 @@ describe("QuizGame", () => {
 
     jest.spyOn(Random, 'getRandomIntInclusive')
         .mockImplementation(() => {
-          const array = [1, 2, 3, 4];
+          const array = [0, 1, 2, 3];
           return array[Math.floor(Math.random() * array.length)]
         })
   })
@@ -96,7 +97,7 @@ describe("QuizGame", () => {
 
       const humanPlayerNextQuestionHook = jest.fn();
 
-      beforeEach(async (done)=>{
+      beforeEach(async (done) => {
         humanPlayer.onQuestionAsked(humanPlayerNextQuestionHook)
         await quizGame.giveAnswer({player: "human", answer: "answer"})
         done()

@@ -34,7 +34,8 @@ describe("People mode", () => {
           .mockReturnValueOnce(1)
           .mockReturnValueOnce(2)
           .mockReturnValueOnce(3)
-          .mockReturnValueOnce(4);
+          .mockReturnValueOnce(4)
+          .mockReturnValueOnce(0);
     });
 
     afterEach(() => {
@@ -52,8 +53,8 @@ describe("People mode", () => {
         ],
         image: anImage,
         rightAnswer: {
-          id: 3,
-          name: "R2-D2"
+          id: 1,
+          name: "Luke Skywalker"
         }
       })
       done()

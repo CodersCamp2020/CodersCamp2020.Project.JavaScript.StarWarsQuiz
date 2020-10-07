@@ -53,3 +53,7 @@ https://zube.io/blog/agile-project-management-workflow-for-github-issues/
 
 ## Dodatkowe (wykraczające poza zakres kursu):
 Testy E2E - przy użyciu Cypress
+
+
+## Przykładowa implementacja:
+Przykładowa implementacja znajduje 
