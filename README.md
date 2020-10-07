@@ -56,6 +56,20 @@ Jednakże, w trakcie pracy ważne jest, aby uzyskać zaufanie klienta i te kontr
 Project Manager będzie dbał odpowiednio o terminy, podział zadań, a także wywiązywanie się z obowiązków innych członków zespołu.
 Jeśli spełni odpowiednio swoją rolę, to duża szansa że uda wam się uformować efektywny i zgrany zespół, a klienci nie będą wypatrywali tylko na wasze potknięcia :)
 
+##### Sposób oceny projektu (i wszystkich kolejnych projektów na CodersCamp)
+Zapewne interesuje Was, w jaki sposób projekt zostanie „zaliczony” i oceniony.
+Ocenianie będzie miało kilka etapów.
+- Spotkanie OnLine: 
+    - Podczas spotkania zbierają się 2 lub 3 wcześniej wylosowane grupy z CodersCamp. Wzajemnie prezentujecie wykonane przez Was projekty.
+    Forma prezentacji pozostaje dowolna. Możecie przygotować jakieś slajdy, ale niekoniecznie. Na pewno musi zostać pokazana działająca aplikacja, reszta wg uznania.
+- Ocena zaangażowania przez Waszego mentora:
+    - Mentor określa procentowo jakie było wasze zaangażowanie w projekt. Składa się na to: terminowość, spełnianie ról. Szczegóły mentorzy 
+    dostaną w osobnym dokumencie. 
+- Ocena dostarczonego kodu i działania aplikacji przez 2 mentorów (wasz mentor i jeden z obecnych na prezentacji):
+    - Jako zespół otrzymacie liczbę punktów od obu mentorów (wg kryteriów //TODO podlinkować), która zostanie pomnożona przez procenty zaangażowania.
+- Punkty dodatkowe:
+    - Każda osoba pełniąca w czasie trwania projektu jakąś rolę otrzyma dodatkowe 0-10% zaangażowania (wg. uznania mentora zespołu).
+
 #### Dislacimer
 Drogi mentorze, cały projekt jak i wytyczne traktuj jako "wskazówki". 
 Pamiętaj, że nadrzędnym celem na CodersCamp jest przekazać wiedzę i nauczyć :) 
