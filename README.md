@@ -89,7 +89,7 @@ Ocenianie będzie miało kilka etapów.
     - Mentor określa procentowo jakie było wasze zaangażowanie w projekt. Składa się na to: terminowość, spełnianie ról. Szczegóły mentorzy 
     dostaną w osobnym dokumencie. 
 - Ocena dostarczonego kodu i działania aplikacji przez 2 mentorów (wasz mentor i jeden z obecnych na prezentacji):
-    - Jako zespół otrzymacie liczbę punktów od obu mentorów (wg kryteriów //TODO podlinkować), która zostanie pomnożona przez procenty zaangażowania.
+    - Jako zespół otrzymacie liczbę punktów od obu mentorów (wg kryteriów //TODO podlinkować - Readme, kod, testy, ), która zostanie pomnożona przez procenty zaangażowania.
       Pamiętajcie, że im więcej pracy wykonacie, tym więcej praktycznych umiejętności opanujecie. 
 - Punkty dodatkowe:
     - Każda osoba pełniąca w czasie trwania projektu jakąś rolę otrzyma dodatkowe 0-10% zaangażowania (wg. uznania mentora zespołu).
