@@ -1,26 +1,27 @@
 import {PeopleMode} from "../../../src/domain/modes/PeopleMode";
+import * as Random from "../../../src/shared/Random"
 
 describe("People mode", () => {
 
-  const dummyRepository = {
-    getById: jest.fn().mockImplementation(({id}) => {
-      switch (id) {
-        case 1:
-          return {id, name: "Luke Skywalker"}
-        case 2:
-          return {id, name: "C-3PO"}
-        case 3:
-          return {id, name: "R2-D2"}
-        case 4:
-          return {id, name: "Darth Vader"}
-      }
-    })
-  }
-  const dummyImages = {
-    find: jest.fn().mockReturnValue(anImage)
-  }
-
-  const peopleMode = PeopleMode({repository: dummyRepository, images: dummyImages})
+  const peopleMode = PeopleMode({
+    repository: {
+      getById: jest.fn().mockImplementation(({id}) => {
+        switch (id) {
+          case 1:
+            return {id, name: "Luke Skywalker"}
+          case 2:
+            return {id, name: "C-3PO"}
+          case 3:
+            return {id, name: "R2-D2"}
+          case 4:
+            return {id, name: "Darth Vader"}
+        }
+      })
+    },
+    images: {
+      find: jest.fn().mockImplementation(() => anImage)
+    }
+  })
 
   it("should have name `people`", () => {
     expect(peopleMode.name).toEqual("people")
@@ -29,7 +30,7 @@ describe("People mode", () => {
   describe("generating question", () => {
 
     beforeEach(() => {
-      jest.spyOn(global.Math, 'random')
+      jest.spyOn(Random, 'getRandomIntInclusive')
           .mockReturnValueOnce(1)
           .mockReturnValueOnce(2)
           .mockReturnValueOnce(3)
@@ -37,13 +38,23 @@ describe("People mode", () => {
     });
 
     afterEach(() => {
-      jest.spyOn(global.Math, 'random').mockRestore();
+      jest.spyOn(Random, 'getRandomIntInclusive').mockRestore();
     })
 
-    it("should2", async (done) => {
+    it("should contains generated image, answers and indicated right answer", async (done) => {
       const generatedQuestion = await peopleMode.generateQuestion();
       expect(generatedQuestion).toEqual({
-        image: anImage
+        answers: [
+          {id: 1, name: "Luke Skywalker"},
+          {id: 2, name: "C-3PO"},
+          {id: 3, name: "R2-D2"},
+          {id: 4, name: "Darth Vader"}
+        ],
+        image: anImage,
+        rightAnswer: {
+          id: 3,
+          name: "R2-D2"
+        }
       })
       done()
     })
