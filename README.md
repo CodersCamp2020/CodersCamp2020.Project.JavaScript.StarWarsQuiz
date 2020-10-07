@@ -145,6 +145,9 @@ A co znaczy „odpowiednio pokryta" to już należy właśnie ustalić z samym K
 ## Dodatkowe zadania (wykraczające poza zakres kursu):
 1. Wykonanie testów E2E, przy użyciu odpowiedniego narzędzia. Proponujemy np. Cypress.
 
+Wszelkie inne dodane przez Was funkcjonalności czy usprawnienia infrastrukturalne należy przedstawić w README.md projektu :)
+Template znajdziecie [TUTAJ](./PROJECT_SHOWCASE_TEMPLATE.md). 
+
 ## Technologie do wykorzystania:
 - JavaScript i/lub TypeScript
 - HTML
