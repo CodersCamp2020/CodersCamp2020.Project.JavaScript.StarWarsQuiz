@@ -103,7 +103,7 @@ aby wykonać np. coś związanego z zainteresowaniami Waszej grupy :) Powodzenia
  
 Czas porzucić narrację CodersCamp i wcielić się w członka zespołu projektowego...
 
-### Domena projektu
+### Założenia projektowe
 Jedna ze znanych marek płatków śniadaniowych prowadzi wieloletnią współpracę z wytwórnią filmów Disney, do której od niedawna należą także Gwiezdne Wojny.
 W ramach kolejnej akcji promocyjnej wasz zespół został poproszony o przygotowanie Proof of Concept aplikacji związanej ze Star Wars.
 Po wstępnym rozpoznaniu i analizie biznesowej podjęto decyzję o przygotowaniu quizu sprawdzającego znajomość uniwersum Gwiezdnych Wojen.
