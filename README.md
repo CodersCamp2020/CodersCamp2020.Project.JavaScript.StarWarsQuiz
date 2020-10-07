@@ -1,4 +1,4 @@
-#### Instrukcja dla mentora
+### Instrukcja dla mentora
 Drogi mentorze, cały projekt jak i wytyczne traktuj jako "wskazówki". 
 Pamiętaj, że nadrzędnym celem na CodersCamp jest przekazać wiedzę i nauczyć :) 
 Wszystko co wg. Twojej najlepszej wiedzy będzie służyć do osiągnięcia tego celu możesz zastosować. 
@@ -11,7 +11,12 @@ Możesz się nią zainspirować albo wykonać projekt zupełnie inaczej.
 Dostarczamy Ci ten kod dla ułatwienia mentorowania, ale nie traktuj go jako jakiegoś _wyznacznika_, czy dobrego, albo _jedynego poprawnego_ rozwiązania.
 3. Usuń instrukcję dla mentora z README.md
 4. Jeśli chcesz korzystać z utworzonych Issues skorzystaj z narzędzia.
+https://www.atlassian.com/agile/project-management/user-stories
+https://torre.me.uk/2019/03/28/using-github-as-project-management-platform/
+https://zube.io/blog/agile-project-management-workflow-for-github-issues/
 
+#### Opis przykładowego rozwiązania
+1. Został dodany Jest w sposób opisany [TUTAJ](https://ryankubik.com/blog/parcel-and-jest/)
 
 # CodersCamp 2020 - Projekt JavaScript
 Coders Camp (coderscamp.edu.pl) - Projekt JavaScript. 
@@ -45,9 +50,11 @@ Wykorzystanie asynchronicznego JavaScript oraz korzystanie z REST API.
 - pisanie testów jednostkowych 
 
 ##### W trakcie trwania projektu należy wyznaczyć w zespole następujące role:
-Najlepiej gdyby uczestnicy po prostu się zgłosili. 
+Najlepiej, gdyby uczestnicy po prostu się zgłosili. W przypadku braku chętnych mentor wyznacza "ochotników".
 Oczywiście każda z ról wykonuje prace programistyczne, dodatkowo zajmując się wspomnianymi powyżej działaniami.
 Role należy zmieniać następnie co projekt, aby każdy miał na jakąś szansę.
+Szcególnie w pierwszym projekcie poproście mentora o pomoc w spełnianu swoich ról, podzieleniu się zadaniami.
+Warto zorganizować spotkanie rozpoczynające prace, na którym wykonacie i/lub omówicie podstawowy setup projektu.
 
 ###### Klient
 Zawsze jest to **Mentor**. Uważajcie! Ten klient ma też zdolności techniczne i lepiej z nim nie dyskutować jeśli "zaproponuje"
@@ -82,6 +89,7 @@ Ocenianie będzie miało kilka etapów.
     dostaną w osobnym dokumencie. 
 - Ocena dostarczonego kodu i działania aplikacji przez 2 mentorów (wasz mentor i jeden z obecnych na prezentacji):
     - Jako zespół otrzymacie liczbę punktów od obu mentorów (wg kryteriów //TODO podlinkować), która zostanie pomnożona przez procenty zaangażowania.
+      Pamiętajcie, że im więcej pracy wykonacie, tym więcej praktycznych umiejętności opanujecie. 
 - Punkty dodatkowe:
     - Każda osoba pełniąca w czasie trwania projektu jakąś rolę otrzyma dodatkowe 0-10% zaangażowania (wg. uznania mentora zespołu).
 
@@ -129,10 +137,11 @@ Klient wymaga także, aby aplikacja nie tylko działała, ale była odpowiednio 
 Naprawdę macie szczęście co do klienta! Wielu uważa testy za niepotrzebne i jedynie stratę pieniędzy.
 A co znaczy „odpowiednio pokryta" to już należy właśnie ustalić z samym Klientem :) 
 
-
 ## Możliwe usprawnienia i dodatkowe funkcjonalności:
 1. Wykorzystanie Speech Recognition API i wyszukiwanie odpowiedzi, jaką gracz wypowiedział zamiast klikania w przycisk z odpowiedzią.
 
+## Dodatkowe zadania (wykraczające poza zakres kursu):
+1. Wykonanie testów E2E, przy użyciu odpowiedniego narzędzia. Proponujemy np. Cypress.
 
 ## Technologie do wykorzystania:
 - JavaScript i/lub TypeScript
@@ -143,20 +152,5 @@ A co znaczy „odpowiednio pokryta" to już należy właśnie ustalić z samym K
 Uwaga: Każda inna technologia / Biblioteka jak najbardziej mile widziana, jeśli pomoże Ci osiągnąć zamierzony cel :) 
 Jednakże nie używaj żadnego frameworka JavaScript takiego jak Angular / React / Vue.js - w tym dziale chodzi o praktykę czystego JavaScripta :) 
 
-
-## Opis kodu startowego:
-1. Został dodany Jest w sposób opisany [TUTAJ](https://ryankubik.com/blog/parcel-and-jest/)
-
-## Porady nt. testowanie poprzez Jest:
-1. Elementy widoku (DOM) można testować wg. Guide: https://jestjs.io/docs/en/tutorial-jquery (w tym przykładzie jQuery, którego prawdopodobnie nie będziecie używać)
-
-## Organizacja pracy
-
-### Przygotowanie zespołu
-
-https://www.atlassian.com/agile/project-management/user-stories
-https://torre.me.uk/2019/03/28/using-github-as-project-management-platform/
-https://zube.io/blog/agile-project-management-workflow-for-github-issues/
-
-## Dodatkowe (wykraczające poza zakres kursu):
-Testy E2E - przy użyciu Cypress
+## Porady odnośnie projektu
+- Dzięki Jest, elementy widoku (DOM) można testować wg Guide: https://jestjs.io/docs/en/tutorial-jquery (w tym przykładzie jQuery, którego prawdopodobnie nie będziecie używać)
