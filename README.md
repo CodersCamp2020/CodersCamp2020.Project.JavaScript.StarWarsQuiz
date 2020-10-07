@@ -1,6 +1,17 @@
-# Quiz Star Wars
-
+# CodersCamp 2020 - Projekt JavaScript
 Coders Camp (coderscamp.edu.pl) - Projekt JavaScript. Wykorzystanie asynchronicznego JavaScript oraz korzystanie z REST API.
+
+## Quiz Star Wars
+Aplikacja, jaką będziecie wykonywać 
+
+
+##### Dislacimer
+Drogi mentorze, cały projekt jak i wytyczne traktuj jako "wskazówki". Pamiętaj, że nadrzędnym celem na CodersCamp
+jest przekazać wiedzę i nauczyć :) Wszystko co wg. Twojej najlepszej wiedzy będzie służyć do osiągnięcia tego celu 
+możesz zastosować. Jednakże pamiętaj o trzymaniu się ogólnych wytycznych oceny i programu kursu (minimum musi zostać spełnione, abyśmy na 
+na koniec kursu mogli potwierdzić uczestnikom opanowanie umiejętności stosownym dokumentem).
+
+
 
 ## Prototyp interfejsu użytkownika:
 
@@ -46,7 +57,10 @@ Jednakże nie używaj żadnego frameworka JavaScript takiego jak Angular / React
 ## Porady nt. testowanie poprzez Jest:
 1. Elementy widoku (DOM) można testować wg. Guide: https://jestjs.io/docs/en/tutorial-jquery (w tym przykładzie jQuery, którego prawdopodobnie nie będziecie używać)
 
-## Organizacja
+## Organizacja pracy
+
+### Przygotowanie zespołu
+
 https://www.atlassian.com/agile/project-management/user-stories
 https://torre.me.uk/2019/03/28/using-github-as-project-management-platform/
 https://zube.io/blog/agile-project-management-workflow-for-github-issues/
