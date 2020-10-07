@@ -3,12 +3,17 @@ import {GoogleVisionPlayer} from "../../src/domain/players/GoogleVisionPlayer";
 import {HumanPlayer} from "../../src/domain/players/HumanPlayer";
 import {PeopleMode} from "../../src/domain/modes/PeopleMode";
 import {RealTimer} from "../../src/infrastructure/RealTimer";
+import * as Random from "../../src/shared/Random";
+import {getRandomIntInclusive} from "../../src/shared/Random";
+import {AnswerChecker, PartialMatchCheckStrategy} from "../../src/domain/AnswerChecker";
+import {FakeTimer} from "../../src/infrastructure/FakeTimer";
 
 describe("QuizGame", () => {
 
   const googleVisionApiResponse = "Luke Skywalker"
   const recognizeImageMockFn = jest.fn().mockReturnValue(googleVisionApiResponse)
 
+  const humanPlayer = HumanPlayer();
   const googleVisionPlayer = GoogleVisionPlayer({
     googleVisionApi: {
       recognizeImage: recognizeImageMockFn
@@ -36,30 +41,98 @@ describe("QuizGame", () => {
   })
 
   let quizGame;
+  let humanPlayerAskQuestionSpy;
+  let googlePlayerAskQuestionSpy;
+  let timer;
+
   beforeEach(() => {
     quizGame = QuizGame({
-      human: HumanPlayer(),
+      human: humanPlayer,
       google: googleVisionPlayer,
       mode: peopleMode,
-      quizMaxTime: 120,
-      startTimer: ({tickMillis, timeout, onTick, onTimeout}) => RealTimer({
-        tickMillis,
-        timeoutMillis: timeout,
-        onTick,
-        onTimeout
-      })
+      answerChecker: AnswerChecker({checkStrategy: PartialMatchCheckStrategy}),
+      quizMaxTime: 3 * 1000,
+      startTimer: ({tickMillis, timeout, onTick, onTimeout}) => {
+        const fakeTimer = FakeTimer({
+          tickMillis,
+          timeoutMillis: timeout,
+          onTick,
+          onTimeout
+        })
+        timer = fakeTimer;
+        return fakeTimer;
+      }
     });
+    humanPlayerAskQuestionSpy = jest.spyOn(humanPlayer, "askQuestion");
+    googlePlayerAskQuestionSpy = jest.spyOn(googleVisionPlayer, "askQuestion");
+
+    jest.spyOn(Random, 'getRandomIntInclusive')
+        .mockImplementation(() => {
+          const array = [1, 2, 3, 4];
+          return array[Math.floor(Math.random() * array.length)]
+        })
   })
 
-  describe("starting the game", () => {
+  afterEach(() => {
+    jest.spyOn(Random, 'getRandomIntInclusive').mockRestore();
+  })
 
-    beforeEach(() => {
-      quizGame.startGame();
+  describe("when start the game", () => {
+
+    beforeEach(async (done) => {
+      await quizGame.startGame();
+      done()
     })
 
-    it("s", () => {
-      quizGame.startGame();
+    it("human player should be asked to answer first question", () => {
+      expect(humanPlayerAskQuestionSpy).toBeCalled()
     })
+
+    it("google vision player should be asked to answer first question", () => {
+      expect(googlePlayerAskQuestionSpy).toBeCalled()
+    })
+
+    describe("when human give answer", () => {
+
+      const humanPlayerNextQuestionHook = jest.fn();
+
+      beforeEach(async (done)=>{
+        humanPlayer.onQuestionAsked(humanPlayerNextQuestionHook)
+        await quizGame.giveAnswer({player: "human", answer: "answer"})
+        done()
+      })
+
+      it("then should be asked for next question", () => {
+        expect(humanPlayerNextQuestionHook).toBeCalledTimes(1)
+      })
+
+    })
+
+  })
+
+  describe("when started game reached timeout", () => {
+
+    const gameOverHook = jest.fn();
+    const timerTickHook = jest.fn();
+
+    beforeEach(async (done) => {
+      quizGame.onGameOver(gameOverHook)
+      quizGame.onTimerTick(timerTickHook)
+      await quizGame.startGame();
+      timer.tick()
+      timer.tick()
+      timer.tick()
+      done()
+    })
+
+    it("then on timer tick hook should be notified", () => {
+      expect(timerTickHook).toBeCalledTimes(3)
+    })
+
+    it("then game over hook should be notified", () => {
+      expect(gameOverHook).toBeCalled()
+    })
+
   })
 
 
