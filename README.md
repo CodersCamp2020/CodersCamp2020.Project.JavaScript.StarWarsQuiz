@@ -6,11 +6,10 @@ Aplikacja, jaką będziecie wykonywać
 
 
 ##### Dislacimer
-Drogi mentorze, cały projekt jak i wytyczne traktuj jako "wskazówki". Pamiętaj, że nadrzędnym celem na CodersCamp
-jest przekazać wiedzę i nauczyć :) Wszystko co wg. Twojej najlepszej wiedzy będzie służyć do osiągnięcia tego celu 
-możesz zastosować. Jednakże pamiętaj o trzymaniu się ogólnych wytycznych oceny i programu kursu (minimum musi zostać spełnione, abyśmy na 
-na koniec kursu mogli potwierdzić uczestnikom opanowanie umiejętności stosownym dokumentem).
-
+Drogi mentorze, cały projekt jak i wytyczne traktuj jako "wskazówki". 
+Pamiętaj, że nadrzędnym celem na CodersCamp jest przekazać wiedzę i nauczyć :) 
+Wszystko co wg. Twojej najlepszej wiedzy będzie służyć do osiągnięcia tego celu możesz zastosować. 
+Jednakże pamiętaj o trzymaniu się ogólnych wytycznych oceny i programu kursu (minimum musi zostać spełnione, abyśmy na na koniec kursu mogli potwierdzić uczestnikom opanowanie umiejętności stosownym dokumentem).
 
 
 ## Prototyp interfejsu użytkownika:
