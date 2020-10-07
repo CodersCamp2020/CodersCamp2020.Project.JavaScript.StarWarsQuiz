@@ -1,4 +1,3 @@
-import {AnswerChecker, PartialMatchCheckStrategy} from "./AnswerChecker";
 import {ONE_SECOND_MILLIS} from "../shared/TimeUnits";
 
 export const QuizGame = ({human, google, mode, quizMaxTime, startTimer, answerChecker}) => {
@@ -45,6 +44,13 @@ export const QuizGame = ({human, google, mode, quizMaxTime, startTimer, answerCh
     })
   }
 
+  async function keepQuestionsToAskInAdvance({keepAtLeast, answeredQuestionIndex}) {
+    const questionsToAsk = Object.keys(questions).length;
+    if (questionsToAsk - answeredQuestionIndex <= keepAtLeast) {
+      await generateQuestions()
+    }
+  }
+
   const game = {
     humanPlayer: human,
     googlePlayer: google,
@@ -58,15 +64,12 @@ export const QuizGame = ({human, google, mode, quizMaxTime, startTimer, answerCh
       const playerAnswers = playersAnswers[player];
       const questionIndex = Object.keys(playerAnswers).length;
       const answeredQuestion = questions[questionIndex];
-      const isCorrect = answerChecker.isAnswerCorrect({correctAnswer: answeredQuestion.rightAnswer.name, givenAnswer: answer})
+      const isCorrect = answerChecker
+          .isAnswerCorrect({correctAnswer: answeredQuestion.rightAnswer.name, givenAnswer: answer})
       playerAnswers[questionIndex] = {answerName: answer, isCorrect}
       const questionToAsk = questions[questionIndex];
       await players[player].askQuestion({question: questionToAsk})
-
-      const questionsToAsk = Object.keys(questions).length;
-      if (questionsToAsk - questionIndex <= 5) {
-        await generateQuestions()
-      }
+      await keepQuestionsToAskInAdvance({keepAtLeast: 5, answeredQuestionIndex: questionIndex});
     },
     onGameOver(hook) {
       onGameOverHooks.push(hook)
@@ -81,7 +84,9 @@ export const QuizGame = ({human, google, mode, quizMaxTime, startTimer, answerCh
 }
 
 function GameOver({questions, playersAnswers}) {
-  const answerList = Object.values(questions).slice(0, Math.max(Object.keys(playersAnswers.human).length, Object.keys(playersAnswers.google).length))
+  const lastAnsweredIndex = Math.max(Object.keys(playersAnswers.human).length, Object.keys(playersAnswers.google).length)
+  const answerList = Object.values(questions)
+      .slice(0, lastAnsweredIndex)
       .map((question, index) => {
         const googleAnswer = playersAnswers.google[index];
         const humanAnswer = playersAnswers.human[index];
