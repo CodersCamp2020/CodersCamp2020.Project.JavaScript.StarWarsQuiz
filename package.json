@@ -15,15 +15,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CodersCamp2020/CodersCamp2020.Project.JavaScriptOrTypeScript.StarWarsQuiz.git"
+    "url": "git+https://github.com/CodersCamp2020/CodersCamp2020.Project.JavaScript.StarWarsQuiz.git"
   },
   "keywords": [],
   "author": "CodersCamp2020",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/CodersCamp2020/CodersCamp2020.Project.JavaScriptOrTypeScript.StarWarsQuiz/issues"
+    "url": "https://github.com/CodersCamp2020/CodersCamp2020.Project.JavaScript.StarWarsQuiz/issues"
   },
-  "homepage": "https://github.com/CodersCamp2020/CodersCamp2020.Project.JavaScriptOrTypeScript.StarWarsQuiz#readme",
+  "homepage": "https://github.com/CodersCamp2020/CodersCamp2020.Project.JavaScript.StarWarsQuiz#readme",
   "dependencies": {
     "regenerator-runtime": "^0.13.7",
     "uuid": "^8.3.0"
