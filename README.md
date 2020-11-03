@@ -129,8 +129,8 @@ Ocenianie będzie miało kilka etapów.
 Przykładowy arkusz w jakim mentorzy będą oceniać wasze projekty znajdziecie TUTAJ. //TODO: ARKUSZ
       
 ##### Zgłoszenie projektu, jako gotowego do oceny
-Do końca dnia poprzedzającego prezentację Development Manager zespołu musi wypełnić poniższy FORMULARZ.
-//TODO: Dodac formularz
+Do końca dnia poprzedzającego prezentację Development Manager zespołu musi zgłosić zakończenie prac poprzez wysłanie odpowiedniego formularza.
+
 
 ## Quiz Gwiezdne Wojny
 Teraz przechodzimy do przykładowego projektu, który został przygotowany przez organizatorów kursu.
