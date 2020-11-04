@@ -157,17 +157,13 @@ Dostarczona została także lista funkcjonalności.
 1. Wybór trybu quizu (People, Vehicles, Spaceships)
 2. Opis zasad dla quizu. Obok zasad pokazuje się losowe zdjęcie z danego trybu (dostosowany opis, jeśli np. imię osoby ze zdjęcia jest w opisie zasad).
 3. Po rozpoczęciu gry rozpoczyna się odliczanie czasu (2 minuty).
-4. Zadaniem gracza jest odpowiedzieć na jak najwięcej pytań w ciągu ustalonego czasu (dodatkowo gracz konkuruje także z Google Vision API! Google tak samo jak gracz próbuje rozpoznać co jest na grafice). 
+4. Zadaniem gracza jest odpowiedzieć na jak najwięcej pytań w ciągu ustalonego czasu (dodatkowo gracz konkuruje także z komputerem! Komputer tak samo jak gracz próbuje rozpoznać co jest na grafice). 
 5. W trakcie trwania quizu miecz świetlny pokazuje, ile jeszcze czasu zostało. Po wybraniu odpowiedzi zostaje ukazane przez sekundę czy odpowiedź była dobra czy zła. Następnie pytanie zostaje zmienione na kolejne (prototyp pokazuje jedynie 1 pytanie) i tak do końca czasu.
 5. Pytania są generowane w następujący sposób: 
     - zostaje pobrany losowy zasób z danego trybu (np people o id 5)
     - zostanie pobrane dla wylosowanego zasobu zdjęcie
     - losowane są 3 odpowiedzi z zapytania do StarWars API. Dla trybu "People" będzie to: https://swapi.co/api/people (jedna brana jest z wcześniej wylosowanego, musi być poprawna)
-6. Odpowiedź [Google Vision API](https://cloud.google.com/vision/docs) generowana jest w następujący sposób
-    - zdjęcie jest przesyłane do GoogleVision API, z którego bierze się najwyższy wynik prawdopodobieństwa rozpoznania (albo kilka z nich, algorytm trzeba ustalić)
-    - przeszukiwane są wyniki działania GoogleVision dla zdjęcia, czy któryś z nich pokrywa się z odpowiedzią (ustalić stopień podobieństwa, np. odpowiedź to może być Jabba, a Google API zwróci "Jabba The Hutt")
-7. Po ukończeniu czasu wynik gracza zapisywany jest w rankingu dla danej przeglądarki (LocalStorage) i pokazywany jest ranking 3 najlepszych wyników.
-8. Definiowanie ApiKey do Google Vision API w ustawieniach gry.
+6. Po ukończeniu czasu wynik gracza zapisywany jest w rankingu dla danej przeglądarki (LocalStorage) i pokazywany jest ranking 3 najlepszych wyników.
 
 Jedno z wcześniejszych wykonań działającej aplikacji możecie zobaczyć [TUTAJ](https://nowakprojects.github.io/CodersCamp2020.Project.JavaScript.StarWarsQuiz/index.html). 
 Jednakże nie należy się na nim 100% wzorować.
@@ -208,35 +204,43 @@ Jednakże jeśli jesteście w stanie zaproponować lepszy Interfejs Użytkownika
 
 ## Możliwe usprawnienia i dodatkowe funkcjonalności:
 - Wykorzystanie Speech Recognition API i wyszukiwanie odpowiedzi, jaką gracz wypowiedział zamiast klikania w przycisk z odpowiedzią.
-- Rozbudowanie ustawień gry o możliwość wyboru czasu na rozgrywkę.
+- Rozbudowanie ustawień gry o możliwość wyboru czasu na rozgrywkę. 
 
 ## Dodatkowe zadania (wykraczające poza zakres kursu):
-1. Ogranicznie liczby requestów po zewnętrze zasoby poprzez zastosowanie wybranego przez zespół sposobu cache.
-1. Utworzenie z aplikacji pliku wykonywalnego, który mógłby działać jako aplikacja Desktop dołączana do płatków śniadaniowy. 
-    Możecie do tego użyć [Electron](https://www.electronjs.org/docs/tutorial/first-app). Należy wtedy dodać w aplikacji przycisk: „POBIERZ WERSJĘ OFFLINE".
-1. Wykonanie testów E2E, przy użyciu odpowiedniego narzędzia. Proponujemy np. Cypress.
-
+Zachęcamy do wykonania chociaż jednego z wymienionych poniżej. Możliwe jest też dodanie zaprojektowanej przez Was funkcjonalności. 
 Wszelkie inne dodane przez Was funkcjonalności czy usprawnienia infrastrukturalne należy przedstawić w README.md projektu :)
 Zawartość tego pliku możecie przenieść gdzieś indziej albo podlinkować do szablonu projektu, jaki robiliście (jeśli z któregoś korzystacie). 
 README.md waszego repozytorium powinno być wizytówką aplikacji. Koniecznie musi się w nim znaleźć link do działającego DEMO.
-Dotyczy to tego i wszystkich kolejnych projektów.
+Dotyczy to tego i wszystkich kolejnych projektów. 
+
+Rozszerzenia, które my proponujemy do wykonania, to:
+
+- Ogranicznie liczby requestów po zewnętrze zasoby poprzez zastosowanie wybranego przez zespół sposobu cache.
+- Utworzenie z aplikacji pliku wykonywalnego, który mógłby działać jako aplikacja Desktop dołączana do płatków śniadaniowy. 
+    Możecie do tego użyć [Electron](https://www.electronjs.org/docs/tutorial/first-app). Należy wtedy dodać w aplikacji przycisk: „POBIERZ WERSJĘ OFFLINE".
+- Wykonanie testów E2E, przy użyciu odpowiedniego narzędzia. Proponujemy np. Cypress.
+- **Wykonanie tego punktu, jak i wszystkich dodatkowych jest w pełni opcjonalne.** Aby nie narazić się na koszty, pamiętajcie, że Google Cloud Platform Free Trial obowiązuje tylko dla nowych kont. W tym punkcie proponujemy, aby odpowiedź komputera generowana była przy pomocy [Google Vision API](https://cloud.google.com/vision/docs). 
+ ApiKey do Google Vision API powinno być definiowane w ustawieniach gry, tak jak pokazano na projekcie w Figma. API Key przetrzymywać należy jedynie w pamięci  aplikacji. Generowanie odpowiedzi przebiega w następujący sposób:
+    - zdjęcie jest przesyłane do GoogleVision API, z którego bierze się najwyższy wynik prawdopodobieństwa rozpoznania (albo kilka z nich, algorytm trzeba ustalić)
+    - przeszukiwane są wyniki działania GoogleVision dla zdjęcia, czy któryś z nich pokrywa się z odpowiedzią (ustalić stopień podobieństwa, np. odpowiedź to może być Jabba, a Google API zwróci "Jabba The Hutt")
+    - Skorzystanie z Google Vision API wymaga założenia konta w usłudzie Google Cloud Platform. Dla nowych użytkowników Google oferuje tzw. [Google Cloud Free Program](https://cloud.google.com/free/docs/gcp-free-tier), dzięki któremu po założeniu konta, nie zostaniesz obciążony żadnymi kosztami przez 90 dni korzystania z usługi. To z pewnością wystarczy na realizację tego projektu. Wymagane jest podłączenie karty płatniczej, ale dopóki na to nie pozwolisz, nie powinieneś zostać obciążony kosztami. Tak jak mówi treść przywołanej strony:
+ ```
+To complete your Free Trial signup, you must provide a credit card or other payment method to set up a Cloud Billing account and verify your identity. Don't    worry, setting up a Cloud Billing account does not enable us to charge you. You are not charged unless you explicitly enable billing by upgrading your Cloud Billing account to a paid account. You can upgrade to a paid account at any time during the trial. After you have upgraded, you can still use any remaining credits (within the 90-day period).
+ ```
+ Tutaj dostępna jest polska instrukcja zakładania konta: https://flyonthecloud.com/pl/blog/konto-gcp-rejestracja-konfiguracja/#Zakladanie_konta_Google_Cloud_Platform
+ 
+**Jeśli nie chcecie zakładać konta Google Cloud to można dodać do gry dodatkową logikę, że gdy API Key nie jest podany, to odpowiedzi Google Vision API generują się losowo. Ustalcie to z mentorem przed rozpoczęciem projektu.**
+    
 
 ## Technologie do wykorzystania:
 - JavaScript
 - HTML
 - CSS
 - Star Wars API
-- Google Vision API
+- opcjonalnie: Google Vision API / Electron.js / Cypress
 
 **Uwaga:** Każda inna technologia / Biblioteka jak najbardziej mile widziana, jeśli pomoże Ci osiągnąć zamierzony cel — zgodnie z opisanymi na początku zasadami :) 
 
 
 ## Porady odnośnie do projektu
 - Dzięki Jest, elementy widoku (DOM) można testować wg Guide: https://jestjs.io/docs/en/tutorial-jquery (w tym przykładzie jQuery, którego prawdopodobnie nie będziecie używać).
-- Skorzystanie z Google Vision API wymaga założenia konta w usłudzie Google Cloud Platform. Dla nowych użytkowników Google oferuje tzw. [Google Cloud Free Program](https://cloud.google.com/free/docs/gcp-free-tier), dzięki któremu po założeniu konta, nie zostaniesz obciążony żadnymi kosztami przez 90 dni korzystania z usługi. To z pewnością wystarczy na realizację tego projektu. Wymagane jest podłączenie karty płatniczej, ale dopóki na to nie pozwolisz, nie powinieneś zostać obciążony kosztami. Tak jak mówi treść przywołanej strony:
- ```
-To complete your Free Trial signup, you must provide a credit card or other payment method to set up a Cloud Billing account and verify your identity. Don't   worry, setting up a Cloud Billing account does not enable us to charge you. You are not charged unless you explicitly enable billing by upgrading your Cloud Billing account to a paid account. You can upgrade to a paid account at any time during the trial. After you have upgraded, you can still use any remaining credits (within the 90-day period).
- ```
- Tutaj dostępna jest polska instrukcja zakładania konta: https://flyonthecloud.com/pl/blog/konto-gcp-rejestracja-konfiguracja/#Zakladanie_konta_Google_Cloud_Platform
- 
-**Jeśli nie chcecie zakładać konta Google Cloud to można dodać do gry dodatkową logikę, że gdy API Key nie jest podany, to odpowiedzi Google Vision API generują się losowo. Ustalcie to z mentorem przed rozpoczęciem projektu.**
