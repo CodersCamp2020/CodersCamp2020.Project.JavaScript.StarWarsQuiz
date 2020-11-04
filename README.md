@@ -186,6 +186,8 @@ Jeżeli chcecie, to możecie skorzystać z poniższego diagramu. Zapoznać się 
 Jest też dostępny w lepszej jakości na [tablicy MIRO](https://miro.com/app/board/o9J_kg8fTO4=/?moveToWidget=3074457351245562568&cot=12).
 ![StarWarsQuizEventModeling](.github/images/StarWarsQuizEventModeling.png)
 
+//TODO: Update screen
+
 ### Kod startowy projektu
 Nad aplikacją pracę wcześniej zaczęli też inni programiści, po których otrzymujecie mały kawałek kodu.
 Oto co zostało już przygotowane (możecie oczywiście dowolnie to zmieniać i konfigurować zgodnie z potrzebami zespołu):
