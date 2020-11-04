@@ -182,7 +182,7 @@ Wszelkie nieścisłości w wymaganiach powinien wyjaśniać Product Owner wraz z
 
 ### EventModeling
 Działanie aplikacji zostało także zamodelowane za pomocą techniki EventModeling.
-Jeżeli chcecie, to możecie skorzystać z poniższego diagramu. Zapoznać się z tą techniką możecie na [blogu autora](https://eventmodeling.org/posts/what-is-event-modeling/).
+Jeżeli chcecie, to możecie skorzystać z poniższego diagramu. Zapoznać się z tą techniką możecie na [blogu autora tej metodologi](https://eventmodeling.org/posts/what-is-event-modeling/).
 Jest też dostępny w lepszej jakości na [tablicy MIRO](https://miro.com/app/board/o9J_kg8fTO4=/?moveToWidget=3074457351245562568&cot=12).
 ![StarWarsQuizEventModeling](.github/images/StarWarsQuizEventModeling.png)
 
