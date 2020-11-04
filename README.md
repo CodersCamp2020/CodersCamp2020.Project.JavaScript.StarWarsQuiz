@@ -211,6 +211,7 @@ Jednakże jeśli jesteście w stanie zaproponować lepszy Interfejs Użytkownika
 - Rozbudowanie ustawień gry o możliwość wyboru czasu na rozgrywkę.
 
 ## Dodatkowe zadania (wykraczające poza zakres kursu):
+1. Ogranicznie liczby requestów po zewnętrze zasoby poprzez zastosowanie wybranego przez zespół sposobu cache.
 1. Utworzenie z aplikacji pliku wykonywalnego, który mógłby działać jako aplikacja Desktop dołączana do płatków śniadaniowy. 
     Możecie do tego użyć [Electron](https://www.electronjs.org/docs/tutorial/first-app). Należy wtedy dodać w aplikacji przycisk: „POBIERZ WERSJĘ OFFLINE".
 1. Wykonanie testów E2E, przy użyciu odpowiedniego narzędzia. Proponujemy np. Cypress.
