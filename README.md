@@ -236,3 +236,4 @@ Dotyczy to tego i wszystkich kolejnych projektów.
  ```
 To complete your Free Trial signup, you must provide a credit card or other payment method to set up a Cloud Billing account and verify your identity. Don't   worry, setting up a Cloud Billing account does not enable us to charge you. You are not charged unless you explicitly enable billing by upgrading your Cloud Billing account to a paid account. You can upgrade to a paid account at any time during the trial. After you have upgraded, you can still use any remaining credits (within the 90-day period).
  ```
+**Jeśli nie chcecie zakładać konta Google Cloud to można dodać do gry dodatkową logikę, że gdy API Key nie jest podany, to odpowiedzi Google Vision API generują się losowo. Ustalcie to z mentorem przed rozpoczęciem projektu.**
