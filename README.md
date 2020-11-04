@@ -167,6 +167,7 @@ Dostarczona została także lista funkcjonalności.
     - zdjęcie jest przesyłane do GoogleVision API, z którego bierze się najwyższy wynik prawdopodobieństwa rozpoznania (albo kilka z nich, algorytm trzeba ustalić)
     - przeszukiwane są wyniki działania GoogleVision dla zdjęcia, czy któryś z nich pokrywa się z odpowiedzią (ustalić stopień podobieństwa, np. odpowiedź to może być Jabba, a Google API zwróci "Jabba The Hutt")
 7. Po ukończeniu czasu wynik gracza zapisywany jest w rankingu dla danej przeglądarki (LocalStorage) i pokazywany jest ranking 3 najlepszych wyników.
+8. Definiowanie ApiKey do Google Vision API w ustawieniach gry.
 
 Jedno z wcześniejszych wykonań działającej aplikacji możecie zobaczyć [TUTAJ](https://nowakprojects.github.io/CodersCamp2020.Project.JavaScript.StarWarsQuiz/index.html). 
 Jednakże nie należy się na nim 100% wzorować.
@@ -206,7 +207,8 @@ Jednakże jeśli jesteście w stanie zaproponować lepszy Interfejs Użytkownika
 
 
 ## Możliwe usprawnienia i dodatkowe funkcjonalności:
-1. Wykorzystanie Speech Recognition API i wyszukiwanie odpowiedzi, jaką gracz wypowiedział zamiast klikania w przycisk z odpowiedzią.
+- Wykorzystanie Speech Recognition API i wyszukiwanie odpowiedzi, jaką gracz wypowiedział zamiast klikania w przycisk z odpowiedzią.
+- Rozbudowanie ustawień gry o możliwość wyboru czasu na rozgrywkę.
 
 ## Dodatkowe zadania (wykraczające poza zakres kursu):
 1. Utworzenie z aplikacji pliku wykonywalnego, który mógłby działać jako aplikacja Desktop dołączana do płatków śniadaniowy. 
@@ -229,4 +231,8 @@ Dotyczy to tego i wszystkich kolejnych projektów.
 
 
 ## Porady odnośnie do projektu
-- Dzięki Jest, elementy widoku (DOM) można testować wg Guide: https://jestjs.io/docs/en/tutorial-jquery (w tym przykładzie jQuery, którego prawdopodobnie nie będziecie używać)
+- Dzięki Jest, elementy widoku (DOM) można testować wg Guide: https://jestjs.io/docs/en/tutorial-jquery (w tym przykładzie jQuery, którego prawdopodobnie nie będziecie używać).
+- Skorzystanie z Google Vision API wymaga założenia konta w usłudzie Google Cloud Platform. Dla nowych użytkowników Google oferuje tzw. [Google Cloud Free Program](https://cloud.google.com/free/docs/gcp-free-tier), dzięki któremu po założeniu konta, nie zostaniesz obciążony żadnymi kosztami przez 90 dni korzystania z usługi. To z pewnością wystarczy na realizację tego projektu. Wymagane jest podłączenie karty płatniczej, ale dopóki na to nie pozwolisz, nie powinieneś zostać obciążony kosztami. Tak jak mówi treść przywołanej strony:
+ ```
+To complete your Free Trial signup, you must provide a credit card or other payment method to set up a Cloud Billing account and verify your identity. Don't   worry, setting up a Cloud Billing account does not enable us to charge you. You are not charged unless you explicitly enable billing by upgrading your Cloud Billing account to a paid account. You can upgrade to a paid account at any time during the trial. After you have upgraded, you can still use any remaining credits (within the 90-day period).
+ ```
