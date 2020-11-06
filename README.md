@@ -197,12 +197,28 @@ Wasza aplikacja powinna zostać wdrożona na GitHub Pages.
 1. Aplikacja jest budowana przy pomocy narzędzia Parcel, z którym mieliście okazję się zapoznać w materiałach.
 1. Został dodany framework do testów — Jest w sposób opisany [TUTAJ](https://ryankubik.com/blog/parcel-and-jest/).
     - Testy powinny zostać umieszczone w katalogu `test`. Kod produkcyjny (testowany) w katalogu `src`.
-1. SWApi, z którego będziecie korzystać, ma ograniczenie do 1000 requestów z jednego adresu IP na dzień. 
+1. SWApi, z którego będziecie korzystać, ma ograniczenie do 1000 zapytań z jednego adresu IP na dzień. 
 Dlatego, jeśli przekroczycie tę liczbę w trakcie developmentu, przydatne możecie się okazać użycie JSON SERVER z katalogu `swapi-json-server`.
 1. SWApi nie zwraca wam obrazków dla poszczególnych zasobów, dlatego w katalogu `static/assets/img` znajdziecie obrazy odpowiadające konkretnym zasobom.
 1. W katalogu `static/images/ui` znajdziecie wszystkie grafiki, jakie będą Wam potrzebne do wykonania interfejsu użytkownika wg projektu.
 Jednakże jeśli jesteście w stanie zaproponować lepszy Interfejs Użytkownika, może zaproponować i wykonać alternatywny widok oraz zrezygnować z wcześniej przygotowanego.
 
+#### Uruchomienie projektu
+Aby uruchomić aplikację na lokalnej maszynie, wykonaj następujące kroki:
+1. Zainstaluj zależności za pomocą komendy: `npm install`
+2. Wystartuj serwer developerski `npm run start:dev`
+
+Aplikacja będzie dostępna pod adresem [localhost:8765/index.html](localhost:8765/index.html)
+
+Kod produkcyjny aplikacji umieszczamy w katalogu `src`.
+
+#### Uruchomienie testów
+Dodając swoje 5 groszy do naszej aplikacji, pamiętaj o pokryciu kodu testami.
+Aby uruchomić testy aplikacji, wykonaj następujące kroki:
+1. Zainstaluj zależności za pomocą komendy: `npm install` (jeśli nie zrobiłeś już tego wcześniej).
+1. Uruchom testy, wykonując komendę: `npm run test`. Testy z raportem pokrycia uruchomisz za pomocą: `npm run test:cov`.
+
+Kod testów umieszczamy w katalogu `test`.
 
 ## Możliwe usprawnienia i dodatkowe funkcjonalności:
 - Wykorzystanie Speech Recognition API i wyszukiwanie odpowiedzi, jaką gracz wypowiedział zamiast klikania w przycisk z odpowiedzią.
