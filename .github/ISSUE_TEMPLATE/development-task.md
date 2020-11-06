@@ -2,7 +2,7 @@
 name: Development Task
 about: Zadanie do wykonania przez programistę.
 title: Jako <kto>, chcę mieć możliwość <co zrobić>.
-labels: type: development task
+labels: 'type: development task'
 assignees: ''
 
 ---

@@ -2,7 +2,7 @@
 name: Bug
 about: Błędne działanie aplikacji
 title: ''
-labels: type: bug
+labels: 'type: bug'
 assignees: ''
 
 ---

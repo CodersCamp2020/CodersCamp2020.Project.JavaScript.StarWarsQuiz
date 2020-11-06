@@ -2,7 +2,7 @@
 name: Management Task
 about: Zadanie menedżerskie, wspomagające organizację pracy zespołu. Do wykonania przez Development Managera i/lub Product Ownera.
 title: ''
-labels: type: management task
+labels: 'type: management task'
 assignees: ''
 
 ---

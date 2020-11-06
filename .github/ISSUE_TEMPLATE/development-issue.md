@@ -2,7 +2,7 @@
 name: Development Issue
 about: Problem z konfiguracją projektu, działaniem IDE itp.
 title: ''
-labels: type: development issue
+labels: 'type: development issue'
 assignees: ''
 
 ---
