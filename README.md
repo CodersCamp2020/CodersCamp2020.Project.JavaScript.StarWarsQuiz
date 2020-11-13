@@ -33,21 +33,23 @@ Proponowany projekt — Quiz Star Wars (opis poniżej).
 - metody HTTP
 - pisanie testów jednostkowych 
 
-Do implementacji nie używajcie React, czy takich frameworków jak Angular.
+Do implementacji nie używajcie React (tego nauczycie się w dalszej części kursu), czy takich frameworków jak Angular.
 Najlepiej odstawcie też na bok biblioteki stylów takie jak Bootstrap — na upraszczanie życia przyjdzie jeszcze czas.
-Ważne, żeby opanować, to co, jest pod spodem gotowych już bibliotek.
+Ważne, żeby opanować, to co, jest pod spodem gotowych już bibliotek i budować na solidnym fundamencie.
 Skupcie się na wykorzystaniu w praktyce tego, co nauczyliście się dzięki materiałom w przerabianym dziale.
  
 
 ##### W trakcie trwania projektu należy wyznaczyć w zespole odpowiednie funkcje
 Aby zespół pracował efektywnie, ważne jest, żeby było wiadomo, kto odpowiada, za jaką kwestię.
-Powstało wiele różnych metod wspomagające działanie zespołu, które stosuje się także przy pracy programisty.
+Powstało wiele różnych metodyk wspomagające działanie zespołu, które stosuje się także przy pracy programisty.
+
 W trakcie trwania kursu CodersCamp spróbujemy przemycić Wam o nich jak najwięcej w praktyce.
 Niestety forma kursu znacznie ogranicza możliwości — zazwyczaj programiści na swoją pracę i jej organizację poświęcają cały etat. 
-Tutaj nie mamy tyle czasu na pełne zastosowanie np. Scruma, czy też innych technik. 
+Tutaj nie mamy tyle czasu na pełne zastosowanie np. Scruma, czy też innych technik.
 Mamy jednak nadzieję, że po kursie nie będą one dla Was już wielką niewiadomą.
+Mentorzy z pewnością postarają się zorganizować Wam pracę tak, aby w jak największym stopniu odzwierciedlała realia ich codzienności.
 
-Pierwszym krokiem do lepszej organizacji Waszego zespołu będzie wyznaczenie w nich kilku funkcji, które są typowe dla projektów IT.
+Pierwszym krokiem do lepszej organizacji Waszego zespołu będzie wyznaczenie w nim kilku funkcji, które są typowe dla projektów IT.
 Z pewnością spotkanie się z nimi w praktyce zawodowej.
 Najlepiej, gdyby uczestnicy po prostu się zgłosili. 
 W przypadku braku chętnych mentor wyznacza „ochotników".
