@@ -105,33 +105,37 @@ Pamiętajcie, że mentor jest ciągle do waszej dyspozycji, więc nie musicie sp
 
 ##### Sposób oceny projektu (i wszystkich kolejnych projektów na CodersCamp)
 Zapewne interesuje Was, w jaki sposób projekt zostanie „zaliczony” i oceniony.
-Ocenianie będzie miało kilka etapów.
-- Spotkanie OnLine na Google Meets: 
-    - Podczas spotkania zbierają się 2 lub 3 wcześniej wylosowane grupy z CodersCamp. 
-    Wzajemnie prezentujecie wykonane przez Was projekty.
-    Czas prezentacji jednego zespołu to maksymalnie 10 minut + 5 minut na pytania od innych zespołów.
-    Forma prezentacji pozostaje dowolna.
-    Możecie przygotować jakieś slajdy, ale niekoniecznie. 
-    Filmiki, odegrane scenki, czy wszytko co Wam przyjdzie na myśl, jest dozwolone. 
-    Celem prezentacji jest „sprzedanie” (pokazanie, że to, co zrobiliście, spełnia założenia) Waszej aplikacji osobom obecnym na spotkaniu.
-    Na pewno musi zostać pokazana działająca aplikacja, reszta wg uznania.
-    Wszelkie zmiany czy brak funkcjonalności w projekcie należy po prostu dobrze zaprezentować. 
-- Ocena zaangażowania przez Waszego mentora:
-    - Mentor określa procentowo jakie było wasze zaangażowanie w projekt (każdy z uczestników otrzymuje od 0 do 100%). 
-    Składa się na to między innymi: terminowość, spełnianie ról. Szczegóły mentorzy dostaną w osobnym dokumencie. 
-    Można dostać też dodatkowe 10% (w sumie max zaangażowania to 110%) za pełnienie wcześniej opisanej roli w zespole.
-    Jest to wg uznania mentora.
-- Ocena wykonanego projektu przez 2 mentorów (wasz mentor i jeden z obecnych na prezentacji — tzw. mentor recenzent):
-    - Jako zespół otrzymacie liczbę punktów od obu mentorów. Następnie zostanie z niej wyciągnięta średnia i pomnożona przez procent zaangażowania w projekt.
-      Pamiętajcie, że ocena nie jest najważniejsza — im więcej pracy wykonacie, tym więcej praktycznych umiejętności opanujecie. 
-      Zachęcamy mentorów do uzasadniania przydzielonych punktów, tak abyście mogli wyciągnąć z nich jak najwięcej na przyszłość.
-      Mentorzy mają różne doświadczenie zawodowe i będą z pewnością właśnie oceniać przez jego pryzmat. 
-      Dzięki zmianom mentorów recenzentów zobaczycie z pewnością różne spojrzenia na podobne kwestie.
-      
-Przykładowy arkusz w jakim mentorzy będą oceniać wasze projekty znajdziecie TUTAJ. //TODO: ARKUSZ
-      
-##### Zgłoszenie projektu, jako gotowego do oceny
-Do końca dnia poprzedzającego prezentację Development Manager zespołu musi zgłosić zakończenie prac poprzez wysłanie odpowiedniego formularza.
+Ocenianie będzie miało kilka etapów i trochę różni się od projektu pierwszego.
+Wynika to z tego, że teraz realizujecie projekt zespołowo i jesteście oceniani jako zespół.
+
+- Kiedy skończycie pracę nad projektem, odnotujcie ten fakt w specjalnie przygotowanym formularzu — dostępnym [TUTAJ](https://docs.google.com/forms/d/e/1FAIpQLScAFLQ2KHcOhS9mlZd_2ngq46hkXKkFOb8HjiILvMciGM35nw/viewform).
+Powinno to nastąpić najpóźniej o godzinie 23:59 dnia poprzedzającego prezentację projektu (data dostępna w harmonogramie kursu).
+Zgłosić projekt do oceny jest obowiązkiem osoby pełniącej funkcję Development Managera. 
+Powinna ona zadbać, aby do tego czasu wszystko było już dopięte na ostatni guzik.
+- Spotkajcie się w wyznaczonym dniu jeszcze z 2 innymi zespołami i ich mentorami (np. za pomocą Google Meet). 
+W trakcie spotkania każdy zespół prezentuje wykonany projekt. 
+Dlatego zdecydujcie, kto to zrobi z Waszego zespołu. 
+Liczba osób jest dowolna, ale nie powinien tego robić mentor.
+W przygotowanie prezentacji powinni zaangażować się wszyscy uczestnicy.
+Forma prezentacji pozostaje dowolna (musi zmieścić się w 10 minutach + 5 minut na pytania). 
+Filmik, odegranie scenki, prezentacja multimedialna. Dozwolone jest wszystko, co wam przyjdzie na myśl (oczywiście w granicach dobrego smaku).
+Na pewno musi zostać pokazana działająca aplikacja, reszta wg Waszego uznania. 
+Celem prezentacji jest „sprzedanie” (pokazanie, że to, co zrobiliście, spełnia założenia) Waszej aplikacji osobom obecnym na spotkaniu.
+- Po prezentacji mentor Waszego zespołu oceni projekt wg kryteriów opisanych w specjalnym arkuszu — przykład takiego arkusza możecie zobaczyć [TUTAJ](//TODO). 
+Dokładnie taką samą ocenę przeprowadzi jeden z mentorów obecnych na spotkaniu — tzw. mentor recenzent.
+Mentor Waszego zespołu dodatkowo określi też, jakie było zaangażowanie każdej osoby w projekt — więc postarajcie się dać z siebie 100 w trakcie pracy!
+Składa się na to między innymi: terminowość, spełnianie funkcji w projekcie, pomoc innym.
+Pamiętajcie też odpowiednio opracować README.md Waszego projektu, tak aby prezentowało kto, co, jak i dlaczego zostało wykonane.
+Zawartość tego pliku możecie przenieść gdzieś indziej albo jedynie zostawić link prowadzący do forkowanego repozytorium. 
+README.md waszego repozytorium powinno być wizytówką aplikacji. Koniecznie musi się w nim znaleźć link do działającego DEMO.
+Dotyczy to tego i wszystkich kolejnych projektów. 
+- Po zrecenzowaniu waszych projektów mentor powinien przekazać każdemu jego ocenę zaangażowania i feedback jako uzasadnienie.
+Ocena projektu jest wspólna dla całego zespołu i jest równa średniej z ocen obu mentorów.
+- Ostateczna punktacja dla uczestnika to procent jego zaangażowania z oceny projektu.
+Pamiętajcie, że ocena nie jest najważniejsza — im więcej pracy wykonacie, tym więcej praktycznych umiejętności opanujecie.
+Zachęcamy mentorów do uzasadniania przydzielonych punktów, tak abyście mogli wyciągnąć z nich, jak najwięcej na przyszłość.
+Mentorzy mają różne doświadczenie zawodowe i będą z pewnością właśnie oceniać projekty przez jego pryzmat. 
+Dzięki zmianom mentorów recenzentów zobaczycie z pewnością różne spojrzenia na podobne kwestie.
 
 
 ## Quiz Gwiezdne Wojny
@@ -139,7 +143,10 @@ Teraz przechodzimy do przykładowego projektu, który został przygotowany przez
 Proponowany projekt pozwala na zastosowania większości umiejętności, jakie powinniście posiąść w trakcie przerabiania działu.
 Jednakże jeśli macie pomysł na projekt podobnej skali, który spełni opisane na górze wymagania i czujecie się na siłach
 w zdefiniowaniu funkcjonalności, przygotowaniu ekranów i podzieleniu go na zadania — to nic nie stoi na przeszkodzie,
-aby wykonać np. coś związanego z zainteresowaniami Waszej grupy :) Powodzenia!
+aby wykonać np. coś związanego z zainteresowaniami Waszej grupy :) 
+W trakcie Coders Camp będą do wykonania jeszcze 2 kolejne aplikacje, więc jeśli teraz zdecydujecie się na projekt proponowany, zawsze w kolejnych możecie wykonać aplikacje wg. własnego pomysłu.
+**Ostateczną decyzję, jaką aplikację realizować podejmuje mentor — to on zawsze wie najlepiej, co będzie z największą korzyścią dla Was i przy czym najwięcej się nauczycie.**
+Powodzenia!
  
 Czas porzucić narrację CodersCamp i wcielić się w członka zespołu projektowego...
 
@@ -179,16 +186,14 @@ Klient nie chce ponosić za to żadnych dodatkowych kosztów, dlatego należy wy
 uruchomienie takiej aplikacji (np. GitHub Pages).
 Klient wymaga także, aby aplikacja nie tylko działała, ale była odpowiednio pokryta testami.
 Naprawdę macie szczęście co do klienta! Wielu uważa testy za niepotrzebne i jedynie stratę pieniędzy.
-A co znaczy „odpowiednio pokryta” to już należy właśnie ustalić z samym Klientem :) 
+A co znaczy „odpowiednio pokryta”? To już należy właśnie ustalić z samym Klientem :) 
 Wszelkie nieścisłości w wymaganiach powinien wyjaśniać Product Owner wraz z Klientem.
 
 ### EventModeling
 Działanie aplikacji zostało także zamodelowane za pomocą techniki EventModeling.
 Jeżeli chcecie, to możecie skorzystać z poniższego diagramu. Zapoznać się z tą techniką możecie na [blogu autora tej metodologi](https://eventmodeling.org/posts/what-is-event-modeling/).
-Jest też dostępny w lepszej jakości na [tablicy MIRO](https://miro.com/app/board/o9J_kg8fTO4=/?moveToWidget=3074457351245562568&cot=12).
+Aktualny diagram jest też dostępny w lepszej jakości na [tablicy MIRO](https://miro.com/app/board/o9J_kg8fTO4=/?moveToWidget=3074457351245562568&cot=12).
 ![StarWarsQuizEventModeling](.github/images/StarWarsQuizEventModeling.png)
-
-//TODO: Update screen
 
 ### Kod startowy projektu
 Nad aplikacją pracę wcześniej zaczęli też inni programiści, po których otrzymujecie mały kawałek kodu.
@@ -227,15 +232,13 @@ Kod testów umieszczamy w katalogu `test`.
 - Rozbudowanie ustawień gry o możliwość wyboru czasu na rozgrywkę. 
 
 ## Dodatkowe zadania (wykraczające poza zakres kursu):
-Zachęcamy do wykonania chociaż jednego z wymienionych poniżej. Możliwe jest też dodanie zaprojektowanej przez Was funkcjonalności. 
+Jeśli starczy Wam czasu, zachęcamy do wykonania chociaż jednego z wymienionych poniżej. 
+Możliwe jest też dodanie zaprojektowanej przez Was funkcjonalności. 
 Wszelkie inne dodane przez Was funkcjonalności czy usprawnienia infrastrukturalne należy przedstawić w README.md projektu :)
-Zawartość tego pliku możecie przenieść gdzieś indziej albo podlinkować do szablonu projektu, jaki robiliście (jeśli z któregoś korzystacie). 
-README.md waszego repozytorium powinno być wizytówką aplikacji. Koniecznie musi się w nim znaleźć link do działającego DEMO.
-Dotyczy to tego i wszystkich kolejnych projektów. 
 
 Rozszerzenia, które my proponujemy do wykonania, to:
 
-- Ogranicznie liczby requestów po zewnętrze zasoby poprzez zastosowanie wybranego przez zespół sposobu cache.
+- Ograniczenie liczby requestów po zewnętrze zasoby poprzez zastosowanie wybranego przez zespół sposobu cache.
 - Utworzenie z aplikacji pliku wykonywalnego, który mógłby działać jako aplikacja Desktop dołączana do płatków śniadaniowy. 
     Możecie do tego użyć [Electron](https://www.electronjs.org/docs/tutorial/first-app). Należy wtedy dodać w aplikacji przycisk: „POBIERZ WERSJĘ OFFLINE".
 - Wykonanie testów E2E, przy użyciu odpowiedniego narzędzia. Proponujemy np. Cypress.
