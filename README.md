@@ -263,4 +263,4 @@ To complete your Free Trial signup, you must provide a credit card or other paym
 
 
 ## Porady odnośnie do projektu
-- Dzięki Jest, elementy widoku (DOM) można testować wg Guide: https://jestjs.io/docs/en/tutorial-jquery (w tym przykładzie jQuery, którego prawdopodobnie nie będziecie używać).
+- Dzięki testing-library, elementy widoku (DOM) można testować wg Guide: https://testing-library.com/docs/dom-testing-library/example-intro
