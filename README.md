@@ -1,3 +1,6 @@
+**UWAGA! Zaczynając pracę nad projektem — nie róbcie forka.
+Jedna osoba z zespołu (np. Mentor) powinna użyć przycisku `Use this template` i dodać innych członków zespołu jako Collaborators do tego repozytorium.**
+
 # CodersCamp 2020 - Projekt JavaScript
 **CodersCamp (coderscamp.edu.pl) - Największy otwarty kurs programowania webowego** 
 
@@ -126,7 +129,7 @@ Dokładnie taką samą ocenę przeprowadzi jeden z mentorów obecnych na spotkan
 Mentor Waszego zespołu dodatkowo określi też, jakie było zaangażowanie każdej osoby w projekt — więc postarajcie się dać z siebie 100 w trakcie pracy!
 Składa się na to między innymi: terminowość, spełnianie funkcji w projekcie, pomoc innym.
 Pamiętajcie też odpowiednio opracować README.md Waszego projektu, tak aby prezentowało kto, co, jak i dlaczego zostało wykonane.
-Zawartość tego pliku możecie przenieść gdzieś indziej albo jedynie zostawić link prowadzący do forkowanego repozytorium. 
+Zawartość tego pliku możecie przenieść gdzieś indziej albo jedynie zostawić link prowadzący do używanego repozytorium szablonowego. 
 README.md waszego repozytorium powinno być wizytówką aplikacji. Koniecznie musi się w nim znaleźć link do działającego DEMO.
 Dotyczy to tego i wszystkich kolejnych projektów. 
 - Po zrecenzowaniu waszych projektów mentor powinien przekazać każdemu jego ocenę zaangażowania i feedback jako uzasadnienie.
