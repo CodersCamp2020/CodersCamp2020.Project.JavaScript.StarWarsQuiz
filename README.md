@@ -124,7 +124,7 @@ Forma prezentacji pozostaje dowolna (musi zmieścić się w 10 minutach + 5 minu
 Filmik, odegranie scenki, prezentacja multimedialna. Dozwolone jest wszystko, co wam przyjdzie na myśl (oczywiście w granicach dobrego smaku).
 Na pewno musi zostać pokazana działająca aplikacja, reszta wg Waszego uznania. 
 Celem prezentacji jest „sprzedanie” (pokazanie, że to, co zrobiliście, spełnia założenia) Waszej aplikacji osobom obecnym na spotkaniu.
-- Po prezentacji mentor Waszego zespołu oceni projekt wg kryteriów opisanych w specjalnym arkuszu — przykład takiego arkusza możecie zobaczyć [TUTAJ](//TODO). 
+- Po prezentacji mentor Waszego zespołu oceni projekt wg kryteriów opisanych w specjalnym arkuszu — przykład takiego arkusza możecie zobaczyć [TUTAJ](https://docs.google.com/spreadsheets/d/1mjCi-oDXILKoCReqJlhGYP4NW-HVMCzvdcIy6ntnsog/edit?usp=sharing). 
 Dokładnie taką samą ocenę przeprowadzi jeden z mentorów obecnych na spotkaniu — tzw. mentor recenzent.
 Mentor Waszego zespołu dodatkowo określi też, jakie było zaangażowanie każdej osoby w projekt — więc postarajcie się dać z siebie 100 w trakcie pracy!
 Składa się na to między innymi: terminowość, spełnianie funkcji w projekcie, pomoc innym.
