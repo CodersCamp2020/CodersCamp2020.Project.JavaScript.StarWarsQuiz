@@ -177,7 +177,7 @@ Dostarczona została także lista funkcjonalności.
     - losowane są 3 odpowiedzi z zapytania do StarWars API. Dla trybu "People" będzie to: https://swapi.co/api/people (jedna brana jest z wcześniej wylosowanego, musi być poprawna)
 6. Po ukończeniu czasu wynik gracza zapisywany jest w rankingu dla danej przeglądarki (LocalStorage) i pokazywany jest ranking 3 najlepszych wyników.
 
-Jedno z wcześniejszych wykonań działającej aplikacji możecie zobaczyć [TUTAJ](https://nowakprojects.github.io/CodersCamp2020.Project.JavaScript.StarWarsQuiz/index.html). 
+Jedno z wcześniejszych wykonań działającej aplikacji możecie zobaczyć [TUTAJ](https://nowakprojects.github.io/CodersCamp2020.Project.JavaScript.StarWarsQuiz.SampleSolution/index.html). 
 Jednakże nie należy się na nim 100% wzorować.
 Niektóre wymagania mogły ulec zmianie, a przedstawiana aplikacja nie jest responsywna.
 **Jeśli macie w swoim zespole osobę chętną na przygotowanie designów, to także możecie UI zrobić kompletnie inaczej.**
